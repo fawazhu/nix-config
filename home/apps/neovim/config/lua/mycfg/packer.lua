@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use 'Mofiqul/vscode.nvim' -- TODO: check why this is here. I think it is a theme.
+    use 'Mofiqul/vscode.nvim'
 
     use { 'catppuccin/nvim', as = 'catppuccin' }
 
@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
     }
     use 'nvim-treesitter/playground'
 
-    use 'mbbill/undotree' -- Very useful when working. TODO: investigate why it sometimes does not work.
+    use 'mbbill/undotree' -- Very useful when working.
 
     use {
         'VonHeikemen/lsp-zero.nvim',

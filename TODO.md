@@ -1,0 +1,17 @@
+# TODO
+ - Configure default apps.
+ - Automate wifi setup.
+ - Investigate waybar click handling issues.
+ - Investigate neovim configuration (undotree / vscode theme?).
+ - See if flatpaks can be handled better instead of in a systemd oneshot.
+ - Get gnome keyring working with portals aswell.
+ - Automate bluetooth setup.
+ - Automate printer setup.
+ - Automate kde connect setup.
+ - Add camera / microphone usage indicators to waybar.
+ - See if I can use flakes more effectively.
+ - Setup additional (guest) users.
+ - See what can be done globally rather than per-user.
+ - See if I can lock the root account from direct logins.
+ - See if I can restore the state of the firefox flatpak. Perhaps by already logging in.
+ - How do I handle secrets generally (ssh / gpg keys / possible identity certs).

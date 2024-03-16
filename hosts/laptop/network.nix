@@ -4,7 +4,6 @@
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";
-      # TODO: automate wifi configuration. For now use nmtui, you might have to set the DNS explicitly here temporarily.
     };
     nftables.enable = true;
   };
