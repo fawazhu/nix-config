@@ -1,0 +1,23 @@
+#!/usr/bin/zsh
+
+export LESS='-R --use-color -Dd+r$Du+b$'
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANROFFOPT="-P -c"
+#export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+export LESS='-R '
+
+export EDITOR=/usr/bin/nvim
+export TERM=alacritty
+export BAT_THEME="Catppuccin-mocha"
+export FZF_PREVIEW_ADVANCED=true
+
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip -color=auto'
+alias ls='eza --color=auto --icons'
+alias tree='ls --tree'
+alias ll='ls -l'
+alias lla='ls -la'
+alias vim='nvim'
+alias vimdiff='nvim -d'
+alias proj='cd "$(fd --base-directory=${HOME}/git -Hpu '\''^.*\.git$'\'' | sed -e 's#\.git/##' | fzf | sed -e s#^#${HOME}/git/#)"'

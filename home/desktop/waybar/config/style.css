@@ -1,0 +1,65 @@
+@import "themes/latte.css";
+
+* {
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 17px;
+  min-height: 0;
+}
+
+#waybar {
+  background: transparent;
+  color: @sky;
+}
+
+#workspaces {
+  background-color: @surface0;
+  border-radius: 1rem;
+}
+
+#workspaces button {
+  color: @lavender;
+  border-radius: 1rem;
+  padding: 0.4rem;
+}
+
+#workspaces button.active {
+  color: @sky;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 1rem;
+}
+
+#custom-music,
+#network,
+#bluetooth,
+#clock,
+#battery,
+#wireplumber,
+#custom-power,
+#custom-notifications {
+  background-color: @surface0;
+  padding: 0.5rem 1rem;
+}
+
+#clock {
+  border-radius: 0px 1rem 1rem 0px;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#bluetooth {
+  border-radius: 1rem 0px 0px 1rem;
+}
+
+#custom-music {
+  border-radius: 1rem;
+}
