@@ -1,5 +1,4 @@
 # TODO
- - Configure default apps.
  - Automate wifi setup.
  - Investigate waybar click handling issues.
  - Investigate neovim configuration (undotree / vscode theme?).
@@ -15,3 +14,4 @@
  - See if I can lock the root account from direct logins.
  - See if I can restore the state of the firefox flatpak. Perhaps by already logging in.
  - How do I handle secrets generally (ssh / gpg keys / possible identity certs).
+ - See if I can setup libreoffice in tabbed mode initially.
