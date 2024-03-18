@@ -5,5 +5,6 @@
     wget
     curl
     bash
+    age
   ];
 }

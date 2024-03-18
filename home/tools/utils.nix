@@ -18,7 +18,6 @@
     gawk
     zstd
     less
-    gnupg
     lm_sensors
     pciutils
     usbutils

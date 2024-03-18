@@ -1,5 +1,4 @@
 # TODO
- - Automate wifi setup.
  - Investigate waybar click handling issues.
  - Investigate neovim configuration (undotree / vscode theme?).
  - See if flatpaks can be handled better instead of in a systemd oneshot.
@@ -13,5 +12,7 @@
  - See what can be done globally rather than per-user.
  - See if I can lock the root account from direct logins.
  - See if I can restore the state of the firefox flatpak. Perhaps by already logging in.
- - How do I handle secrets generally (ssh / gpg keys / possible identity certs).
+ - Import ssh public key and private key (via secret).
  - See if I can setup libreoffice in tabbed mode initially.
+ - Can I encrypt wifi password / is it worth it?
+ - Move away from pgp.
