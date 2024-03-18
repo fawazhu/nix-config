@@ -5,8 +5,9 @@
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
-  environment.systemPackages = [
-    pkgs.systemd
-    pkgs.podman
+  environment.systemPackages = with pkgs; [
+    systemd
+    podman
+    libsecret
   ];
 }

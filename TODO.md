@@ -1,7 +1,6 @@
 # TODO
  - Investigate neovim configuration (undotree / vscode theme?).
  - See if flatpaks can be handled better instead of in a systemd oneshot.
- - Get gnome keyring working with portals aswell.
  - Automate bluetooth setup.
  - Automate printer setup.
  - Automate kde connect setup.
