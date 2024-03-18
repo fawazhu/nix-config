@@ -32,6 +32,14 @@
   border-radius: 1rem;
 }
 
+#privacy {
+  background-color: @surface0;
+  color: @red;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-right: 10px;
+}
+
 #custom-music,
 #network,
 #bluetooth,

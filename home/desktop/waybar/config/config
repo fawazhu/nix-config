@@ -8,7 +8,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["custom/music"],
-  "modules-right": ["bluetooth", "wireplumber", "network", "battery", "custom/notifications", "custom/power", "clock"],
+  "modules-right": ["privacy", "bluetooth", "wireplumber", "network", "battery", "custom/notifications", "custom/power", "clock"],
   "hyprland/workspaces": {
     "disable-scroll": true,
     "format": " {icon} ",
@@ -62,7 +62,8 @@
     "format-charging": "{icon}󱐋",
     "format-full": "{icon}",
     "format-alt": "{icon}",
-    "format-icons": ["󰁺", "󰁻",  "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    "format-icons": ["󰁺", "󰁻",  "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{capacity}%"
   },
   "network": {
     "format": "{icon}",
@@ -92,5 +93,22 @@
     "tooltip": false,
     "on-click": "rofi -show menu -modi 'menu:rofi-power-menu'",
     "format": "󰐥"
+  },
+  "privacy": {
+    "icon-spacing": 8,
+    "icon-size": 12,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": false,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": false,
+        "tooltip-icon-size": 24
+      }
+    ]
   }
 }
