@@ -1,6 +1,5 @@
 { ... }: {
   services.flatpak.update.onActivation = true;
-  services.flatpak.uninstallUnmanagedPackages = true;
   services.flatpak.packages = [
     "ca.desrt.dconf-editor//stable"
     "com.github.tchx84.Flatseal//stable"

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, flake-inputs, ... }: {
   xdg.configFile = {
     "waybar/themes".source = pkgs.fetchFromGitHub {
       owner = "catppuccin";
@@ -10,5 +10,5 @@
     "waybar/style.css".source = ./config/style.css;
   };
 
-  home.packages = [ pkgs.waybar ];
+  home.packages = [ flake-inputs.waybar ];
 }

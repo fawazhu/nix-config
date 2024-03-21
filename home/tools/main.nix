@@ -1,7 +1,8 @@
-{ config, pkgs, lib, ... }: {
+{ ... }: {
   imports = [
     ./btop.nix
     ./git.nix
+    ./ssh.nix
     ./utils.nix
     ./dev/main.nix
     ./tmux/main.nix

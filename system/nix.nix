@@ -1,7 +1,8 @@
-{ ... }: {
+{ pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
 
   nix = {
+    package = pkgs.nixFlakes;
     gc = {
       automatic = true;
       dates = "weekly";
