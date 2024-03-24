@@ -10,7 +10,7 @@
     ./services/main.nix
   ];
   sops.defaultSopsFile = ./secrets.yaml;
-  sops.age.keyFile = "/home/fawaz/.config/sops/age/keys.txt";
+  sops.age.keyFile = "/etc/sops/age/keys.txt";
 
   system.stateVersion = "24.05";
 }
