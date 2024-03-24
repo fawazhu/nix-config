@@ -6,9 +6,6 @@
   systemd.services.keyd = {
     enable = true;
     description = "Key remap daemon";
-    unitConfig = {
-      Type = "simple";
-    };
     serviceConfig = {
       ExecStart = "${pkgs.keyd}/bin/keyd";
     };
