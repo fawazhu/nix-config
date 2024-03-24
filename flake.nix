@@ -7,8 +7,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     sops-nix.url = "github:mic92/sops-nix";
-    waybar.url = "github:alexays/waybar";
-    waybar.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, sops-nix, ... }: {
