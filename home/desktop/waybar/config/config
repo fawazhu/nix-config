@@ -59,7 +59,7 @@
       "critical": 10
     },
     "format": "{icon}",
-    "format-charging": "{icon}󱐋",
+    "format-charging": "{icon}",
     "format-full": "{icon}",
     "format-alt": "{icon}",
     "format-icons": ["󰁺", "󰁻",  "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
