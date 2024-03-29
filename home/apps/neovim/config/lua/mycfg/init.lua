@@ -1,3 +1,3 @@
 require("mycfg.remap")
-require("mycfg.packer")
+require("mycfg.lazy")
 require("mycfg.editor")

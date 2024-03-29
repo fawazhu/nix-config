@@ -5,7 +5,11 @@ require("catppuccin").setup({
         cmp = true,
         gitsigns = true,
         harpoon = true,
-        indent_blankline = true,
+        indent_blankline = {
+            enabled = true,
+            scope_color = "sky",
+            colored_indent_levels = false,
+        },
         lsp_trouble = true,
         mason = true,
         nvimtree = true,

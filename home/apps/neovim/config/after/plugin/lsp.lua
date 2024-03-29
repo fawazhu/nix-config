@@ -1,13 +1,44 @@
-local lsp = require('lsp-zero').preset({})
+local lsp_zero = require('lsp-zero').preset({})
 
-lsp.on_attach(function(_, bufnr)
-    lsp.default_keymaps({ buffer = bufnr })
+lsp_zero.on_attach(function(_, bufnr)
+    lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
 -- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
 
-lsp.setup()
+lsp_zero.setup()
+
+-- Configure Mason
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    handlers = {
+        lsp_zero.default_setup,
+        lua_ls = function()
+            local lua_opts = lsp_zero.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+        end,
+    }
+})
+require('mason-tool-installer').setup {
+    ensure_installed = {
+        "bash-language-server",
+        "dockerfile-language-server",
+        "gitleaks",
+        "gopls",
+        "jq",
+        "nil",
+        "prettier",
+        "python-lsp-server",
+        "rust-analyzer",
+        "shellcheck",
+        "shellharden",
+        "shfmt",
+        "terraform-ls",
+        "yaml-language-server",
+        "yamllint",
+    }
+}
 
 -- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')

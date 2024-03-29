@@ -8,7 +8,10 @@
     enable = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
-      packer-nvim
+      lazy-nvim     
     ];
   };
+  home.packages = with pkgs; [
+    lua-language-server
+  ];
 }

@@ -8,7 +8,7 @@ vim.keymap.set('n', '<leader>ps', function()
             '--smart-case', '--hidden', '--glob=!\\.git/**/*' }
     })
 end)
-vim.keymap.set('n', '<leader>pb', telescope.buffers, {}) -- Very useful for finidng unsaved buffers.
+vim.keymap.set('n', '<leader>pb', telescope.buffers, {}) -- Very useful for finding unsaved buffers.
 vim.keymap.set('n', '<leader>po', telescope.oldfiles, {})
 vim.keymap.set('n', '<leader>pj', telescope.jumplist, {})
 vim.keymap.set('n', '<leader>pc', telescope.git_commits, {})

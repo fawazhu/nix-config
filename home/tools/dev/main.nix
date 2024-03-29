@@ -3,5 +3,8 @@
     python3
     go
     cargo
+    lua
+    lua54Packages.luarocks
+    nodejs_21
   ];
 }

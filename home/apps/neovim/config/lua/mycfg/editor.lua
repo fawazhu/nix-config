@@ -12,7 +12,6 @@ vim.opt.smartindent = true
 -- Default vim storage
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- Better visual searching
@@ -24,7 +23,7 @@ vim.opt.termguicolors = true
 
 -- Timeouts
 vim.opt.updatetime = 50
-vim.opt.timeoutlen = 2000
+vim.opt.timeoutlen = 1500
 
 -- Visual indicators
 vim.opt.colorcolumn = "80"
