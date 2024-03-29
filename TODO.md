@@ -1,12 +1,9 @@
 # TODO
- - Investigate neovim configuration (undotree / vscode theme?).
  - Automate bluetooth setup.
  - Automate printer setup.
  - Automate kde connect setup.
  - See if I can use flakes more effectively.
  - Setup additional (guest) users.
- - See what can be done globally rather than per-user.
- - See if I can lock the root account from direct logins.
  - See if I can restore the state of the firefox flatpak. Perhaps by already logging in.
  - Import ssh public key and private key (via secret).
  - See if I can setup libreoffice in tabbed mode initially.
