@@ -6,7 +6,7 @@ export MANROFFOPT="-P -c"
 #export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
 
-export EDITOR=/usr/bin/nvim
+export EDITOR=nvim
 export TERM=alacritty
 export BAT_THEME="Catppuccin-mocha"
 export FZF_PREVIEW_ADVANCED=true
