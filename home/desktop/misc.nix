@@ -6,7 +6,6 @@
     brightnessctl
     playerctl
     pavucontrol
-    swaynotificationcenter
     libsForQt5.polkit-kde-agent
   ];
 }

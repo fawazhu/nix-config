@@ -6,6 +6,7 @@
     ./services.nix
     ./rofi/main.nix
     ./swaylock/main.nix
+    ./swaync/main.nix
     ./themes/main.nix
     ./waybar/main.nix
   ];
