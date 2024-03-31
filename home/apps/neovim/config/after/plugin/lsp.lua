@@ -4,8 +4,10 @@ lsp_zero.on_attach(function(_, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
+-- Configure pre-installed language servers.
+local lsp_config = require('lspconfig')
+lsp_config.lua_ls.setup(lsp_zero.nvim_lua_ls())
+lsp_config.rust_analyzer.setup({})
 
 lsp_zero.setup()
 
@@ -30,7 +32,6 @@ require('mason-tool-installer').setup {
         "nil",
         "prettier",
         "python-lsp-server",
-        "rust-analyzer",
         "shellcheck",
         "shellharden",
         "shfmt",
