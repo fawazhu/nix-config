@@ -7,6 +7,7 @@
     ./packages.nix
     ./security.nix
     ./services
+    ./sops
     ./users
   ];
 

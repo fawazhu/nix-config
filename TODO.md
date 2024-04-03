@@ -1,5 +1,4 @@
 # TODO
- - Check if activation script is still needed.
  - See if I can use flakes more effectively.
  - Install lsp manually via nix.
  - Fix cursor size inconsistencies.

@@ -6,7 +6,7 @@ creation_rules:
     key_groups:
       - age:
         - *root
-  - path_regex: home/secrets.yaml
+  - path_regex: home/sops/secrets.yaml
     key_groups:
       - age:
         - *fawaz

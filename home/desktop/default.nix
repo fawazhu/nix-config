@@ -1,13 +1,22 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
+    ./grim.nix
     ./hyprland.nix
     ./hyprpaper.nix
-    ./misc.nix
-    ./services.nix
     ./themes.nix
     ./rofi
     ./swaylock
     ./swaync
     ./waybar
   ];
+
+  home.packages = with pkgs; [
+    cliphist
+    brightnessctl
+    playerctl
+    pavucontrol
+    libsForQt5.polkit-kde-agent
+  ];
+
+  services.blueman-applet.enable = true;
 }
