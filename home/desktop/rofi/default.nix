@@ -14,9 +14,7 @@
     }}/rofi-power-menu";
   };
 
-  xdg.configFile = {
-    "rofi/config.rasi".source = ./config/config.rasi;
-  };
+  xdg.configFile."rofi/config.rasi".source = ./config.rasi;
 
   home.packages = [ pkgs.rofi-wayland-unwrapped ];
 }

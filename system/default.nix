@@ -6,11 +6,9 @@
     ./nix.nix
     ./packages.nix
     ./security.nix
-    ./user.nix
-    ./services/main.nix
+    ./services
+    ./users
   ];
-  sops.defaultSopsFile = ./secrets.yaml;
-  sops.age.keyFile = "/etc/sops/age/keys.txt";
 
   system.stateVersion = "24.05";
 }

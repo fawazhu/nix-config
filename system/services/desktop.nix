@@ -21,8 +21,10 @@
 
   services.dbus.enable = true;
   programs.dconf.enable = true;
+  security.pam.services.swaylock = {};
 
-  environment.systemPackages = [
-    pkgs.gsettings-desktop-schemas
+  environment.systemPackages = with pkgs; [
+    gsettings-desktop-schemas
+    polkit-kde-agent
   ];
 }

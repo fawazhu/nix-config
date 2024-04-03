@@ -12,7 +12,7 @@
       rev = "v3.0.0";
       sha256 = "sha256-ney/Y1YtCsWLgthOmoYGZTpPfJz+DravRB31YZgnDuU=";
     };
-    "tmux/tmux.conf".source = ./config/tmux.conf;
+    "tmux/tmux.conf".source = ./tmux.conf;
   };
 
   home.packages = [ pkgs.tmux ];

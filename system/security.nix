@@ -1,8 +1,6 @@
 { pkgs, ... }: {
   security.apparmor.enable = true;
 
-  security.pam.services.swaylock = {};
-  
   security.sudo.extraRules = [
     {
       groups = [ "wheel" ];
@@ -18,6 +16,5 @@
   environment.systemPackages = with pkgs; [
     sudo
     polkit
-    polkit-kde-agent
   ];
 }

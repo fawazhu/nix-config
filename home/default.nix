@@ -1,9 +1,9 @@
 { ... }: {
   imports = [
     ./user.nix
-    ./apps/main.nix
-    ./desktop/main.nix
-    ./tools/main.nix
+    ./apps
+    ./desktop
+    ./tools
   ];
   sops.defaultSopsFile = ./secrets.yaml;
   sops.age.keyFile = "/home/fawaz/.config/sops/age/keys.txt";

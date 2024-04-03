@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: let
+{ pkgs, ... }: let
   # Hot-fix waybar until it reaches nixpkgs.
   wireplumber_0_4 = pkgs.wireplumber.overrideAttrs (attrs: rec {
     version = "0.4.17";
@@ -19,8 +19,8 @@ in {
       rev = "v1.0";
       sha256 = "sha256-vfwfBE3iqIN1cGoItSssR7h0z6tuJAhNarkziGFlNBw=";
     };
-    "waybar/config".source = ./config/config;
-    "waybar/style.css".source = ./config/style.css;
+    "waybar/config".source = ./config;
+    "waybar/style.css".source = ./style.css;
   };
 
   home.packages = [ waybar ];

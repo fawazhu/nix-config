@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   environment.etc = {
-    "keyd/default.conf".source = ./config/default.conf;
+    "keyd/default.conf".source = ./default.conf;
   };
 
   systemd.services.keyd = {

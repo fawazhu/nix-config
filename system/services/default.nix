@@ -1,5 +1,11 @@
 { pkgs, ... }: {
-  # Services that do not require additional configuration
+  imports = [
+    ./desktop.nix
+    ./greetd.nix
+    ./sound.nix
+    ./keyd
+  ];
+
   services.flatpak.enable = true;
   services.printing.enable = true;
   services.blueman.enable = true;
@@ -10,6 +16,5 @@
     podman
     podman-compose
     libsecret
-    sops
   ];
 }

@@ -30,10 +30,6 @@
       name = "Noto Sans";
       package = pkgs.noto-fonts;
     };
-#   cursorTheme = {
-#        name = "Catppuccin-Latte-Sky-Cursors";
-#        package = pkgs.catppuccin-cursors.latteSky;
-#    };
     iconTheme = {
       name = "Tela-circle";
       package = pkgs.tela-circle-icon-theme;
