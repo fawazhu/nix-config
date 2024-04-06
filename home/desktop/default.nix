@@ -16,6 +16,7 @@
     playerctl
     pavucontrol
     libsForQt5.polkit-kde-agent
+    wl-clipboard
   ];
 
   services.blueman-applet.enable = true;
