@@ -1,10 +1,12 @@
 { ... }: {
   imports = [
+    ./shell.nix
+    ./ssh.nix
     ./user.nix
     ./apps
     ./desktop
+    ./dev
     ./sops
-    ./tools
   ];
 
   programs.home-manager.enable = true;
