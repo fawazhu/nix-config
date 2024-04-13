@@ -4,71 +4,6 @@
     name = "luasnip";
     pname = "luasnip";
   };
-  pylyzer-cargo-lock = "${pkgs.fetchFromGitHub {
-    owner = "mtshiba";
-    repo = "pylyzer";
-    rev = "70c23905ae768ab554000abeefab36fe48ab54f4";
-    hash = "sha256-VKm76Hv7a8OShLByQTkOXUFDw3k2z7E5LsLXHwq6Ew0=";
-  }}/Cargo.lock";
-  pylyzer = with pkgs; rustPlatform.buildRustPackage {
-    pname = "pylyzer";
-    version = "unstable-2024-04-13";
-  
-    src = fetchFromGitHub {
-      owner = "mtshiba";
-      repo = "pylyzer";
-      rev = "70c23905ae768ab554000abeefab36fe48ab54f4";
-      hash = "sha256-VKm76Hv7a8OShLByQTkOXUFDw3k2z7E5LsLXHwq6Ew0=";
-    };
-  
-    cargoLock = {
-      lockFile = pylyzer-cargo-lock;
-      outputHashes = builtins.import ./pylyzer-cargo-hashes.nix;
-    };
-  
-    nativeBuildInputs = [
-      git
-      python3
-      makeWrapper
-    ] ++ lib.optionals stdenv.isDarwin [
-      (writeScriptBin "diskutil" "")
-    ];
-  
-    buildInputs = [
-      python3
-    ] ++ lib.optionals stdenv.isDarwin [
-      darwin.apple_sdk.frameworks.Security
-    ];
-  
-    preBuild = ''
-      export HOME=$TMPDIR
-    '';
-  
-    postInstall = ''
-      mkdir -p $out/lib
-      cp -r $HOME/.erg/ $out/lib/erg
-    '';
-  
-    nativeCheckInputs = [
-      which
-    ];
-  
-    checkFlags = [
-      # this test causes stack overflow
-      # > thread 'exec_import' has overflowed its stack
-      "--skip=exec_import"
-    ];
-  
-    postFixup = ''
-      wrapProgram $out/bin/pylyzer --set ERG_PATH $out/lib/erg
-    '';
-  
-    meta = with lib; {
-      description = "A fast static code analyzer & language server for Python";
-      homepage = "https://github.com/mtshiba/pylyzer";
-      license = licenses.mit;
-    };
-  };
 in {
   home.packages = with pkgs;
     (if l.ansible.enable then [ ansible ansible-lint ansible-language-server ] else []) ++
@@ -84,7 +19,7 @@ in {
     (if l.markdown.enable then [ marksman markdownlint-cli ] else []) ++
     (if l.nix.enable then [ alejandra nil ] else []) ++
     (if l.packer.enable then [ packer ] else []) ++
-    (if l.python.enable then with python312Packages; [ python312 pip pylyzer debugpy autopep8 ] else []) ++
+    (if l.python.enable then with python312Packages; [ python312 pip nodePackages.pyright debugpy autopep8 ] else []) ++
     (if l.rust.enable then [ cargo rustc rustfmt rust-analyzer lldb_18 ] else []) ++
     (if l.terraform.enable then [ opentofu terraform terraform-ls ] else []) ++
     (if l.toml.enable then [ taplo ] else []) ++
@@ -238,16 +173,7 @@ in {
       lspconfig.nil_ls.setup({})
     '' else ""}
     ${if l.python.enable then ''
-      lspconfig.pylyzer.setup({
-        settings = {
-          python = {
-            checkOnType = true,
-            diagnostics = true,
-            inlayHints = true,
-            smartCompletion = true
-          }
-        }
-      })
+      lspconfig.pyright.setup({})
       require('dap-python').setup('python')
     '' else ""}
     ${if l.rust.enable then ''

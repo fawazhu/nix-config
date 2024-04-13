@@ -1,6 +1,5 @@
 # TODO
- - See if I can use flakes more effectively.
  - See if I can restore the state of the firefox flatpak. Perhaps by already logging in.
  - See if I can setup libreoffice in tabbed mode initially.
  - Setup additional (guest) users.
- - Remove pylyzer pin when it can compile with latest rust.
+ - Investigate pylyzer over pyright when it is more stable.
