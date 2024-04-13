@@ -4,7 +4,6 @@
     ./mime.nix
     ./alacritty
     ./flatpak
-    ./neovim
   ];
 
   home.packages = with pkgs; [

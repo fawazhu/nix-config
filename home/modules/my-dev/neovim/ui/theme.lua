@@ -1,5 +1,3 @@
-vim.cmd.colorscheme "catppuccin-latte"
-
 require("catppuccin").setup({
     integrations = {
         cmp = true,

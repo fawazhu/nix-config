@@ -7,6 +7,3 @@ require('tabnine').setup({
     exclude_filetypes = { "TelescopePrompt" },
     log_file_path = nil, -- absolute path to Tabnine log file
 })
-vim.keymap.set("n", "<leader>qc", "", { noremap = true, callback = require("tabnine.chat").open })
-vim.keymap.set("n", "<leader>qd", "<cmd>TabnineDisable<cr>")
-vim.keymap.set("n", "<leader>qe", "<cmd>TabnineEnable<cr>")
