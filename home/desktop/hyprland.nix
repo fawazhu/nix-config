@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -7,15 +7,10 @@
         # Scale
         "GDK_SCALE,1.25"
         "XDG_SESSION_TYPE,wayland"
-        # Theme
-        "XCURSOR_THEME,${config.home.pointerCursor.name}"
-        "XCURSOR_SIZE,16"
-        "GTK_THEME,${config.gtk.theme.name}"
+        "XCURSOR_SIZE,33" # Fix odd cursor size bug.
       ];
       # exec
       exec-once = [
-        # Display
-        "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1.25"
         # Startup integrations
         "swaync" # Notifications
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1" # Privilege escalation.
