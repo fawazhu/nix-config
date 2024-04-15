@@ -9,5 +9,6 @@
     systemd
     podman
     libsecret
+    sops
   ];
 }
