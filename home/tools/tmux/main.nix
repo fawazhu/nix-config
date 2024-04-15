@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.configFile = {
     "tmux/plugins/catppuccin/tmux".source = pkgs.fetchFromGitHub {
       owner = "catppuccin";

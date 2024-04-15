@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.configFile = {
     "btop/themes".source = "${pkgs.fetchFromGitHub {
       owner = "catppuccin";
