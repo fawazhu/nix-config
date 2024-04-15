@@ -1,0 +1,12 @@
+local trouble = require('trouble')
+
+vim.keymap.set('n', '<leader>[e', function ()
+  trouble.open("workspace_diagnostics")
+  trouble.next({skip_groups = true, jump = true})
+  trouble.close()
+end)
+vim.keymap.set('n', '<leader>]e', function ()
+  trouble.open("workspace_diagnostics")
+  trouble.previous({skip_groups = true, jump = true})
+  trouble.close()
+end)

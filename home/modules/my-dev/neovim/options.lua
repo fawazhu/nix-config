@@ -17,6 +17,8 @@ vim.opt.undofile = true
 -- Better visual searching
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Enable rgb colours
 vim.opt.termguicolors = true

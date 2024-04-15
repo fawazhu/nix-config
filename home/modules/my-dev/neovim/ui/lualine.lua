@@ -1,3 +1,6 @@
+-- don't show mode as it is in lualine.
+vim.opt.showmode = false
+
 require('lualine').setup {
     options = {
         icons_enabled = true,
