@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./tabnine.nix ];
+  imports = [ ./codeium.nix ];
 
   programs.neovim.plugins = with pkgs.vimPlugins; [
     undotree

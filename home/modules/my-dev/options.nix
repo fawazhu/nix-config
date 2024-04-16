@@ -53,18 +53,18 @@ in {
       options = {
         awscli = nested-enable-options { name = "awscli"; };
         lazygit = nested-enable-options { name = "lazygit"; };
-        tabnine = mkOption {
+        codeium = mkOption {
           type = submodule {
             options = {
               enable = mkOption {
                 type = bool;
                 default = false;
-                description = mkDoc "Whether to enable tabnine integration.";
+                description = mkDoc "Whether to enable codeium integration.";
               };
             };
           };
           default = {};
-          description = mkDoc "tabnine integration.";
+          description = mkDoc "codeium integration.";
         };
       };
     };

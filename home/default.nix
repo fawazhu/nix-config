@@ -37,7 +37,7 @@
     tools = {
       awscli.enable = true;
       lazygit.enable = true;
-      tabnine.enable = true;
+      codeium.enable = true;
     };
   };
   my-shell = {
