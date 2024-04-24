@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     preload = ~/Pictures/Wallpapers/1.png
     wallpaper = ,~/Pictures/Wallpapers/1.png
@@ -7,5 +7,5 @@
     splash = true
   '';
 
-  home.packages = [ pkgs.hyprpaper ];
+  home.packages = [pkgs.hyprpaper];
 }

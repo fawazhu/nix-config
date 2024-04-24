@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: let 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   catppuccin-tmux = pkgs.callPackage ./catppuccin-tmux.nix {};
   tmux-plugins-sensible = pkgs.callPackage ./tmux-plugins-sensible.nix {};
 in {
@@ -14,7 +19,7 @@ in {
         run '${tmux-plugins-sensible}/share/tmux-plugins/tmux-sensible/sensible.tmux'
       '';
     };
-  
+
     home.packages = [
       pkgs.tmux
       catppuccin-tmux

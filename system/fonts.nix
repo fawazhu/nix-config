@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # Fonts work best at the system level.
   fonts = {
     packages = with pkgs; [
@@ -6,10 +6,10 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
       dejavu_fonts
       freefont_ttf
-      liberation_ttf 
+      liberation_ttf
     ];
 
     enableDefaultPackages = false;

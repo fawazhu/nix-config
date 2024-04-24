@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   xdg.configFile."swaylock/config".source = ./config;
-  home.packages = [ pkgs.swaylock ];
+  home.packages = [pkgs.swaylock];
 }

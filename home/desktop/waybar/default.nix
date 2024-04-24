@@ -1,4 +1,4 @@
-{ pkgs, ... }: let
+{pkgs, ...}: let
   # Hot-fix waybar until it reaches nixpkgs.
   wireplumber_0_4 = pkgs.wireplumber.overrideAttrs (attrs: rec {
     version = "0.4.17";
@@ -10,7 +10,7 @@
       hash = "sha256-vhpQT67+849WV1SFthQdUeFnYe/okudTQJoL3y+wXwI=";
     };
   });
-  waybar = pkgs.waybar.override { wireplumber = wireplumber_0_4; };
+  waybar = pkgs.waybar.override {wireplumber = wireplumber_0_4;};
 in {
   xdg.configFile = {
     "waybar/themes".source = pkgs.fetchFromGitHub {
@@ -23,5 +23,5 @@ in {
     "waybar/style.css".source = ./style.css;
   };
 
-  home.packages = [ waybar ];
+  home.packages = [waybar];
 }

@@ -1,20 +1,20 @@
-{ ... }: {
+{...}: {
   fileSystems."/" = {
     device = "/dev/mapper/crypt-root";
     fsType = "btrfs";
-    options = [ "subvol=root" ];
+    options = ["subvol=root"];
   };
 
   fileSystems."/home" = {
     device = "/dev/mapper/crypt-root";
     fsType = "btrfs";
-    options = [ "subvol=home" ];
+    options = ["subvol=home"];
   };
 
   fileSystems."/nix" = {
     device = "/dev/mapper/crypt-root";
     fsType = "btrfs";
-    options = [ "subvol=nix" ];
+    options = ["subvol=nix"];
   };
 
   fileSystems."/boot" = {

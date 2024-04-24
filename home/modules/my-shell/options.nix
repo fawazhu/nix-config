@@ -1,11 +1,12 @@
-{ lib, ... }: with lib; {
+{lib, ...}:
+with lib; {
   enable = mkOption {
     type = types.bool;
     default = false;
     description = mkDoc "Whether to enable my-shell.";
   };
   git = mkOption {
-    type = types.submodule ({ ... }: {
+    type = types.submodule ({...}: {
       options = {
         userName = {
           type = types.str;
@@ -19,7 +20,7 @@
         };
       };
     });
-    default = { };
+    default = {};
     description = mkDoc "Configure git integration.";
   };
   catppuccin-flavour = mkOption {

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   xdg.configFile = {
     "alacritty/themes/catppuccin".source = pkgs.fetchFromGitHub {
       owner = "catppuccin";
@@ -9,5 +9,5 @@
     "alacritty/alacritty.toml".source = ./alacritty.toml;
   };
 
-  home.packages = [ pkgs.alacritty ];
+  home.packages = [pkgs.alacritty];
 }

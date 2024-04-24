@@ -1,4 +1,4 @@
-{ flake-inputs, ... }: {
+{flake-inputs, ...}: {
   imports = [
     ./overrides.nix
     ./packages.nix

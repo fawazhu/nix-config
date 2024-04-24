@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./fonts.nix
     ./i18n.nix
@@ -13,4 +13,3 @@
 
   system.stateVersion = "24.05";
 }
-

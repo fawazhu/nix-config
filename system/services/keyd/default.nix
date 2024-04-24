@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   environment.etc = {
     "keyd/default.conf".source = ./default.conf;
   };
@@ -9,8 +9,8 @@
     serviceConfig = {
       ExecStart = "${pkgs.keyd}/bin/keyd";
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 
-  environment.systemPackages = [ pkgs.keyd ];
+  environment.systemPackages = [pkgs.keyd];
 }

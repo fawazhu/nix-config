@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   home.file.".local/share/flatpak/overrides/global".text = ''
     [Context]
     filesystems=/nix/store;~/.themes;~/.icons;xdg-data/fonts;xdg-config/gtk-4.0

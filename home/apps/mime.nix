@@ -1,5 +1,4 @@
-{ ... }:
-let
+{...}: let
   archive = "org.gnome.FileRoller.desktop";
   browser = "org.mozilla.firefox.desktop";
   calendar = "com.calibre_ebook.calibre.desktop";

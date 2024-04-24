@@ -1,13 +1,13 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   security.apparmor.enable = true;
 
   security.sudo.extraRules = [
     {
-      groups = [ "wheel" ];
+      groups = ["wheel"];
       commands = [
         {
           command = "ALL";
-          options = [ "SETENV" "NOPASSWD" ];
+          options = ["SETENV" "NOPASSWD"];
         }
       ];
     }

@@ -10,14 +10,24 @@
     sops-nix.url = "github:mic92/sops-nix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-flatpak, sops-nix, ... }: {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    nix-flatpak,
+    sops-nix,
+    ...
+  }: {
     nixosConfigurations = {
       "fawaz-laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/laptop { _module.args = { inherit inputs; }; }
-          ./system { _module.args = { inherit inputs; }; }
-          home-manager.nixosModules.home-manager {
+          ./hosts/laptop
+          {_module.args = {inherit inputs;};}
+          ./system
+          {_module.args = {inherit inputs;};}
+          home-manager.nixosModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs.flake-inputs = inputs;

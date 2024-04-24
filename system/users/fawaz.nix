@@ -1,5 +1,9 @@
-{ config, pkgs, ... }: {
-  environment.shells = [ pkgs.bashInteractive pkgs.zsh ];
+{
+  config,
+  pkgs,
+  ...
+}: {
+  environment.shells = [pkgs.bashInteractive pkgs.zsh];
   programs.zsh.enable = true;
 
   environment.homeBinInPath = true;
@@ -8,7 +12,7 @@
   sops.secrets.password_fawaz.neededForUsers = true;
   users.users.fawaz = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
     shell = pkgs.zsh;
     hashedPasswordFile = config.sops.secrets.password_fawaz.path;
   };

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.file = {
     ".local/share/rofi/themes".source = "${pkgs.fetchFromGitHub {
       owner = "catppuccin";
@@ -16,5 +16,5 @@
 
   xdg.configFile."rofi/config.rasi".source = ./config.rasi;
 
-  home.packages = [ pkgs.rofi-wayland-unwrapped ];
+  home.packages = [pkgs.rofi-wayland-unwrapped];
 }

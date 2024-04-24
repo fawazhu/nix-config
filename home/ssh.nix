@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   sops.secrets.ssh_private_key = {
     mode = "0400";
     path = "${config.home.homeDirectory}/.ssh/id_ed25519";

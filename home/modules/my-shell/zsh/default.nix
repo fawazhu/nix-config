@@ -1,7 +1,11 @@
-{ config, lib, ... }: {
+{
+  config,
+  lib,
+  ...
+}: {
   config = lib.mkIf config.my-shell.enable {
     xdg.configFile.zsh.source = ./config;
-    
+
     programs.zsh = {
       enable = true;
       autosuggestion.enable = true;

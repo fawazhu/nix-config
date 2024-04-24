@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   services.flatpak.update.onActivation = true;
   services.flatpak.packages = [
     "ca.desrt.dconf-editor//stable"

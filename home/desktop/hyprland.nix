@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -40,7 +40,6 @@
         workspace_swipe = true;
       };
 
-            
       # Theming
       general = {
         gaps_in = 5;
@@ -48,7 +47,7 @@
         border_size = 2;
         "col.active_border" = "rgba(89b4faff) rgba(a6e3a1ff) 45deg";
         "col.inactive_border" = "rgba(11111baa)";
-        
+
         layout = "dwindle"; # Default
       };
       decoration = {
@@ -89,7 +88,7 @@
         "float, title:^(Editing .*)$"
         # Annoyances
         "workspace special silent, title:^(Firefox — Sharing Indicator)$"
-	    "workspace special silent, title:^(.*is sharing (your screen|a window)\\.)$"
+        "workspace special silent, title:^(.*is sharing (your screen|a window)\\.)$"
       ];
 
       "$mainMod" = "SUPER";

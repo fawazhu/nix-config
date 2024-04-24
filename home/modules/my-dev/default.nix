@@ -1,5 +1,5 @@
-{ lib, ... }: {
-  options.my-dev = import ./options.nix { inherit lib; };
+{lib, ...}: {
+  options.my-dev = import ./options.nix {inherit lib;};
 
   config = {};
 

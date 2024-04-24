@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   config = lib.mkIf config.my-shell.enable {
     programs.git = {
       enable = true;
