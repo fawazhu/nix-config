@@ -24,7 +24,7 @@
   };
   catppuccin-flavour = mkOption {
     type = types.str;
-    default = "latte";
+    default = "mocha";
     description = mkDoc "Catppuccin flavour to use.";
   };
   editor = mkOption {

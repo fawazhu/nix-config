@@ -1,13 +1,13 @@
 { config, pkgs, ... }: {
   home.sessionVariables = {
-    GTK_THEME = "Catppuccin-Latte-Standard-Sky-Light";
+    GTK_THEME = "Catppuccin-Mocha-Standard-Sky-Dark";
   };
 
   home.file = {
     ".themes".source = "${config.gtk.theme.package}/share/themes";
     ".icons/Tela-circle".source = "${config.gtk.iconTheme.package}/share/icons/Tela-circle";
     ".local/share/icons/Tela-circle".source = "${config.gtk.iconTheme.package}/share/icons/Tela-circle";
-    ".icons/Catppuccin-Latte-Sky-Cursors".source = "${config.home.pointerCursor.package}/share/icons/Catppuccin-Latte-Sky-Cursors";
+    ".icons/Catppuccin-Mocha-Sky-Cursors".source = "${config.home.pointerCursor.package}/share/icons/Catppuccin-Mocha-Sky-Cursors";
   };
 
   xdg.configFile = {
@@ -17,8 +17,8 @@
   };
 
   home.pointerCursor = {
-    name = "Catppuccin-Latte-Sky-Cursors";
-    package = pkgs.catppuccin-cursors.latteSky;
+    name = "Catppuccin-Mocha-Sky-Cursors";
+    package = pkgs.catppuccin-cursors.mochaSky;
     gtk.enable = true;
     x11.enable = true;
     size = 32;
@@ -35,10 +35,10 @@
       package = pkgs.tela-circle-icon-theme;
     };
     theme = {
-      name = "Catppuccin-Latte-Standard-Sky-Light";
+      name = "Catppuccin-Mocha-Standard-Sky-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "sky" ];
-	    variant = "latte";
+	variant = "mocha";
       };
     };
   };

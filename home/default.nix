@@ -12,7 +12,7 @@
   my-dev = {
     enable = true;
     terminal = "alacritty";
-    catppuccin-flavour = "latte";
+    catppuccin-flavour = "mocha";
     languages = {
       ansible.enable = true;
       bash.enable = true;
@@ -48,7 +48,7 @@
     };
     editor = "nvim";
     terminal = "alacritty";
-    catppuccin-flavour = "latte";
+    catppuccin-flavour = "mocha";
   };
 
   programs.home-manager.enable = true;

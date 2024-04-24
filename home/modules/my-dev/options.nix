@@ -40,7 +40,7 @@ in {
   };
   catppuccin-flavour = mkOption {
     type = str;
-    default = "latte";
+    default = "mocha";
     description = mkDoc "Catppuccin flavour to use.";
   };
   terminal = mkOption {
