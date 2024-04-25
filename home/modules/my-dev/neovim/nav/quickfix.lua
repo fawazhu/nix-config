@@ -1,5 +1,5 @@
 vim.keymap.set('n', '<leader>q@', ':cdo norm! @')
 vim.keymap.set('n', '<leader>qq', ':copen<CR>')
 vim.keymap.set('n', '<leader>qc', ':call setqflist([])<CR>')
-vim.keymap.set('n', '<leader>[q', ':cn<CR>')
-vim.keymap.set('n', '<leader>]q', ':cN<CR>')
+vim.keymap.set('n', '[q', ':cN<CR>')
+vim.keymap.set('n', ']q', ':cn<CR>')

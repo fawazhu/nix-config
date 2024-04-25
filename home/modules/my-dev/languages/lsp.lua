@@ -1,5 +1,4 @@
-vim.keymap.set("n", "<leader>rt", vim.lsp.buf.rename)
-vim.keymap.set("v", "<leader>rt", vim.lsp.buf.rename)
+vim.keymap.set("v", "<leader>r", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation)
