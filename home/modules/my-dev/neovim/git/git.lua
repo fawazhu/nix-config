@@ -1,11 +1,3 @@
-vim.keymap.set('n', '<leader>gd', '<cmd>Gitsigns diffthis<cr>') -- This one is actually really useful and I need to use it more.
-vim.keymap.set('n', '<leader>gf', ':DiffviewFileHistory %<cr>')
-vim.keymap.set('n', '<leader>gb', ':DiffviewFileHistory<cr>')
-vim.keymap.set('n', '<leader>gc', ':DiffviewClose<cr>')
-vim.keymap.set('n', '<leader>gs', '<cmd>Git<cr>')
-
-require("diffview").setup()
-
 require('gitsigns').setup {
     attach_to_untracked          = true,
     current_line_blame           = true, -- Toggle with `:Gitsigns toggle_current_line_blame`

@@ -1,7 +1,5 @@
 {pkgs, ...}: {
   programs.neovim.plugins = with pkgs.vimPlugins; [
-    diffview-nvim
-    vim-fugitive
     gitsigns-nvim
   ];
 
