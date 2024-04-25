@@ -135,6 +135,7 @@ in {
       friendly-snippets
       cmp_luasnip
       cmp-nvim-lsp
+      cmp-path
       nvim-treesitter
       nvim-dap
       conform-nvim
@@ -181,6 +182,7 @@ in {
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'path' },
       }
     })
 

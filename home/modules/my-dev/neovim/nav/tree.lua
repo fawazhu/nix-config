@@ -2,6 +2,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require("nvim-tree").setup({
+    select_prompts = true,
     sort_by = "case_sensitive",
     view = {
         width = 25,

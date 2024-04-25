@@ -4,6 +4,7 @@
     nvim-tree-lua
     nvim-web-devicons
     telescope-nvim
+    telescope-ui-select-nvim
     trouble-nvim
   ];
   xdg.configFile."nvim/after/plugin/harpoon.lua".source = ./harpoon.lua;
