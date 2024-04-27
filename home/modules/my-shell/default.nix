@@ -4,6 +4,7 @@
   config = {};
 
   imports = [
+    ./bat.nix
     ./git.nix
     ./packages.nix
     ./tmux

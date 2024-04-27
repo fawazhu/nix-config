@@ -2,7 +2,9 @@
   config,
   lib,
   ...
-}: {
+}: let
+  flavour = config.my-shell.catppuccin-flavour;
+in {
   config = lib.mkIf config.my-shell.enable {
     xdg.configFile.zsh.source = ./config;
 
@@ -13,7 +15,7 @@
       initExtra = ''
         export EDITOR=${config.my-shell.editor}
         export TERM=${config.my-shell.terminal}
-        export BAT_THEME="Catppuccin-${config.my-shell.catppuccin-flavour}"
+        export BAT_THEME="Catppuccin ${(lib.toUpper (builtins.substring 0 1 flavour)) + (builtins.substring 1 (-1) flavour)}"
 
         for rc in ~/.config/zsh/*; do
           . $rc
