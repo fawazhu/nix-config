@@ -3,9 +3,7 @@
 export LESS='-R --use-color -Dd+r$Du+b$'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
-export LESS='-R '
 
-export BAT_THEME="Catppuccin-mocha"
 export FZF_PREVIEW_ADVANCED=true
 
 alias grep='grep --color=auto'
