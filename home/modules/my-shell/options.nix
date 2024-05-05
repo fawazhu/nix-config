@@ -23,7 +23,7 @@ with lib; {
     default = {};
     description = mkDoc "Configure git integration.";
   };
-  catppuccin-flavour = mkOption {
+  catppuccinFlavour = mkOption {
     type = types.str;
     default = "mocha";
     description = mkDoc "Catppuccin flavour to use.";

@@ -12,7 +12,7 @@ in {
       "tmux/extra.conf".source = ./tmux.conf;
       "tmux/tmux.conf".text = ''
         source-file ~/.config/tmux/extra.conf
-        set -g @catppuccin_flavour ${config.my-shell.catppuccin-flavour}
+        set -g @catppuccin_flavour ${config.my-shell.catppuccinFlavour}
         set -as default-terminal '${config.my-shell.terminal}'
         set -as terminal-features ',${config.my-shell.terminal}:RGB'
         set-option -g default-shell ${config.programs.nushell.package}/bin/nu

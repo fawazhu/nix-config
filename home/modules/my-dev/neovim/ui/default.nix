@@ -14,6 +14,6 @@
   xdg.configFile."nvim/after/plugin/notify.lua".source = ./notify.lua;
   xdg.configFile."nvim/after/plugin/theme.lua".source = ./theme.lua;
   xdg.configFile."nvim/after/plugin/flavour.lua".text = ''
-    vim.cmd.colorscheme "catppuccin-${config.my-dev.catppuccin-flavour}"
+    vim.cmd.colorscheme "catppuccin-${config.my-dev.catppuccinFlavour}"
   '';
 }

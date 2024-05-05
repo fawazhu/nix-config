@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  flavour = config.my-shell.catppuccin-flavour;
+  flavour = config.my-shell.catppuccinFlavour;
 in {
   config = lib.mkIf config.my-shell.enable {
     programs.nushell = {

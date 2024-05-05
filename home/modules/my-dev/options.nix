@@ -1,48 +1,48 @@
 {lib, ...}:
 with lib;
 with types; let
-  enable-options = {name}:
+  enableOptions = {name}:
     mkOption {
       type = bool;
       default = false;
       description = mkDoc "Whether to enable ${name}.";
     };
-  nested-enable-options = {name}:
+  nestedEnableOptions = {name}:
     mkOption {
-      type = submodule {options = {enable = enable-options {inherit name;};};};
+      type = submodule {options = {enable = enableOptions {inherit name;};};};
       default = {};
       description = mkDoc "${name} integration.";
     };
 in {
-  enable = enable-options {name = "my-dev";};
+  enable = enableOptions {name = "my-dev";};
   languages = mkOption {
     type = submodule {
       options = {
-        ansible = nested-enable-options {name = "ansible";};
-        bash = nested-enable-options {name = "bash";};
-        css = nested-enable-options {name = "css";};
-        docker = nested-enable-options {name = "docker";};
-        go = nested-enable-options {name = "go";};
-        graphql = nested-enable-options {name = "graphql";};
-        html = nested-enable-options {name = "html";};
-        javascript = nested-enable-options {name = "javascript";};
-        json = nested-enable-options {name = "json";};
-        lua = nested-enable-options {name = "lua";};
-        markdown = nested-enable-options {name = "markdown";};
-        nix = nested-enable-options {name = "nix";};
-        packer = nested-enable-options {name = "packer";};
-        python = nested-enable-options {name = "python";};
-        rust = nested-enable-options {name = "rust";};
-        terraform = nested-enable-options {name = "terraform";};
-        toml = nested-enable-options {name = "toml";};
-        xml = nested-enable-options {name = "xml";};
-        yaml = nested-enable-options {name = "yaml";};
+        ansible = nestedEnableOptions {name = "ansible";};
+        bash = nestedEnableOptions {name = "bash";};
+        css = nestedEnableOptions {name = "css";};
+        docker = nestedEnableOptions {name = "docker";};
+        go = nestedEnableOptions {name = "go";};
+        graphql = nestedEnableOptions {name = "graphql";};
+        html = nestedEnableOptions {name = "html";};
+        javascript = nestedEnableOptions {name = "javascript";};
+        json = nestedEnableOptions {name = "json";};
+        lua = nestedEnableOptions {name = "lua";};
+        markdown = nestedEnableOptions {name = "markdown";};
+        nix = nestedEnableOptions {name = "nix";};
+        packer = nestedEnableOptions {name = "packer";};
+        python = nestedEnableOptions {name = "python";};
+        rust = nestedEnableOptions {name = "rust";};
+        terraform = nestedEnableOptions {name = "terraform";};
+        toml = nestedEnableOptions {name = "toml";};
+        xml = nestedEnableOptions {name = "xml";};
+        yaml = nestedEnableOptions {name = "yaml";};
       };
     };
     default = {};
     description = mkDoc "Configure languages.";
   };
-  catppuccin-flavour = mkOption {
+  catppuccinFlavour = mkOption {
     type = str;
     default = "mocha";
     description = mkDoc "Catppuccin flavour to use.";
@@ -55,8 +55,8 @@ in {
   tools = mkOption {
     type = submodule {
       options = {
-        awscli = nested-enable-options {name = "awscli";};
-        lazygit = nested-enable-options {name = "lazygit";};
+        awscli = nestedEnableOptions {name = "awscli";};
+        lazygit = nestedEnableOptions {name = "lazygit";};
         codeium = mkOption {
           type = submodule {
             options = {
