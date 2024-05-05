@@ -6,6 +6,7 @@
   imports = [
     ./bat.nix
     ./git.nix
+    ./nushell.nix
     ./packages.nix
     ./tmux
     ./zsh
