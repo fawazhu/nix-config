@@ -14,19 +14,6 @@ in {
           table: {
             mode: rounded
           }
-          keybindings: [
-            {
-              name: history_search
-              modifier: control
-              keycode: char_r
-              mode: [emacs vi_insert vi_normal]
-              event: [
-                { edit: Clear }
-                { edit: InsertString value: "nu -c $\"(history | where command =~ '^nu -c \\$\\\"\\(history \\|' == false | move command --after index | reverse | to tsv -n | fzf --preview=\"\" | split row \"\\t\" | to text | tail -n 1)\"" }
-                { send: Enter }
-              ]
-            }
-          ]
         }
         def --env proj [] {
           fd -u -t d --base-directory ~/git .git |
