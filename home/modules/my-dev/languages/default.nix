@@ -55,7 +55,7 @@ in {
     )
     ++ (
       if l.javascript.enable
-      then with nodePackages; [nodejs_21 nodemon typescript electron eslint typescript-language-server]
+      then with nodePackages; [nodejs_22 nodemon typescript electron eslint typescript-language-server]
       else []
     )
     ++ (
