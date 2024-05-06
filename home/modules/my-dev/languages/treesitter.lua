@@ -1,6 +1,7 @@
-local treesitter_path = "~/.local/share/nvim/treesitter";
-vim.opt.runtimepath:append(treesitter_path)
+local treesitter_path = "~/.local/share/nvim/treesitter"
+vim.o.runtimepath = treesitter_path .. "," .. vim.o.runtimepath
 require('nvim-treesitter.configs').setup({
+    ensure_installed = { "bash", "c", "regex", "lua", "markdown", "markdown_inline", "query", "vim", "vimdoc" },
     parser_install_dir = treesitter_path,
     sync_install = true,
     auto_install = true,
@@ -12,9 +13,9 @@ require('nvim-treesitter.configs').setup({
         enable = true,
         keymaps = {
             init_selection = "gnn", -- set to `false` to disable one of the mappings
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
+            node_incremental = "gni",
+            scope_incremental = "gnc",
+            node_decremental = "gnd",
         },
     },
     indent = {
