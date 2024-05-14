@@ -1,18 +1,32 @@
-{...}: {
+{config, ...}: let
+  terminal = "alacritty";
+  catppuccinFlavour = "mocha";
+in {
   imports = [
+    ./modules/my-desktop
     ./modules/my-dev
     ./modules/my-shell
-    ./ssh.nix
-    ./user.nix
-    ./apps
-    ./desktop
-    ./sops
   ];
+
+  home.username = "fawaz";
+  home.homeDirectory = "/home/fawaz";
+
+  sops.defaultSopsFile = ./secrets.yaml;
+  sops.age.keyFile = "/home/fawaz/.config/sops/age/keys.txt";
+
+  sops.secrets.ssh_private_key = {
+    mode = "0400";
+    path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  };
+  sops.secrets.ssh_public_key = {
+    mode = "0400";
+    path = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+  };
 
   my-dev = {
     enable = true;
-    terminal = "alacritty";
-    catppuccinFlavour = "mocha";
+    terminal = terminal;
+    catppuccinFlavour = catppuccinFlavour;
     languages = {
       ansible.enable = true;
       bash.enable = true;
@@ -47,8 +61,15 @@
       userEmail = "fawazsana@gmail.com";
     };
     editor = "nvim";
-    terminal = "alacritty";
-    catppuccinFlavour = "mocha";
+    terminal = terminal;
+    catppuccinFlavour = catppuccinFlavour;
+  };
+  my-desktop = {
+    enable = true;
+    catppuccinFlavour = catppuccinFlavour;
+    scaleFactor = "1.25";
+    cursorSize = 32;
+    services.kdeconnect.enable = true;
   };
 
   programs.home-manager.enable = true;
