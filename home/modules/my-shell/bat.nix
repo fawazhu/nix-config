@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: let
@@ -19,6 +20,8 @@
       '';
     };
 in {
-  home.packages = [pkgs.bat];
-  home.file."${config.xdg.cacheHome}/bat".source = catppuccin-bat;
+  config = lib.mkIf config.my-shell.enable {
+    home.packages = [pkgs.bat];
+    home.file."${config.xdg.cacheHome}/bat".source = catppuccin-bat;
+  };
 }
