@@ -22,16 +22,16 @@
       "fawaz-laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/laptop
+          ./hosts/laptop/hardware.nix
           {_module.args = {inherit inputs;};}
-          ./system
+          ./hosts/laptop/system.nix
           {_module.args = {inherit inputs;};}
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs.flake-inputs = inputs;
-            home-manager.users.fawaz = import ./home;
+            home-manager.users.fawaz = import ./hosts/laptop/fawaz.nix;
             home-manager.sharedModules = [
               sops-nix.homeManagerModules.sops
             ];

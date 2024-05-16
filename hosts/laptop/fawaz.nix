@@ -3,15 +3,15 @@
   catppuccinFlavour = "mocha";
 in {
   imports = [
-    ./modules/my-desktop
-    ./modules/my-dev
-    ./modules/my-shell
+    ../../modules/home-manager/my-desktop
+    ../../modules/home-manager/my-dev
+    ../../modules/home-manager/my-shell
   ];
 
   home.username = "fawaz";
   home.homeDirectory = "/home/fawaz";
 
-  sops.defaultSopsFile = ./secrets.yaml;
+  sops.defaultSopsFile = ./fawaz-secrets.yaml;
   sops.age.keyFile = "/home/fawaz/.config/sops/age/keys.txt";
 
   sops.secrets.ssh_private_key = {

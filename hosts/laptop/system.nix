@@ -5,7 +5,7 @@
 }: let
   userName = "fawaz";
 in {
-  sops.defaultSopsFile = ./secrets.yaml;
+  sops.defaultSopsFile = ./system-secrets.yaml;
   sops.age.keyFile = "/etc/sops/age/keys.txt";
   environment.systemPackages = [pkgs.sops];
 
@@ -42,7 +42,7 @@ in {
   };
   users.users."${userName}".hashedPasswordFile = config.sops.secrets.password_fawaz.path;
 
-  imports = [./modules/my-system];
+  imports = [../../modules/nixos/my-system];
 
   my-system = {
     enable = true;
