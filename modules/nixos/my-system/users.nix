@@ -17,5 +17,9 @@
       extraGroups = ["wheel"];
       shell = pkgs.zsh;
     };
+    users.users.guest = {
+      isNormalUser = true;
+      shell = pkgs.bashInteractive;
+    };
   };
 }
