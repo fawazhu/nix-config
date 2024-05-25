@@ -11,7 +11,6 @@
     environment.homeBinInPath = true;
     environment.localBinInPath = true;
 
-    sops.secrets.password_fawaz.neededForUsers = true;
     users.users."${config.my-system.user.name}" = {
       isNormalUser = true;
       extraGroups = ["wheel"];

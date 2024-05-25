@@ -12,6 +12,7 @@ in {
   sops.secrets.home_wifi_ssid = {};
   sops.secrets.home_wifi_password = {};
   sops.secrets.password_fawaz.neededForUsers = true;
+  sops.secrets.password_guest.neededForUsers = true;
 
   sops.templates."home-wifi.nmconnections" = {
     path = "/etc/NetworkManager/system-connections/home-wifi.nmconnections";
@@ -41,6 +42,7 @@ in {
     '';
   };
   users.users."${userName}".hashedPasswordFile = config.sops.secrets.password_fawaz.path;
+  users.users.guest.hashedPasswordFile = config.sops.secrets.password_guest.path;
 
   imports = [../../modules/nixos/my-system];
 
