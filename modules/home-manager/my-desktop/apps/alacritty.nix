@@ -20,8 +20,8 @@
         style = "Regular"
 
         [shell]
-        args = ["-ci", "tmux"]
-        program = "zsh"
+        args = ${config.my-desktop.apps.alacritty.args}
+        program = "${config.my-desktop.apps.alacritty.shell}"
       '';
     };
 

@@ -70,6 +70,10 @@ in {
     scaleFactor = "1.25";
     cursorSize = 32;
     services.kdeconnect.enable = true;
+    apps.alacritty = {
+      args = "[\"-ci\", \"tmux\"]";
+      shell = "zsh";
+    };
   };
 
   programs.home-manager.enable = true;

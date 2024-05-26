@@ -55,6 +55,24 @@ in rec {
   apps = mkOption {
     type = submodule {
       options = {
+        alacritty = mkOption {
+          type = submodule {
+            options = {
+              args = mkOption {
+                type = str;
+                default = "[]";
+                description = mkDoc "Additional arguments to pass to alacritty when executing the shell.";
+              };
+              shell = mkOption {
+                type = str;
+                default = "bash";
+                description = mkDoc "Shell to use for alacritty.";
+              };
+            };
+          };
+          default = {};
+          description = mkDoc "Configure alacritty.";
+        };
         packages = mkOption {
           type = listOf package;
           default = with pkgs; [

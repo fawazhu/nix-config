@@ -32,6 +32,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs.flake-inputs = inputs;
             home-manager.users.fawaz = import ./hosts/laptop/fawaz.nix;
+            home-manager.users.guest = import ./hosts/laptop/guest.nix;
             home-manager.sharedModules = [
               sops-nix.homeManagerModules.sops
             ];
