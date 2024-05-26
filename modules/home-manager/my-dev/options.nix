@@ -70,6 +70,19 @@ in {
           default = {};
           description = mkDoc "codeium integration.";
         };
+        tabnine = mkOption {
+          type = submodule {
+            options = {
+              enable = mkOption {
+                type = bool;
+                default = false;
+                description = mkDoc "Whether to enable codeium integration.";
+              };
+            };
+          };
+          default = {};
+          description = mkDoc "codeium integration.";
+        };
       };
     };
     default = {};

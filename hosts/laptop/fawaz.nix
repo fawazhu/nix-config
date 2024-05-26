@@ -51,7 +51,8 @@ in {
     tools = {
       awscli.enable = true;
       lazygit.enable = true;
-      codeium.enable = true;
+      codeium.enable = false;
+      tabnine.enable = true;
     };
   };
   my-shell = {

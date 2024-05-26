@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./codeium.nix];
+  imports = [./codeium.nix ./tabnine.nix];
 
   config = lib.mkIf config.my-dev.enable {
     programs.neovim.plugins = with pkgs.vimPlugins; [
