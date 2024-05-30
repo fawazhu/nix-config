@@ -28,9 +28,10 @@
     options = ["subvol=nix"];
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/f49198d6-71cb-4b79-b354-435c7a6601c5";
-    fsType = "ext4";
+  fileSystems."/var" = {
+    device = "/dev/mapper/crypt-root";
+    fsType = "btrfs";
+    options = ["subvol=var"];
   };
 
   fileSystems."/boot/efi" = {
