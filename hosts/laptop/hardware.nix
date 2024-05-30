@@ -2,7 +2,7 @@
   boot.blacklistedKernelModules = ["nouveau"];
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
   boot.initrd.luks.devices."crypt-root" = {
-    device = "/dev/disk/by-uuid/c4c33a6a-2d49-49cc-8619-0bcedbda9020";
+    device = "/dev/disk/by-uuid/6a8819c2-b614-4d5e-8b3c-1232f1d489ea";
     bypassWorkqueues = true;
   };
   boot.kernelModules = ["kvm-intel"];
@@ -35,7 +35,7 @@
   };
 
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/A7CA-B1E6";
+    device = "/dev/disk/by-uuid/1470-832C";
     fsType = "vfat";
   };
 
