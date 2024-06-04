@@ -79,6 +79,7 @@ in rec {
             gnome.seahorse
             gnome.nautilus
             gnome.file-roller
+            gparted
           ];
           description = mkDoc "Configure default app nix packages.";
         };
