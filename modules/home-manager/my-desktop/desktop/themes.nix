@@ -13,7 +13,7 @@
     then "Light"
     else "Dark"
   }";
-  cursorThemeName = "Catppuccin-${captilaisedFlavour}-Sky-Cursors";
+  cursorThemeName = "catppuccin-${flavour}-sky-cursors";
 in {
   config = lib.mkIf config.my-desktop.enable {
     home.sessionVariables.GTK_THEME = gtkThemeName;

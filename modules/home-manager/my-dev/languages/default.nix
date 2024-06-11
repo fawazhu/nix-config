@@ -87,7 +87,7 @@ in {
       )
       ++ (
         if l.python.enable
-        then with python312Packages; [python312 pip nodePackages.pyright debugpy autopep8]
+        then with python312Packages; [python312 pip pyright debugpy autopep8]
         else []
       )
       ++ (
