@@ -46,4 +46,13 @@
   hardware.i2c.enable = true;
   hardware.opengl.enable = true;
   hardware.opengl.extraPackages = [pkgs.intel-media-driver];
+
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.nvidiaSettings = true;
+  hardware.nvidia.prime.intelBusId = "PCI:0:2:0";
+	hardware.nvidia.prime.nvidiaBusId = "PCI:1:0:0";
+
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
 }
