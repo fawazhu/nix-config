@@ -109,6 +109,8 @@ in rec {
                   "org.libreoffice.LibreOffice//stable"
                   "org.blender.Blender//stable"
                   "com.calibre_ebook.calibre//stable"
+                  "com.usebottles.bottles//stable"
+                  "org.freedesktop.Platform.VulkanLayer.gamescope//23.08"
                 ];
                 description = mkDoc "Configure flatpak packages.";
               };
