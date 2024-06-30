@@ -19,7 +19,7 @@ in {
       )
       ++ (
         if l.bash.enable
-        then [bash nodePackages.bash-language-server beautysh]
+        then [bash bash-language-server beautysh]
         else []
       )
       ++ (
