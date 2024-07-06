@@ -1,6 +1,6 @@
 {config, ...}: let
   terminal = "alacritty";
-  catppuccinFlavour = "macchiato";
+  catppuccinFlavour = "latte";
 in {
   imports = [
     ../../modules/home-manager/my-desktop
