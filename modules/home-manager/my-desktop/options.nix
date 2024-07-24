@@ -76,9 +76,9 @@ in rec {
         packages = mkOption {
           type = listOf package;
           default = with pkgs; [
-            gnome.seahorse
-            gnome.nautilus
-            gnome.file-roller
+            seahorse
+            nautilus
+            file-roller
             gparted
           ];
           description = mkDoc "Configure default app nix packages.";
