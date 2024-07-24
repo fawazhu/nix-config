@@ -5,14 +5,8 @@
   ...
 }: let
   flavour = config.my-desktop.catppuccinFlavour;
-  captilaisedFlavour = lib.toUpper (builtins.substring 0 1 flavour) + (builtins.substring 1 (-1) flavour);
-  isLightTheme = flavour == "latte";
   iconThemeName = config.my-desktop.iconTheme.name;
-  gtkThemeName = "Catppuccin-${captilaisedFlavour}-Standard-Sky-${
-    if isLightTheme
-    then "Light"
-    else "Dark"
-  }";
+  gtkThemeName = "catppuccin-${flavour}-sky-standard";
   cursorThemeName = "catppuccin-${flavour}-sky-cursors";
 in {
   config = lib.mkIf config.my-desktop.enable {
