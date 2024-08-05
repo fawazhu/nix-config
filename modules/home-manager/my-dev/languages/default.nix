@@ -5,10 +5,6 @@
   ...
 }: let
   l = config.my-dev.languages;
-  luasnip = pkgs.neovimUtils.buildNeovimPlugin {
-    name = "luasnip";
-    pname = "luasnip";
-  };
 in {
   config = lib.mkIf config.my-dev.enable {
     home.packages = with pkgs;
@@ -39,9 +35,6 @@ in {
           gopls
           delve
           gofumpt
-          /*
-          gotools
-          */
         ]
         else []
       )
@@ -115,7 +108,7 @@ in {
         then [yq-go yaml-language-server yamlfmt]
         else []
       )
-      ++ [tree-sitter gawk];
+      ++ [tree-sitter zlib autoconf automake binutils bison debugedit fakeroot file findutils flex gawk gcc gettext gnugrep groff gzip libtool gnum4 gnumake gnupatch gnused texinfo which];
 
     programs.neovim.plugins = with pkgs.vimPlugins;
     with pkgs;
@@ -142,6 +135,9 @@ in {
         nvim-dap
         conform-nvim
       ];
+    programs.neovim.extraLuaPackages = ps: [
+      ps.jsregexp
+    ];
 
     xdg.configFile."nvim/after/plugin/languages.lua".text = ''
       local dap = require('dap')
@@ -404,7 +400,7 @@ in {
           ${
         if l.go.enable
         then ''
-          go = { "gofumpt", "goimports" },
+          go = { "gofumpt" },
         ''
         else ""
       }
