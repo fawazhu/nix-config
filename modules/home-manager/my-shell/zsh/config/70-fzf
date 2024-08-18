@@ -2,11 +2,9 @@
 
 alias fzf="fzf-tmux"
 
-export FZF_PREVIEW_WINDOW='right:65%:nohidden'
 export FZF_PREVIEW='if ! bat -n --color=always {} 2>/dev/null;then;eza -T --color=always --icons {} 2>/dev/null;fi'
-export FZF_DEFAULT_OPTS="--layout=reverse --preview='${FZF_PREVIEW}' --preview-window='right:60%'"
-export FZF_PREVIEW_ADVANCED='true'
-export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git' --exclude 'node_modules'"
+export FZF_DEFAULT_OPTS="--layout=reverse --preview='${FZF_PREVIEW}' --preview-window='right:60%:nohidden'"
+export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude '.git/' --exclude 'node_modules' --exclude '.terraform'"
 
 # CTRL-T - Paste the selected file path(s) into the command line
 __fsel() {
@@ -36,7 +34,7 @@ fzf-history-widget() {
   local selected num
   setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
   selected=( $(fc -rl 1 | awk '{ cmd=$0; sub(/^[ \t]*[0-9]+\**[ \t]+/, "", cmd); if (!seen[cmd]++) print $0 }' |
-    FZF_DEFAULT_OPTS="-n2..,.. --scheme=history ${FZF_DEFAULT_OPTS} --query=${(qqq)LBUFFER} +m" fzf-tmux) )
+    FZF_PREVIEW="" FZF_DEFAULT_OPTS="-n2..,.. --scheme=history ${FZF_DEFAULT_OPTS} --query=${(qqq)LBUFFER} +m" fzf) )
   local ret=$?
   if [ -n "$selected" ]; then
     num=$selected[1]
@@ -51,3 +49,25 @@ zle     -N            fzf-history-widget
 bindkey -M emacs '^R' fzf-history-widget
 bindkey -M vicmd '^R' fzf-history-widget
 bindkey -M viins '^R' fzf-history-widget
+
+proj() {
+  local base_dir="${HOME}/git"
+
+  local dir="$(\
+    fd --base-directory="${base_dir}" -Hpu '^.*\.git$' | \
+    sed -e 's#\.git/##' | \
+    FZF_DEFAULT_OPTS="--layout=reverse --preview='eza -T --color=always --icons ${base_dir}/{}' --preview-window='right:60%'" fzf \
+  )"
+  if [[ ${dir} != "" ]]; then
+    zle push-line
+    BUFFER="cd \"${base_dir}/${dir}\""
+    zle accept-line
+    unset base_dir
+    unset dir
+    zle reset-prompt
+  fi
+}
+zle     -N            proj
+bindkey -M emacs '^P' proj
+bindkey -M vicmd '^P' proj
+bindkey -M viins '^P' proj
