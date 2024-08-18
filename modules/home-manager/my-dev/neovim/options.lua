@@ -28,4 +28,4 @@ vim.opt.updatetime = 50
 vim.opt.timeoutlen = 1000
 
 -- Visual indicators
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
