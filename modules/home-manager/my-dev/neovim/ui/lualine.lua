@@ -1,6 +1,15 @@
 -- don't show mode as it is in lualine.
 vim.opt.showmode = false
 
+local function macro_recording()
+    local reg_recording = vim.fn.reg_recording()
+    if reg_recording == "" then
+        return ""
+    else
+        return "󰻂 " .. reg_recording
+    end
+end
+
 require('lualine').setup {
     options = {
         icons_enabled = true,
@@ -15,14 +24,14 @@ require('lualine').setup {
         always_divide_middle = false,
         globalstatus = false,
         refresh = {
-            statusline = 10000,
+            statusline = 1000,
             tabline = 1000,
             winbar = 1000,
         }
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_b = { 'branch', 'diff', 'diagnostics', macro_recording },
         lualine_c = { 'filename' },
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
         lualine_y = {},
