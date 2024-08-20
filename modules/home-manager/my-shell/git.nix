@@ -8,8 +8,8 @@
     programs.git = {
       enable = true;
       lfs.enable = true;
-      userEmail = "fawazsana@gmail.com";
-      userName = "Fawaz Hussain";
+      userEmail = config.my-shell.git.userEmail;
+      userName = config.my-shell.git.userName;
       extraConfig = {
         init = {
           defaultBranch = "main";

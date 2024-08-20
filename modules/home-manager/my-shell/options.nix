@@ -1,40 +1,41 @@
 {lib, ...}:
-with lib; {
+with lib;
+with types; {
   enable = mkOption {
-    type = types.bool;
+    type = bool;
     default = false;
     description = mkDoc "Whether to enable my-shell.";
   };
   git = mkOption {
-    type = types.submodule ({...}: {
+    type = submodule ({...}: {
       options = {
-        userName = {
-          type = types.str;
+        userName = mkOption {
+          type = str;
           default = null;
           description = mkDoc "Git user name to use.";
         };
-        userEmail = {
-          type = types.str;
+        userEmail = mkOption {
+          type = str;
           default = null;
           description = mkDoc "Git user email to use.";
         };
       };
     });
-    default = {};
+    default = { };
     description = mkDoc "Configure git integration.";
   };
   catppuccinFlavour = mkOption {
-    type = types.str;
+    type = str;
     default = "mocha";
     description = mkDoc "Catppuccin flavour to use.";
   };
   editor = mkOption {
-    type = types.str;
+    type = str;
     default = "nvim";
     description = mkDoc "Editor executable to use.";
   };
   terminal = mkOption {
-    type = types.str;
+    type = str;
     default = "alacritty";
     description = mkDoc "Terminal to set as the TERM variable.";
   };
