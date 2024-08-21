@@ -10,7 +10,7 @@ in {
     home.packages = with pkgs;
       (
         if t.awscli.enable
-        then [awscli2]
+        then [awscli2 aws-vault]
         else []
       )
       ++ (
@@ -18,5 +18,6 @@ in {
         then [lazygit]
         else []
       );
+    home.file.".aws/config".text = t.awscli.config;
   };
 }

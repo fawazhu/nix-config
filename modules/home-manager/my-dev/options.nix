@@ -55,34 +55,23 @@ in {
   tools = mkOption {
     type = submodule {
       options = {
-        awscli = nestedEnableOptions {name = "awscli";};
+        awscli = mkOption {
+          type = submodule {
+            options = {
+              enable = enableOptions {name = "awscli";};
+              config = mkOption {
+                type = str;
+                default = "";
+                description = mkDoc "AWS CLI configuration file";
+              };
+            };
+          };
+          default = {};
+          description = mkDoc "Configure the AWS CLI.";
+        };
         lazygit = nestedEnableOptions {name = "lazygit";};
-        codeium = mkOption {
-          type = submodule {
-            options = {
-              enable = mkOption {
-                type = bool;
-                default = false;
-                description = mkDoc "Whether to enable codeium integration.";
-              };
-            };
-          };
-          default = {};
-          description = mkDoc "codeium integration.";
-        };
-        tabnine = mkOption {
-          type = submodule {
-            options = {
-              enable = mkOption {
-                type = bool;
-                default = false;
-                description = mkDoc "Whether to enable codeium integration.";
-              };
-            };
-          };
-          default = {};
-          description = mkDoc "codeium integration.";
-        };
+        codeium = nestedEnableOptions {name = "codeium";};
+        tabnine = nestedEnableOptions {name = "codeium";};
       };
     };
     default = {};
