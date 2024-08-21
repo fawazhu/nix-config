@@ -105,7 +105,7 @@ in {
       )
       ++ (
         if l.yaml.enable
-        then [yq-go yaml-language-server yamlfmt]
+        then [yq-go yaml-language-server yamlfmt yamllint]
         else []
       )
       ++ [tree-sitter zlib autoconf automake binutils bison debugedit fakeroot file findutils flex gawk gcc gettext gnugrep groff gzip libtool gnum4 gnumake gnupatch gnused texinfo which];

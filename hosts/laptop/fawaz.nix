@@ -53,6 +53,7 @@ in {
       lazygit.enable = true;
       codeium.enable = false;
       tabnine.enable = true;
+      hcpvault.enable = false;
     };
   };
   my-shell = {

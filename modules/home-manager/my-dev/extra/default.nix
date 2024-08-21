@@ -17,7 +17,13 @@ in {
         if t.lazygit.enable
         then [lazygit]
         else []
-      );
+      )
+      ++ (
+        if t.hcpvault.enable
+        then [vault]
+        else []
+      )
+      ++ [pre-commit];
     home.file.".aws/config".text = t.awscli.config;
   };
 }

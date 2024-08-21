@@ -69,6 +69,7 @@ in {
           default = {};
           description = mkDoc "Configure the AWS CLI.";
         };
+        hcpvault = nestedEnableOptions {name = "hcpvault";};
         lazygit = nestedEnableOptions {name = "lazygit";};
         codeium = nestedEnableOptions {name = "codeium";};
         tabnine = nestedEnableOptions {name = "codeium";};
