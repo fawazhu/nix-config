@@ -110,6 +110,20 @@ in {
       )
       ++ [tree-sitter zlib autoconf automake binutils bison debugedit fakeroot file findutils flex gawk gcc gettext gnugrep groff gzip libtool gnum4 gnumake gnupatch gnused texinfo which];
 
+    # Hacky way to get a virtual env. I have tried using derivations but it just doesn't fit well with nix.
+    # A virtual env gives lots of flexibility compared to other options including dev shells.
+    home.activation =
+      if config.my-dev.tools.virtualenv.enable
+      then {
+        setupvirtualenv = lib.hm.dag.entryAfter ["writeBoundary"] ''
+          if [ -d ~/.local/share/venv ]; then
+            exit 0
+          fi
+          ${pkgs.python3}/bin/python3 -m venv ~/.local/share/venv
+        '';
+      }
+      else {};
+
     programs.neovim.plugins = with pkgs.vimPlugins;
     with pkgs;
       (
