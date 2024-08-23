@@ -32,10 +32,13 @@
       "org.libreoffice.LibreOffice//stable"
     ];
     mimeDefaults = {
+      enable = true;
       archive = "org.gnome.FileRoller.desktop";
       browser = "org.mozilla.firefox.desktop";
       calendar = "com.calibre_ebook.calibre.desktop";
       document = "org.libreoffice.LibreOffice.desktop";
+      ebook = "";
+      font = "";
       editor = "org.gnome.TextEditor.desktop";
       image = "org.gnome.Loupe.desktop";
       music = "io.bassi.Amberol.desktop";

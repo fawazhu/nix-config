@@ -107,6 +107,7 @@ in {
       "org.freedesktop.Platform.VulkanLayer.gamescope//23.08"
     ];
     mimeDefaults = {
+      enable = true;
       archive = "org.gnome.FileRoller.desktop";
       browser = "org.mozilla.firefox.desktop";
       calendar = "com.calibre_ebook.calibre.desktop";
