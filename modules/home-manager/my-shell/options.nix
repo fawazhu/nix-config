@@ -39,4 +39,9 @@ with types; {
     default = "alacritty";
     description = mkDoc "Terminal to set as the TERM variable.";
   };
+  extraScript = mkOption {
+    type = str;
+    default = "";
+    description = mkDoc "Extra script to run when starting a shell.";
+  };
 }
