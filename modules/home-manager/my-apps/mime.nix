@@ -3,9 +3,9 @@
   lib,
   ...
 }: let
-  mime = config.my-desktop.apps.mimeDefault;
+  mime = config.my-apps.mimeDefaults;
 in {
-  config = lib.mkIf config.my-desktop.enable {
+  config = lib.mkIf (config.my-apps.enable && mime.enable) {
     xdg.mimeApps = {
       enable = true;
       defaultApplications = {

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf config.my-desktop.enable {
+  config = lib.mkIf (config.my-apps.enable && config.my-apps.alacritty.enable) {
     xdg.configFile = {
       "alacritty/themes/catppuccin".source = pkgs.fetchFromGitHub {
         owner = "catppuccin";
@@ -13,15 +13,15 @@
         sha256 = "sha256-HiIYxTlif5Lbl9BAvPsnXp8WAexL8YuohMDd/eCJVQ8=";
       };
       "alacritty/alacritty.toml".text = ''
-        import = ["~/.config/alacritty/themes/catppuccin/catppuccin-${config.my-desktop.catppuccinFlavour}.toml"]
+        import = ["~/.config/alacritty/themes/catppuccin/catppuccin-${config.my-apps.catppuccinFlavour}.toml"]
 
         [font.normal]
-        family = "${config.my-desktop.fonts.mono.name}"
+        family = "${config.my-apps.fonts.mono}"
         style = "Regular"
 
         [shell]
-        args = ${config.my-desktop.apps.alacritty.args}
-        program = "${config.my-desktop.apps.alacritty.shell}"
+        args = ${config.my-apps.alacritty.args}
+        program = "${config.my-apps.alacritty.shell}"
       '';
     };
 

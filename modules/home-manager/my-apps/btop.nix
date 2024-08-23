@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf config.my-desktop.enable {
+  config = lib.mkIf config.my-apps.enable {
     xdg.configFile."btop/themes".source = "${pkgs.fetchFromGitHub {
       owner = "catppuccin";
       repo = "btop";
@@ -12,7 +12,7 @@
       sha256 = "sha256-J3UezOQMDdxpflGax0rGBF/XMiKqdqZXuX4KMVGTxFk=";
     }}/themes";
     xdg.configFile."btop/btop.conf".text = ''
-      color_theme = "/home/fawaz/.config/btop/themes/catppuccin_${config.my-desktop.catppuccinFlavour}.theme"
+      color_theme = "/home/fawaz/.config/btop/themes/catppuccin_${config.my-apps.catppuccinFlavour}.theme"
       theme_background = True
       truecolor = True
       force_tty = False

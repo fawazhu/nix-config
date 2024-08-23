@@ -1,8 +1,9 @@
-{config, ...}: let
+{config, pkgs, ...}: let
   terminal = "alacritty";
   catppuccinFlavour = "frappe";
 in {
   imports = [
+    ../../modules/home-manager/my-apps
     ../../modules/home-manager/my-desktop
     ../../modules/home-manager/my-dev
     ../../modules/home-manager/my-shell
@@ -67,16 +68,64 @@ in {
     terminal = terminal;
     catppuccinFlavour = catppuccinFlavour;
   };
+  my-apps = {
+    enable  = true;
+    catppuccinFlavour = catppuccinFlavour;
+    alacritty = {
+      enable = true;
+      args = "[\"-ci\", \"tmux\"]";
+      shell = "zsh";
+    };
+    packages = with pkgs; [
+      seahorse
+      nautilus
+      file-roller
+      gparted
+    ];
+    flatpak.packages = [
+      "ca.desrt.dconf-editor//stable"
+      "com.github.tchx84.Flatseal//stable"
+      "org.gnome.Calculator//stable"
+      "org.gnome.Loupe//stable"
+      "org.gnome.baobab//stable"
+      "org.gnome.font-viewer//stable"
+      "org.inkscape.Inkscape//stable"
+      "org.mozilla.firefox//stable"
+      "org.onlyoffice.desktopeditors//stable"
+      "org.gnome.Calendar//stable"
+      "org.gnome.Evince//stable"
+      "org.gnome.Totem//stable"
+      "io.bassi.Amberol//stable"
+      "org.kde.krita//stable"
+      "org.kde.kdenlive//stable"
+      "org.videolan.VLC//stable"
+      "com.brave.Browser//stable"
+      "org.libreoffice.LibreOffice//stable"
+      "org.blender.Blender//stable"
+      "com.calibre_ebook.calibre//stable"
+      "com.usebottles.bottles//stable"
+      "org.freedesktop.Platform.VulkanLayer.gamescope//23.08"
+    ];
+    mimeDefaults = {
+      archive = "org.gnome.FileRoller.desktop";
+      browser = "org.mozilla.firefox.desktop";
+      calendar = "com.calibre_ebook.calibre.desktop";
+      document = "org.libreoffice.LibreOffice.desktop";
+      ebook = "com.calibre_ebook.calibre.desktop";
+      editor = "nvim.desktop";
+      font = "org.gnome.font-viewer.desktop";
+      image = "org.gnome.Loupe.desktop";
+      music = "io.bassi.Amberol.desktop";
+      pdf = "org.gnome.Evince.desktop";
+      video = "org.gnome.Totem.desktop";
+    };
+    services.kdeconnect.enable = true;
+  };
   my-desktop = {
     enable = true;
     catppuccinFlavour = catppuccinFlavour;
     scaleFactor = "1.25";
     cursorSize = 32;
-    services.kdeconnect.enable = true;
-    apps.alacritty = {
-      args = "[\"-ci\", \"tmux\"]";
-      shell = "zsh";
-    };
   };
 
   programs.home-manager.enable = true;

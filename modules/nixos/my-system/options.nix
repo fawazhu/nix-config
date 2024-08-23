@@ -85,7 +85,8 @@ in {
           type = listOf package;
           default = with pkgs; [
             material-design-icons
-            noto-fonts-cjk
+            noto-fonts-cjk-sans
+            noto-fonts-cjk-serif
             dejavu_fonts
             freefont_ttf
             liberation_ttf
