@@ -11,7 +11,7 @@ __fsel() {
   local cmd="${FZF_DEFAULT_COMMAND}"
   setopt localoptions pipefail 2> /dev/null
   local item
-  eval "$cmd" | fzf -m "$@" | while read item; do
+  eval "$cmd" | fzf-tmux -m "$@" | while read item; do
     echo -n "${(q)item} "
   done
   local ret=$?
@@ -34,7 +34,7 @@ fzf-history-widget() {
   local selected num
   setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
   selected=( $(fc -rl 1 | awk '{ cmd=$0; sub(/^[ \t]*[0-9]+\**[ \t]+/, "", cmd); if (!seen[cmd]++) print $0 }' |
-    FZF_PREVIEW="" FZF_DEFAULT_OPTS="-n2..,.. --scheme=history ${FZF_DEFAULT_OPTS} --query=${(qqq)LBUFFER} +m" fzf) )
+  FZF_DEFAULT_OPTS="-n2..,.. --scheme=history ${FZF_DEFAULT_OPTS} --query=${(qqq)LBUFFER} +m --preview-window='right:0%:hidden' --layout=reverse " fzf-tmux) )
   local ret=$?
   if [ -n "$selected" ]; then
     num=$selected[1]
@@ -56,7 +56,7 @@ proj() {
   local dir="$(\
     fd --base-directory="${base_dir}" -Hpu '^.*\.git$' | \
     sed -e 's#\.git/##' | \
-    FZF_DEFAULT_OPTS="--layout=reverse --preview='eza -T --color=always --icons ${base_dir}/{}' --preview-window='right:60%'" fzf \
+    FZF_DEFAULT_OPTS="--layout=reverse --preview='eza -T --color=always --icons ${base_dir}/{}' --preview-window='right:60%'" fzf-tmux \
   )"
   if [[ ${dir} != "" ]]; then
     zle push-line
