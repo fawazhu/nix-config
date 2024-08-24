@@ -37,7 +37,6 @@
           "wl-paste --watch cliphist store" # Clipboard history
           "waybar" # Top bar.
           "hyprpaper" # Desktop wallpaper.
-          "kdeconnectd" # KDE connect.
           # Startup apps
           "alacritty"
         ];
