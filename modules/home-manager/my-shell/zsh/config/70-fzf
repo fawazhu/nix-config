@@ -50,24 +50,55 @@ bindkey -M emacs '^R' fzf-history-widget
 bindkey -M vicmd '^R' fzf-history-widget
 bindkey -M viins '^R' fzf-history-widget
 
-proj() {
+get_proj() {
   local base_dir="${HOME}/git"
+  if [[ ! -d "${base_dir}" ]]; then
+    echo "$0: ${base_dir} does not exist." 1>&2
+    return 1
+  fi
+  local dir_with_git
+  if ! dir_with_git="$(fd --base-directory="${base_dir}" -Hpu '^.*\.git$')"; then
+    echo "$0: failed to search in ${base_dir}. Is fd installed?" 1>&2
+    return 2
+  fi
+  dir_with_git="$(echo -n "${dir_with_git}" | sed -e 's#/\.git/##')"
+  if [[ "${dir_with_git}" == "" ]]; then
+    echo "$0: no git projects in ${base_dir}." 1>&2
+    return 3
+  fi
+  local dir
+  local fzf_preview="eza -T --color=always --icons ${base_dir}/{}"
+  local FZF_DEFAULT_OPTS="--layout=reverse --preview='${fzf_preview}' --preview-window='right:60%'"
+  local chosen_dir
+  if ! chosen_dir="$(echo -n "${dir_with_git}" | fzf-tmux)"; then
+    echo "$0: no directory chosen." 1>&2
+    return 4
+  fi
+  echo "${base_dir}/${chosen_dir}"
+}
 
-  local dir="$(\
-    fd --base-directory="${base_dir}" -Hpu '^.*\.git$' | \
-    sed -e 's#\.git/##' | \
-    FZF_DEFAULT_OPTS="--layout=reverse --preview='eza -T --color=always --icons ${base_dir}/{}' --preview-window='right:60%'" fzf-tmux \
-  )"
-  if [[ ${dir} != "" ]]; then
-    zle push-line
-    BUFFER="cd \"${base_dir}/${dir}\""
-    zle accept-line
-    unset base_dir
-    unset dir
-    zle reset-prompt
+proj() {
+  local dir
+  if ! dir="$(get_proj)"; then
+    return $?
+  fi
+  if ! cd "${dir}"; then
+    echo "$0: failed to change directory to ${dir}." 1>&2
+    return 5
   fi
 }
-zle     -N            proj
-bindkey -M emacs '^P' proj
-bindkey -M vicmd '^P' proj
-bindkey -M viins '^P' proj
+
+proj_bind() {
+  local dir
+  if ! dir="$(get_proj)"; then
+    return $?
+  fi
+  zle push-line
+  BUFFER="cd \"${dir}\""
+  zle accept-line
+  zle reset-prompt
+}
+zle     -N            proj_bind
+bindkey -M emacs '^P' proj_bind
+bindkey -M vicmd '^P' proj_bind
+bindkey -M viins '^P' proj_bind
