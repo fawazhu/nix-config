@@ -23,11 +23,6 @@
           # Scale
           "GDK_SCALE,${config.my-desktop.scaleFactor}"
           "XDG_SESSION_TYPE,wayland"
-          "XCURSOR_SIZE,${toString (
-            if config.my-desktop.scaleFactor == 1
-            then config.my-desktop.cursorSize
-            else config.my-desktop.cursorSize + 1
-          )}" # Fix odd cursor size bug.
         ];
         # exec
         exec-once = [
