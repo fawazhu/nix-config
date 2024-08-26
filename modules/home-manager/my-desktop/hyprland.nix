@@ -106,63 +106,62 @@
         ];
 
         "$mainMod" = "SUPER";
-        bind = [
-          "$mainMod, T, exec, alacritty"
-          "$mainMod, R, exec, rofi -show drun"
-          "$mainMod, W, exec, rofi -show window"
-          "$mainMod, Q, exec, rofi -show run"
-          "$mainMod, X, killactive,"
-          "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-          "$mainMod, P, exec, swaylock &"
-          "$mainMod, O, exec, grim"
-          "$mainMod, N, exec, swaync-client -t -sw"
-          "$mainMod SHIFT, N, exec, swaync-client -d"
+        bind =
+          [
+            # Launch apps
+            "$mainMod, T, exec, alacritty"
+            "$mainMod, R, exec, rofi -show drun"
+            "$mainMod, W, exec, rofi -show window"
+            "$mainMod, Q, exec, rofi -show run"
 
-          # Window mode
-          "$mainMod, F, togglefloating,"
-          "$mainMod, G, fullscreen, 0"
-          "$mainMod, T, fullscreen, 1"
+            # Clipboard
+            "$mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-          # Move focus
-          "$mainMod, H, movefocus, l"
-          "$mainMod, L, movefocus, r"
-          "$mainMod, K, movefocus, u"
-          "$mainMod, J, movefocus, d"
-          "$mainMod, Left, movefocus, l"
-          "$mainMod, Right, movefocus, r"
-          "$mainMod, Up, movefocus, u"
-          "$mainMod, Down, movefocus, d"
+            # Lock
+            "$mainMod, P, exec, swaylock &"
 
-          # Resize windows
-          "$mainMod CTRL, H, resizeactive, -20 0"
-          "$mainMod CTRL, L, resizeactive, 20 0"
-          "$mainMod CTRL, K, resizeactive, 0 -20"
-          "$mainMod CTRL, J, resizeactive, 0 20"
+            # Notifications
+            "$mainMod, N, exec, swaync-client -t -sw"
+            "$mainMod SHIFT, N, exec, swaync-client -d"
 
-          # Swap windows
-          "$mainMod SHIFT, H, swapwindow, l"
-          "$mainMod SHIFT, L, swapwindow, r"
-          "$mainMod SHIFT, K, swapwindow, u"
-          "$mainMod SHIFT, J, swapwindow, d"
+            # Screenshot
+            ", Print, exec, GRIM_DEFAULT_DIR=${config.home.sessionVariables."GRIM_DEFAULT_DIR"} grim"
+            ''SHIFT, Print, exec, GRIM_DEFAULT_DIR=${config.home.sessionVariables."GRIM_DEFAULT_DIR"} grim -g "$( hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' )"''
+            "CTRL, Print, exec, GRIM_DEFAULT_DIR=${config.home.sessionVariables."GRIM_DEFAULT_DIR"} grim -g \"$(slurp)\""
 
-          # Move windows
-          "$mainMod ALT, H, moveintogroup, l"
-          "$mainMod ALT, L, moveintogroup, r"
-          "$mainMod ALT, K, moveintogroup, u"
-          "$mainMod ALT, J, moveintogroup, d"
+            # Window manipulation
+            "$mainMod, F, togglefloating,"
+            "$mainMod, G, fullscreen, 0"
+            "$mainMod, X, killactive,"
 
+            # Move focus
+            "$mainMod, H, movefocus, l"
+            "$mainMod, L, movefocus, r"
+            "$mainMod, K, movefocus, u"
+            "$mainMod, J, movefocus, d"
+
+            # Resize windows
+            "$mainMod CTRL, H, resizeactive, -20 0"
+            "$mainMod CTRL, L, resizeactive, 20 0"
+            "$mainMod CTRL, K, resizeactive, 0 -20"
+            "$mainMod CTRL, J, resizeactive, 0 20"
+
+            # Swap windows
+            "$mainMod SHIFT, H, swapwindow, l"
+            "$mainMod SHIFT, L, swapwindow, r"
+            "$mainMod SHIFT, K, swapwindow, u"
+            "$mainMod SHIFT, J, swapwindow, d"
+
+            # Move windows
+            "$mainMod ALT, H, movewindow, l"
+            "$mainMod ALT, L, movewindow, r"
+            "$mainMod ALT, K, movewindow, u"
+            "$mainMod ALT, J, movewindow, d"
+          ]
           # Move workspaces
-          "$mainMod, 1, workspace, 1"
-          "$mainMod, 2, workspace, 2"
-          "$mainMod, 3, workspace, 3"
-          "$mainMod, 4, workspace, 4"
-
-          # Move active window to a workspace with mainMod + SHIFT + [0-9]
-          "$mainMod SHIFT, 1, movetoworkspace, 1"
-          "$mainMod SHIFT, 2, movetoworkspace, 2"
-          "$mainMod SHIFT, 3, movetoworkspace, 3"
-          "$mainMod SHIFT, 4, movetoworkspace, 4"
-        ];
+          ++ builtins.map (w: "$mainMod, ${w}, workspace, ${w}") (builtins.genList (i: builtins.toString (i + 1)) 9)
+          # Move active window to a workspace
+          ++ builtins.map (w: "$mainMod SHIFT, ${w}, movetoworkspace, ${w}") (builtins.genList (i: builtins.toString (i + 1)) 9);
 
         bindl = [
           ", xf86monbrightnessup, exec, brightnessctl s -- +5"

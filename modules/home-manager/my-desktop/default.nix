@@ -17,6 +17,7 @@
       libsForQt5.polkit-kde-agent
       wl-clipboard
       grim
+      slurp
     ];
 
     services.blueman-applet.enable = true;
