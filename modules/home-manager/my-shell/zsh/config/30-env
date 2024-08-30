@@ -13,7 +13,3 @@ alias ll='ls -l'
 alias lla='ls -la'
 alias vim="${EDITOR}"
 alias vimdiff="${EDITOR} -d"
-
-if [ -d ~/.local/share/venv ]; then
-  source ~/.local/share/venv/bin/activate
-fi

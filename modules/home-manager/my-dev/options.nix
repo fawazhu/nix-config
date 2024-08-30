@@ -73,7 +73,6 @@ in {
         lazygit = nestedEnableOptions {name = "lazygit";};
         codeium = nestedEnableOptions {name = "codeium";};
         tabnine = nestedEnableOptions {name = "codeium";};
-        virtualenv = nestedEnableOptions {name = "virtualenv";};
       };
     };
     default = {};

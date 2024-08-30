@@ -55,7 +55,6 @@ in {
       codeium.enable = false;
       tabnine.enable = true;
       hcpvault.enable = false;
-      virtualenv.enable = true;
     };
   };
   my-shell = {
