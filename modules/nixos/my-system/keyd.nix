@@ -4,15 +4,20 @@
       [ids]
       *
       [main]
-      capslock = overload(inverse, esc)
+      capslock = esc
       esc = noop
-      leftalt = oneshot(alt)
-      rightalt = oneshot(altgr)
-      shift = oneshot(shift)
-      meta = oneshot(meta)
-      control = oneshot(control)
-      [inverse]
-      j = clear()
+      leftalt = oneshot(myalt)
+      shift = oneshot(myshift)
+      meta = oneshot(mymeta)
+      control = oneshot(mycontrol)
+      [myalt:A]
+      leftalt = clear()
+      [myshift:S]
+      shift = clear()
+      [mymeta:M]
+      meta = clear()
+      [mycontrol:C]
+      control = clear()
     '';
   };
 
