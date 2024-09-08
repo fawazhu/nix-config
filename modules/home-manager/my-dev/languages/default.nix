@@ -311,7 +311,14 @@ in {
       ${
         if l.nix.enable
         then ''
-          lspconfig.nil_ls.setup({})
+          lspconfig.nil_ls.setup({
+            nix = {
+              flake = {
+                autoArchive = true,
+                autoEvalInputs = true,
+              },
+            },
+          })
         ''
         else ""
       }
