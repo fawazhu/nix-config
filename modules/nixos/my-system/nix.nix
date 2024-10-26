@@ -8,7 +8,7 @@
     nixpkgs.config.allowUnfree = true;
 
     nix = {
-      package = pkgs.nixFlakes;
+      package = pkgs.nix;
       gc = {
         automatic = true;
         dates = "weekly";
