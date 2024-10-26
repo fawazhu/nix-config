@@ -9,6 +9,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.systemd-boot.enable = true;
+  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" = {
     device = "/dev/mapper/crypt-root";
@@ -56,4 +57,5 @@
   hardware.nvidia.open = false;
 
   services.xserver.videoDrivers = ["nvidia"];
+  services.udisks2.enable = true;
 }
