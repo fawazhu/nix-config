@@ -23,6 +23,7 @@
           # Scale
           "GDK_SCALE,${config.my-desktop.scaleFactor}"
           "XDG_SESSION_TYPE,wayland"
+          "GSK_RENDERER,ngl"
         ];
         # exec
         exec-once = [
