@@ -1,6 +1,6 @@
 keys:
   - &root age1a890chv8t8nqzxw6vzusmtwc4mqhqtsevx4xpgj0ez7jr0a8napq937kys
-  - &fawaz age1zpc6ej5qaa8nxre64ud0xsgxkhj0gqre7md4ykwty34qnpe9qfgq6cl5d8
+  - &fawaz  age1svalf38a399953h6c7k905p40yt0w5q04dcy3y0w233ak4ez9dqqyk2nhx
 creation_rules:
   - path_regex: hosts/laptop/system-secrets.yaml
     key_groups:
