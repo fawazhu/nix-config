@@ -2,18 +2,12 @@
   config,
   pkgs,
   ...
-}: let
-  userName = "fawaz";
-in {
-  sops.defaultSopsFile = ./system-secrets.yaml;
+}: {
+  sops.defaultSopsFile = ../secrets.yaml;
   sops.age.keyFile = "/etc/sops/age/keys.txt";
-  environment.systemPackages = [pkgs.sops];
 
   sops.secrets.home_wifi_ssid = {};
   sops.secrets.home_wifi_password = {};
-  sops.secrets.password_fawaz.neededForUsers = true;
-  sops.secrets.password_guest.neededForUsers = true;
-
   sops.templates."home-wifi.nmconnections" = {
     path = "/etc/NetworkManager/system-connections/home-wifi.nmconnections";
     content = ''
@@ -41,20 +35,9 @@ in {
       [proxy]
     '';
   };
-  users.users."${userName}".hashedPasswordFile = config.sops.secrets.password_fawaz.path;
-  users.users.guest.hashedPasswordFile = config.sops.secrets.password_guest.path;
 
-  imports = [../../modules/nixos/my-system];
+  sops.secrets.password.neededForUsers = true;
+  users.users.fawaz.hashedPasswordFile = config.sops.secrets.password.path;
 
-  my-system = {
-    enable = true;
-    bootstrap = true;
-    desktop.enable = true;
-    flatpak.enable = true;
-    keyd.enable = true;
-    hostname = "fawaz-laptop";
-    user.name = userName;
-  };
-
-  system.stateVersion = "24.05";
+  environment.systemPackages = [pkgs.sops];
 }

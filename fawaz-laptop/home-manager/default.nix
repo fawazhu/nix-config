@@ -12,8 +12,8 @@ in {
   home.username = "fawaz";
   home.homeDirectory = "/home/fawaz";
 
-  sops.defaultSopsFile = ./fawaz-secrets.yaml;
-  sops.age.keyFile = "/home/fawaz/.config/sops/age/keys.txt";
+  sops.defaultSopsFile = ../secrets.yaml;
+  sops.age.keyFile = "/etc/sops/age/keys.txt";
 
   sops.secrets.ssh_private_key = {
     mode = "0400";

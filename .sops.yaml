@@ -1,12 +1,7 @@
 keys:
-  - &root age1a890chv8t8nqzxw6vzusmtwc4mqhqtsevx4xpgj0ez7jr0a8napq937kys
-  - &fawaz  age1svalf38a399953h6c7k905p40yt0w5q04dcy3y0w233ak4ez9dqqyk2nhx
+  - &fawaz-laptop age1a890chv8t8nqzxw6vzusmtwc4mqhqtsevx4xpgj0ez7jr0a8napq937kys
 creation_rules:
-  - path_regex: hosts/laptop/system-secrets.yaml
+  - path_regex: fawaz-laptop/secrets.yaml
     key_groups:
       - age:
-        - *root
-  - path_regex: hosts/laptop/fawaz-secrets.yaml
-    key_groups:
-      - age:
-        - *fawaz
+          - *fawaz-laptop
