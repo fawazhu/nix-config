@@ -5,7 +5,7 @@
   ...
 }: let
   t = config.my-dev.tools;
-  granted = pkgs.granted.overrideAttrs (finalAttrs: previousAttrs: {CGO_ENABLED = false;});
+  granted = pkgs.granted.overrideAttrs (finalAttrs: previousAttrs: {CGO_ENABLED = 0;});
 in {
   config = lib.mkIf config.my-dev.enable {
     home.packages = with pkgs;
