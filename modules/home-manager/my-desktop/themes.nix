@@ -8,7 +8,6 @@
   iconThemeName = config.my-desktop.iconTheme.name;
   gtkThemeName = "catppuccin-${flavour}-sky-standard";
   cursorThemeName = "catppuccin-${flavour}-sky-cursors";
-  catppuccin-cursors = pkgs.callPackage ./catppuccin-cursors.nix {};
 in {
   config = lib.mkIf config.my-desktop.enable {
     home.sessionVariables.GTK_THEME = gtkThemeName;
@@ -30,14 +29,14 @@ in {
       name = cursorThemeName;
       package =
         if flavour == "latte"
-        then catppuccin-cursors.latteSky
+        then pkgs.catppuccin-cursors.latteSky
         else if flavour == "mocha"
-        then catppuccin-cursors.mochaSky
+        then pkgs.catppuccin-cursors.mochaSky
         else if flavour == "macchiato"
-        then catppuccin-cursors.macchiatoSky
+        then pkgs.catppuccin-cursors.macchiatoSky
         else if flavour == "frappe"
-        then catppuccin-cursors.frappeSky
-        else catppuccin-cursors.latteSky; # Fallback
+        then pkgs.catppuccin-cursors.frappeSky
+        else pkgs.catppuccin-cursors.latteSky; # Fallback
       gtk.enable = true;
       x11.enable = true;
       size = config.my-desktop.cursorSize;
