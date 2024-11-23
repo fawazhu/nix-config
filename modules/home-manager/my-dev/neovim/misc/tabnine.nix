@@ -12,7 +12,7 @@
     src = fetchGit {
       url = "https://github.com/codota/tabnine-nvim.git";
       name = "tabnine-nvim";
-      rev = "ccca333171125f9ebef619d6530815931988b2df";
+      rev = "3ae92fc4fa8b82bfc70fba9d0741fdb5842e74c1";
       submodules = true;
     };
     buildInputs = [pkgs.unzip pkgs.curl];

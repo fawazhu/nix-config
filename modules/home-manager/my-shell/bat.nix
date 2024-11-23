@@ -11,8 +11,8 @@
       src = fetchFromGitHub {
         owner = "catppuccin";
         repo = "bat";
-        rev = "d714cc1d358ea51bfc02550dabab693f70cccea0";
-        sha256 = "sha256-Q5B4NDrfCIK3UAMs94vdXnR42k4AXCqZz6sRn8bzmf4=";
+        rev = "d2bbee4f7e7d5bac63c054e4d8eca57954b31471";
+        sha256 = "sha256-x1yqPCWuoBSx/cI94eA+AWwhiSA42cLNUOFJl7qjhmw=";
       };
       buildInputs = [bat];
       buildPhase = ''

@@ -9,8 +9,8 @@
       ".local/share/rofi/themes".source = "${pkgs.fetchFromGitHub {
         owner = "catppuccin";
         repo = "rofi";
-        rev = "5350da41a11814f950c3354f090b90d4674a95ce";
-        sha256 = "sha256-DNorfyl3C4RBclF2KDgwvQQwixpTwSRu7fIvihPN8JY=";
+        rev = "b636a00fd40a7899a8206195464ae8b7f0450a6d";
+        sha256 = "sha256-zA8Zum19pDTgn0KdQ0gD2kqCOXK4OCHBidFpGwrJOqg=";
       }}/basic/.local/share/rofi/themes";
       ".local/bin/rofi-power-menu".source = "${pkgs.fetchFromGitHub {
         owner = "jluttine";

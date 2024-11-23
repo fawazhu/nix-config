@@ -9,8 +9,8 @@
       "waybar/themes".source = pkgs.fetchFromGitHub {
         owner = "catppuccin";
         repo = "waybar";
-        rev = "v1.0";
-        sha256 = "sha256-vfwfBE3iqIN1cGoItSssR7h0z6tuJAhNarkziGFlNBw=";
+        rev = "v1.1";
+        sha256 = "sha256-9lY+v1CTbpw2lREG/h65mLLw5KuT8OJdEPOb+NNC6Fo=";
       };
       "waybar/config".text = ''
         {
@@ -129,7 +129,7 @@
         }
       '';
       "waybar/style.css".text = ''
-        @import "themes/${config.my-desktop.catppuccinFlavour}.css";
+        @import "themes/themes/${config.my-desktop.catppuccinFlavour}.css";
 
         * {
           font-family: ${config.my-desktop.fonts.mono.name};
