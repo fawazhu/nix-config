@@ -8,6 +8,7 @@
     ./secrets.nix
   ];
 
+  environment.localBinInPath = true;
   networking.hostName = "fawaz-laptop";
   system.stateVersion = "24.11";
 }
