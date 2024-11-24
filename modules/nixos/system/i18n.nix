@@ -1,6 +1,5 @@
 {...}: {
   console = {
-    font = "lat2-16";
     keyMap = "uk";
   };
   i18n = {
