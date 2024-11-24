@@ -1,7 +1,4 @@
 {pkgs, ...}: {
-  services.greetd.enable = true;
-  services.greetd.settings.default_session.command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-
   services.gnome.gnome-keyring.enable = true;
   services.dbus.enable = true;
   services.blueman.enable = true;

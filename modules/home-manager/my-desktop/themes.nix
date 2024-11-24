@@ -5,7 +5,7 @@
   ...
 }: let
   flavour = config.my-desktop.catppuccinFlavour;
-  iconThemeName = config.my-desktop.iconTheme.name;
+  iconThemeName = if flavour == "latte" then "Tela-circle" else "Tela-circle-dark";
   gtkThemeName = "catppuccin-${flavour}-sky-standard";
   cursorThemeName = "catppuccin-${flavour}-sky-cursors";
 in {
