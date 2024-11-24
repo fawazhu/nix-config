@@ -4,7 +4,10 @@
   boot.initrd.luks.devices."crypt-root" = {
     device = "/dev/disk/by-uuid/6a8819c2-b614-4d5e-8b3c-1232f1d489ea";
     bypassWorkqueues = true;
+    allowDiscards = true;
+    crypttabExtraOpts = [ "tpm2-device=auto" "tpm2-measure-pcr=yes" ];
   };
+  boot.initrd.systemd.enable = true;
   boot.kernelModules = ["kvm-intel"];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
