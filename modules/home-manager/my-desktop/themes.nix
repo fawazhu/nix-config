@@ -60,5 +60,13 @@ in {
         };
       };
     };
+
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        "cursor-theme" = cursorThemeName;
+        "icon-theme" = iconThemeName;
+        "gtk-theme" = gtkThemeName;
+      };
+    };
   };
 }

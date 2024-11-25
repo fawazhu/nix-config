@@ -24,6 +24,7 @@
   };
 
   imports = [
+    ./gnome.nix
     ./hyprland.nix
     ./rofi.nix
     ./swaylock.nix

@@ -76,6 +76,10 @@ in rec {
           defaultName = "Noto Sans";
           defaultPackage = pkgs.noto-fonts;
         };
+        serif = fontOptions {
+          defaultName = "Noto Serif";
+          defaultPackage = pkgs.noto-fonts;
+        };
         mono = fontOptions {
           defaultName = "JetBrainsMono Nerd Font";
           defaultPackage = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
