@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   services.gnome.gnome-keyring.enable = true;
   services.dbus.enable = true;
   services.blueman.enable = true;
@@ -26,23 +22,4 @@
     pkgs.xdg-desktop-portal-gtk
     pkgs.xdg-desktop-portal-hyprland
   ];
-
-  boot = {
-    plymouth = {
-      enable = true;
-      theme = "catppuccin-${config.my-desktop.catppuccinFlavour}";
-      themePackages = [(pkgs.catppuccin-plymouth.override {variant = config.my-desktop.catppuccinFlavour;})];
-    };
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "loglevel=3"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-    ];
-  };
 }

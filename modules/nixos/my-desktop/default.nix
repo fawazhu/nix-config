@@ -1,8 +1,8 @@
 {lib, ...}: {
   imports = [
+    ./boot.nix
     ./fonts.nix
     ./extra.nix
-    ./greetd.nix
   ];
 
   options.my-desktop.catppuccinFlavour = lib.mkOption {
