@@ -2,7 +2,9 @@
   services.gnome.gnome-keyring.enable = true;
   services.dbus.enable = true;
   services.blueman.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
   programs.dconf.enable = true;
+  programs.hyprland.enable = true;
   security.pam.services.swaylock = {};
 
   environment.systemPackages = with pkgs; [
