@@ -12,12 +12,6 @@
         rev = "b636a00fd40a7899a8206195464ae8b7f0450a6d";
         sha256 = "sha256-zA8Zum19pDTgn0KdQ0gD2kqCOXK4OCHBidFpGwrJOqg=";
       }}/basic/.local/share/rofi/themes";
-      ".local/bin/rofi-power-menu".source = "${pkgs.fetchFromGitHub {
-        owner = "jluttine";
-        repo = "rofi-power-menu";
-        rev = "3.1.0";
-        sha256 = "sha256-VPCfmCTr6ADNT7MW4jiqLI/lvTjlAu1QrCAugiD0toU=";
-      }}/rofi-power-menu";
     };
 
     xdg.configFile."rofi/config.rasi".text = ''
@@ -39,6 +33,6 @@
       @theme "catppuccin-${config.my-desktop.catppuccinFlavour}"
     '';
 
-    home.packages = [pkgs.rofi-wayland-unwrapped];
+    home.packages = [pkgs.rofi-wayland-unwrapped pkgs.rofi-power-menu];
   };
 }
