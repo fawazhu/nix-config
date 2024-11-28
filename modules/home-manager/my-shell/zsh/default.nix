@@ -1,9 +1,11 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   flavour = config.my-shell.catppuccinFlavour;
+  captializedFlavour = (lib.toUpper (builtins.substring 0 1 flavour)) + (builtins.substring 1 (-1) flavour);
 in {
   config = lib.mkIf config.my-shell.enable {
     xdg.configFile."zsh/default".source = ./config;
@@ -16,12 +18,13 @@ in {
       initExtra = ''
         export EDITOR=${config.my-shell.editor}
         export TERM=${config.my-shell.terminal}
-        export BAT_THEME="Catppuccin ${(lib.toUpper (builtins.substring 0 1 flavour)) + (builtins.substring 1 (-1) flavour)}"
+        export BAT_THEME="Catppuccin ${captializedFlavour}"
 
         for rc in ~/.config/zsh/default/*; do
           . $rc
         done
         . ~/.config/zsh/custom.sh
+        . ${pkgs.awscli2}/bin/aws_zsh_completer.sh
       '';
     };
 
