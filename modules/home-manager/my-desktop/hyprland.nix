@@ -3,11 +3,16 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  wallpaper =
+    if config.my-desktop.catppuccinFlavour == "latte"
+    then "1.png"
+    else "2.png";
+in {
   config = lib.mkIf config.my-desktop.enable {
     xdg.configFile."hypr/hyprpaper.conf".text = ''
-      preload = ~/Pictures/Wallpapers/1.png
-      wallpaper = ,~/Pictures/Wallpapers/1.png
+      preload = ~/Pictures/Wallpapers/${wallpaper}
+      wallpaper = ,~/Pictures/Wallpapers/${wallpaper}
 
       ipc = off
       splash = true

@@ -8,7 +8,7 @@
     ./secrets.nix
   ];
 
-  my-desktop.catppuccinFlavour = "latte";
+  my-desktop.catppuccinFlavour = "macchiato";
   environment.localBinInPath = true;
   networking.hostName = "fawaz-laptop";
   system.stateVersion = "24.11";
