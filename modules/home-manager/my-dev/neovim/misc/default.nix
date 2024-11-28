@@ -1,12 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  imports = [./codeium.nix ./tabnine.nix];
+{pkgs, ...}: {
+  imports = [./tabnine.nix];
 
-  config = lib.mkIf config.my-dev.enable {
+  config = {
     programs.neovim.plugins = with pkgs.vimPlugins; [
       undotree
       indent-blankline-nvim

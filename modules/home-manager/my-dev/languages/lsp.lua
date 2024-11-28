@@ -1,5 +1,0 @@
-vim.keymap.set("v", "<leader>r", vim.lsp.buf.rename)
-vim.keymap.set("n", "gc", vim.lsp.buf.code_action)
-vim.keymap.set("i", "<c-h>", vim.lsp.buf.hover)
-vim.keymap.set("n", "<c-h>", vim.lsp.buf.hover)
-vim.keymap.set("v", "<c-h>", vim.lsp.buf.hover)

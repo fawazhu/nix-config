@@ -1,6 +1,6 @@
 -- Remove trailing spaces.
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = {"*"},
+    pattern = { "*" },
     callback = function()
         local save_cursor = vim.fn.getpos(".")
         vim.cmd([[%s/\s\+$//e]])

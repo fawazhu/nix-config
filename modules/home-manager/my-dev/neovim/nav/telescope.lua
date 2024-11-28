@@ -15,7 +15,7 @@ vim.keymap.set('n', '<leader>ps', function()
     telescope_builtin.grep_string({
         search = vim.fn.input('Grep: '),
         vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column',
-          '--smart-case', '--hidden', '--glob=!\\.git/**/*' }
+            '--smart-case', '--hidden', '--glob=!\\.git/**/*' }
     })
 end)
 vim.keymap.set('n', '<leader>pb', telescope_builtin.buffers, {})

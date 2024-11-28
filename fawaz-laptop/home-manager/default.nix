@@ -1,12 +1,16 @@
-{config, pkgs, ...}: let
-  terminal = "alacritty";
+{
+  config,
+  pkgs,
+  flake-inputs,
+  ...
+}: let
   catppuccinFlavour = "macchiato";
 in {
   imports = [
-    ../../modules/home-manager/my-apps
+    flake-inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ../../modules/home-manager/my-desktop
     ../../modules/home-manager/my-dev
-    ../../modules/home-manager/my-shell
+    ./flatpak-packages.nix
   ];
 
   home.username = "fawaz";
@@ -24,89 +28,31 @@ in {
     path = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
   };
 
+  programs.git = {
+    userName = "Fawaz Hussain";
+    userEmail = "fawazsana@gmail.com";
+  };
   my-dev = {
-    enable = true;
-    terminal = terminal;
+    ai = true;
     catppuccinFlavour = catppuccinFlavour;
-    languages = {
-      ansible.enable = true;
-      bash.enable = true;
-      css.enable = true;
-      docker.enable = true;
-      go.enable = true;
-      graphql.enable = true;
-      html.enable = true;
-      javascript.enable = true;
-      json.enable = true;
-      lua.enable = true;
-      markdown.enable = true;
-      nix.enable = true;
-      packer.enable = true;
-      python.enable = true;
-      rust.enable = true;
-      terraform.enable = true;
-      toml.enable = true;
-      xml.enable = true;
-      yaml.enable = true;
-    };
-    tools = {
-      awscli.enable = true;
-      lazygit.enable = true;
-      codeium.enable = false;
-      tabnine.enable = true;
-      hcpvault.enable = false;
-    };
+    fonts.mono = "JetBrainsMono Nerd Font";
   };
-  my-shell = {
-    enable = true;
-    git = {
-      userName = "Fawaz Hussain";
-      userEmail = "fawazsana@gmail.com";
-    };
-    editor = "nvim";
-    terminal = terminal;
+
+  services.flatpak.remotes = [
+    {
+      name = "flathub";
+      location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+    }
+  ];
+  services.flatpak.update.auto.enable = true;
+  services.flatpak.update.auto.onCalendar = "weekly";
+  home.packages = with pkgs; [seahorse nautilus file-roller gparted];
+
+  my-desktop = {
     catppuccinFlavour = catppuccinFlavour;
-  };
-  my-apps = {
-    enable  = true;
-    catppuccinFlavour = catppuccinFlavour;
-    alacritty = {
-      enable = true;
-      args = "[\"-ci\", \"tmux\"]";
-      shell = "zsh";
-    };
-    packages = with pkgs; [
-      seahorse
-      nautilus
-      file-roller
-      gparted
-    ];
-    flatpak.packages = [
-      "ca.desrt.dconf-editor//stable"
-      "com.github.tchx84.Flatseal//stable"
-      "org.gnome.Calculator//stable"
-      "org.gnome.Loupe//stable"
-      "org.gnome.baobab//stable"
-      "org.gnome.font-viewer//stable"
-      "org.inkscape.Inkscape//stable"
-      "org.mozilla.firefox//stable"
-      "org.onlyoffice.desktopeditors//stable"
-      "org.gnome.Calendar//stable"
-      "org.gnome.Evince//stable"
-      "org.gnome.Totem//stable"
-      "io.bassi.Amberol//stable"
-      "org.kde.krita//stable"
-      "org.kde.kdenlive//stable"
-      "org.videolan.VLC//stable"
-      "com.brave.Browser//stable"
-      "org.libreoffice.LibreOffice//stable"
-      "org.blender.Blender//stable"
-      "com.calibre_ebook.calibre//stable"
-      "com.usebottles.bottles//stable"
-      "org.freedesktop.Platform.VulkanLayer.gamescope//23.08"
-    ];
+    scaleFactor = "1.25";
+    cursorSize = 32;
     mimeDefaults = {
-      enable = true;
       archive = "org.gnome.FileRoller.desktop";
       browser = "org.mozilla.firefox.desktop";
       calendar = "com.calibre_ebook.calibre.desktop";
@@ -119,13 +65,6 @@ in {
       pdf = "org.gnome.Evince.desktop";
       video = "org.gnome.Totem.desktop";
     };
-    services.kdeconnect.enable = true;
-  };
-  my-desktop = {
-    enable = true;
-    catppuccinFlavour = catppuccinFlavour;
-    scaleFactor = "1.25";
-    cursorSize = 32;
   };
 
   programs.home-manager.enable = true;

@@ -4,8 +4,6 @@
   pkgs,
   ...
 }: let
-  enable = config.my-dev.tools.tabnine.enable;
-  # Right now this requires you to define manual version.
   tabnine-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "tabnine";
     version = "master";
@@ -22,20 +20,9 @@
     '';
   };
 in {
-  config = lib.mkIf enable {
+  config = lib.mkIf config.my-dev.ai {
     home.packages = [pkgs.tabnine];
     programs.neovim.plugins = [tabnine-nvim];
-
-    xdg.configFile."nvim/after/plugin/tabnine.lua".text = ''
-      require('tabnine').setup({
-        disable_auto_comment=true,
-        accept_keymap="<c-q>",
-        dismiss_keymap = "<C-]>",
-        debounce_ms = 500,
-        suggestion_color = {gui = "#808080", cterm = 244},
-        exclude_filetypes = {"TelescopePrompt", "NvimTree"},
-        log_file_path = nil, -- absolute path to Tabnine log file
-      })
-    '';
+    xdg.configFile."nvim/after/plugin/tabnine.lua".source = ./tabnine.lua;
   };
 }

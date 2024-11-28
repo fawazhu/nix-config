@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: let
@@ -15,13 +14,9 @@
         sha256 = "sha256-x1yqPCWuoBSx/cI94eA+AWwhiSA42cLNUOFJl7qjhmw=";
       };
       buildInputs = [bat];
-      buildPhase = ''
-        bat cache --build --source . --target $out
-      '';
+      buildPhase = "bat cache --build --source . --target $out";
     };
 in {
-  config = lib.mkIf config.my-shell.enable {
-    home.packages = [pkgs.bat];
-    home.file."${config.xdg.cacheHome}/bat".source = catppuccin-bat;
-  };
+  home.packages = [pkgs.bat];
+  home.file."${config.xdg.cacheHome}/bat".source = catppuccin-bat;
 }

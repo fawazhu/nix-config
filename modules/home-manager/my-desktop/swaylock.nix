@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: let
@@ -87,42 +86,36 @@
     then "f5e0dc"
     else transparent;
 in {
-  config = lib.mkIf config.my-desktop.enable {
-    xdg.configFile."swaylock/config".text = ''
-      ignore-empty-password
-      hide-keyboard-layout
-      disable-caps-lock-text
-
-      color=${base}
-      bs-hl-color=${rosewater}
-      caps-lock-bs-hl-color=${rosewater}
-      caps-lock-key-hl-color=${green}
-      inside-color=${transparent}
-      inside-clear-color=${transparent}
-      inside-caps-lock-color=${transparent}
-      inside-ver-color=${transparent}
-      inside-wrong-color=${transparent}
-      key-hl-color=${green}
-      layout-bg-color=${transparent}
-      layout-border-color=${transparent}
-      layout-text-color=${text}
-      line-color=${transparent}
-      line-clear-color=${transparent}
-      line-caps-lock-color=${transparent}
-      line-ver-color=${transparent}
-      line-wrong-color=${transparent}
-      ring-color=${lavendar}
-      ring-clear-color=${rosewater}
-      ring-caps-lock-color=${peach}
-      ring-ver-color=${blue}
-      ring-wrong-color=${maroon}
-      separator-color=${transparent}
-      text-color=${text}
-      text-clear-color=${rosewater}
-      text-caps-lock-color=${peach}
-      text-ver-color=${blue}
-      text-wrong-color=${maroon}
-    '';
-    home.packages = [pkgs.swaylock];
+  programs.swaylock.enable = true;
+  programs.swaylock.settings = {
+    ignore-empty-password = true;
+    hide-keyboard-layout = true;
+    disable-caps-lock-text = true;
+    color = base;
+    bs-hl-color = rosewater;
+    caps-lock-bs-hl-color = rosewater;
+    caps-lock-key-hl-color = green;
+    inside-color = transparent;
+    inside-clear-color = transparent;
+    inside-caps-lock-color = transparent;
+    inside-ver-color = transparent;
+    inside-wrong-color = transparent;
+    key-hl-color = green;
+    layout-bg-color = transparent;
+    layout-border-color = transparent;
+    layout-text-color = text;
+    line-color = transparent;
+    line-clear-color = transparent;
+    line-caps-lock-color = transparent;
+    line-ver-color = transparent;
+    line-wrong-color = transparent;
+    ring-color = lavendar;
+    ring-clear-color = rosewater;
+    ring-caps-lock-color = peach;
+    ring-ver-color = blue;
+    ring-wrong-color = maroon;
+    separator-color = transparent;
+    text-color = text;
+    text-clear-color = rosewater;
   };
 }

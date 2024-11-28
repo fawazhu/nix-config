@@ -5,6 +5,12 @@
 }:
 with lib;
 with types; let
+  appMimeDefaultOptions = {name}:
+    mkOption {
+      type = str;
+      default = null;
+      description = mkDoc "Configure default app for ${name}.";
+    };
   fontOptions = {
     defaultName,
     defaultPackage,
@@ -27,12 +33,7 @@ with types; let
       default = {};
       description = mkDoc "Configure font.";
     };
-in rec {
-  enable = mkOption {
-    type = bool;
-    default = false;
-    description = mkDoc "Whether to enable my-desktop.";
-  };
+in {
   catppuccinFlavour = mkOption {
     type = str;
     default = "latte"; # fallback
@@ -40,29 +41,8 @@ in rec {
   };
   scaleFactor = mkOption {
     type = str;
-    default = "1.25";
+    default = "1";
     description = mkDoc "Scale factor to use.";
-  };
-  iconTheme = mkOption {
-    type = submodule {
-      options = {
-        name = mkOption {
-          type = str;
-          default =
-            if catppuccinFlavour == "latte"
-            then "Tela-circle"
-            else "Tela-circle-dark";
-          description = mkDoc "Icon theme to use.";
-        };
-        package = mkOption {
-          type = package;
-          default = pkgs.tela-circle-icon-theme;
-          description = mkDoc "Icon theme package to use.";
-        };
-      };
-    };
-    default = {};
-    description = mkDoc "Configure icon theme.";
   };
   cursorSize = mkOption {
     type = int;
@@ -88,5 +68,24 @@ in rec {
     };
     default = {};
     description = mkDoc "Configure font.";
+  };
+  mimeDefaults = mkOption {
+    type = submodule {
+      options = {
+        archive = appMimeDefaultOptions {name = "archive";};
+        browser = appMimeDefaultOptions {name = "browser";};
+        calendar = appMimeDefaultOptions {name = "calendar";};
+        document = appMimeDefaultOptions {name = "document";};
+        ebook = appMimeDefaultOptions {name = "ebook";};
+        editor = appMimeDefaultOptions {name = "editor";};
+        font = appMimeDefaultOptions {name = "font";};
+        image = appMimeDefaultOptions {name = "image";};
+        music = appMimeDefaultOptions {name = "music";};
+        pdf = appMimeDefaultOptions {name = "pdf";};
+        video = appMimeDefaultOptions {name = "video";};
+      };
+    };
+    default = {};
+    description = mkDoc "Configure default apps.";
   };
 }
