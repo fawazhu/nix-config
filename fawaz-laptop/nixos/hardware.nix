@@ -52,13 +52,13 @@
   # hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages = [pkgs.intel-media-driver];
 
-  # hardware.nvidia.modesetting.enable = true;
-  # hardware.nvidia.nvidiaSettings = true;
-  # hardware.nvidia.prime.intelBusId = "PCI:0:2:0";
-  # hardware.nvidia.prime.nvidiaBusId = "PCI:1:0:0";
-  # hardware.nvidia.prime.offload.enable = true;
-  # hardware.nvidia.open = false;
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.nvidiaSettings = true;
+  hardware.nvidia.prime.intelBusId = "PCI:0:2:0";
+  hardware.nvidia.prime.nvidiaBusId = "PCI:1:0:0";
+  hardware.nvidia.prime.offload.enable = true;
+  hardware.nvidia.open = false;
 
-  # services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia"];
   services.udisks2.enable = true;
 }
