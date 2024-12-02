@@ -23,7 +23,7 @@ in {
   programs.alacritty.settings = {
     general.import = ["${catppuccin-alacritty}/catppuccin-${config.my-dev.catppuccinFlavour}.toml"];
     font.normal = {
-      family = config.my-dev.fonts.mono;
+      family = "JetBrainsMono Nerd Font";
       style = "Regular";
     };
     terminal.shell = {

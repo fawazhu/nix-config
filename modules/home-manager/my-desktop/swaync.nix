@@ -149,7 +149,7 @@ in {
     * {
       all: unset;
       font-size: 14px;
-      font-family: "${config.my-desktop.fonts.mono.name}";
+      font-family: JetBrainsMono Nerd Font;
       transition: 200ms;
     }
 

@@ -16,9 +16,9 @@
         then "prefer-light"
         else "prefer-dark";
       font-antialiasing = "rgba";
-      document-font-name = "${config.my-desktop.fonts.serif.name} 11";
-      font-name = "${config.my-desktop.fonts.sans.name} 10";
-      monospace-font-name = "${config.my-desktop.fonts.mono.name} 10";
+      document-font-name = "Noto Serif 11";
+      font-name = "Noto Sans 10";
+      monospace-font-name = "JetBrainsMono Nerd Font 10";
       scaling-factor = 1.25;
     };
     "org/gnome/mutter" = {

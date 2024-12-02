@@ -130,7 +130,7 @@
       @import "themes/themes/${config.my-desktop.catppuccinFlavour}.css";
 
       * {
-        font-family: ${config.my-desktop.fonts.mono.name};
+        font-family: JetBrainsMono Nerd Font;
         font-size: 17px;
         min-height: 0;
       }

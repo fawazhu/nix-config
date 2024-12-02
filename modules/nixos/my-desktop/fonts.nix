@@ -1,10 +1,8 @@
-{pkgs, ...}: let
-  jetbrainsmononf = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-in {
+{pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
       noto-fonts
-      jetbrainsmononf
+      nerd-fonts.jetbrains-mono
       noto-fonts-emoji
       material-design-icons
       noto-fonts-cjk-sans

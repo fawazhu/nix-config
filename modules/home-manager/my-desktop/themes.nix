@@ -45,10 +45,7 @@ in {
 
   gtk = {
     enable = true;
-    font = {
-      name = config.my-desktop.fonts.sans.name;
-      package = config.my-desktop.fonts.sans.package;
-    };
+    font.name = "Noto Sans";
     iconTheme = {
       name = iconThemeName;
       package = pkgs.tela-circle-icon-theme;

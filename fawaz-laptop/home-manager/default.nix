@@ -32,11 +32,8 @@ in {
     userName = "Fawaz Hussain";
     userEmail = "fawazsana@gmail.com";
   };
-  my-dev = {
-    ai = true;
-    catppuccinFlavour = catppuccinFlavour;
-    fonts.mono = "JetBrainsMono Nerd Font";
-  };
+  my-dev.ai = true;
+  my-dev.catppuccinFlavour = catppuccinFlavour;
 
   services.flatpak.remotes = [
     {
