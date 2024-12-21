@@ -38,6 +38,7 @@ in {
       graphviz
       imagemagick
     ];
+    services.podman.enable = true;
   };
 
   imports = [
