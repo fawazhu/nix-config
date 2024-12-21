@@ -17,7 +17,7 @@ in {
       lazygit
       pre-commit
       # Vault
-      vault
+      vault-bin
       # Data manipulation
       jq
       xq-xml
@@ -37,6 +37,8 @@ in {
       ffmpeg_7-full
       graphviz
       imagemagick
+      # Container tools
+      podman-compose
     ];
     services.podman.enable = true;
   };
