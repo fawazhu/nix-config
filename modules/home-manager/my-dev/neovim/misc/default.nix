@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./tabnine.nix];
+  imports = [./ai.nix];
 
   config = {
     programs.neovim.plugins = with pkgs.vimPlugins; [
