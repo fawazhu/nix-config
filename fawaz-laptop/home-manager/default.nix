@@ -4,7 +4,7 @@
   flake-inputs,
   ...
 }: let
-  catppuccinFlavour = "macchiato";
+  catppuccinFlavour = "latte";
 in {
   imports = [
     flake-inputs.nix-flatpak.homeManagerModules.nix-flatpak
