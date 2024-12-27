@@ -26,7 +26,7 @@ in {
     preload = ["~/Pictures/Wallpapers/${wallpaper}"];
     wallpaper = [",~/Pictures/Wallpapers/${wallpaper}"];
     ipc = "off";
-    splash = true;
+    splash = false;
   };
 
   wayland.windowManager.hyprland.enable = true;
