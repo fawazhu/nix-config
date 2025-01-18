@@ -2,36 +2,49 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require("nvim-tree").setup({
-    select_prompts = true,
-    sort_by = "case_sensitive",
-    view = {
-        width = 25,
+    diagnostics = {
+        enable = true,
+        show_on_open_dirs = true,
+    },
+    filesystem_watchers = {
+        ignore_dirs = {
+          "/.git",
+          "/.terraform",
+          "/build",
+          "/node_modules",
+          "/target",
+        },
+    },
+    filters = {
+        custom = {
+            "^\\.git$"
+        },
+        git_ignored = false,
+    },
+    modified = {
+        enable = true,
     },
     renderer = {
-        group_empty = true,
         add_trailing = true,
+        group_empty = true,
         indent_markers = {
             enable = true,
-            inline_arrows = false
+            inline_arrows = false,
         },
         icons = {
             show = {
                 folder_arrow = false
-            }
-        }
-    },
-    filters = {
-        custom = {
-            '\\v^.git(ignore)@!'
+            },
         },
-        git_ignored = false,
-        dotfiles = false,
-        git_clean = false,
-        no_buffer = false,
+        special_files = {},
     },
-    modified = {
-        enable = true
-    }
+    select_prompts = true,
+    sort = {
+        sorter = "case_sensitive",
+    },
+    view = {
+        width = 25,
+    },
 })
 
 vim.keymap.set("n", "<leader>pd", vim.cmd.NvimTreeToggle)

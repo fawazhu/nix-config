@@ -6,12 +6,11 @@ require("conform").setup({
     formatters_by_ft = {
         bash = { "beautysh" },
         go = { "gofumpt" },
-        html = { "htmlbeautifier" },
         json = { "fixjson", "jq" },
         markdown = { "markdownlint" },
         nix = { "alejandra" },
         packer = { "packer_fmt" },
-        python = { "autopep8" },
+        python = { "ruff_format" },
         rust = { "rustfmt" },
         sh = { "beautysh" },
         terraform = { "terraform_fmt" },

@@ -29,3 +29,4 @@ vim.opt.timeoutlen = 1000
 
 -- Visual indicators
 vim.opt.colorcolumn = "100"
+vim.opt.signcolumn = "yes"

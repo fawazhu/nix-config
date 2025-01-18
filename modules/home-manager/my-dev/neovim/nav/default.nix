@@ -3,6 +3,7 @@
     harpoon
     nvim-tree-lua
     nvim-web-devicons
+    plenary-nvim
     telescope-nvim
     telescope-ui-select-nvim
   ];

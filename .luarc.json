@@ -1,0 +1,12 @@
+{
+  "runtime.version": "LuaJIT",
+  "runtime.path": [
+    "modules/home-manager/my-dev/neovim/?.lua",
+    "modules/home-manager/my-dev/neovim/?/?.lua"
+  ],
+  "diagnostics.globals": ["vim"],
+  "workspace.checkThirdParty": false,
+  "workspace.library": [
+    "$VIMRUNTIME"
+  ]
+}

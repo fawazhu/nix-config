@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # ansible
     ansible
-    # ansible-lint
+    ansible-lint
     ansible-language-server
     # bash
     bash
@@ -10,7 +10,7 @@
     beautysh
     # css
     nodePackages.vscode-langservers-extracted
-    sass
+    nodePackages.prettier
     # docker
     dockerfile-language-server-nodejs
     # go
@@ -22,8 +22,6 @@
     nodePackages.graphql-language-service-cli
     # html
     nodePackages.vscode-langservers-extracted
-    rubyPackages.htmlbeautifier
-    ruby
     # js
     nodejs_23
     nodemon
@@ -48,11 +46,10 @@
     # packer
     packer
     # python
-    python312
-    python312Packages.pip
+    python313
+    python313Packages.debugpy
     pyright
-    python312Packages.debugpy
-    python312Packages.autopep8
+    ruff
     # rust
     cargo
     rustc
@@ -113,7 +110,6 @@
     nvim-dap-python
     nvim-lspconfig
     nvim-treesitter
-    lsp-zero-nvim
     luasnip
   ];
   programs.neovim.extraLuaPackages = ps: [ ps.jsregexp ];
