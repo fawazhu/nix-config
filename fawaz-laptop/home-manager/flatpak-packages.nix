@@ -4,7 +4,6 @@
     "com.github.tchx84.Flatseal//stable"
     "org.gnome.Calculator//stable"
     "org.gnome.Loupe//stable"
-    "org.gnome.baobab//stable"
     "org.gnome.font-viewer//stable"
     "org.inkscape.Inkscape//stable"
     "org.mozilla.firefox//stable"

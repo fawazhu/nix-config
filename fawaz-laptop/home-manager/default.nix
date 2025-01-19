@@ -43,7 +43,7 @@ in {
   ];
   services.flatpak.update.auto.enable = true;
   services.flatpak.update.auto.onCalendar = "weekly";
-  home.packages = with pkgs; [seahorse nautilus file-roller gparted];
+  home.packages = with pkgs; [seahorse nautilus file-roller gparted ncdu];
 
   my-desktop = {
     catppuccinFlavour = catppuccinFlavour;
