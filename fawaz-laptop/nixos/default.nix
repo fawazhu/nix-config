@@ -12,6 +12,7 @@
     extraGroups = ["wheel"];
     shell = pkgs.zsh;
   };
+  nix.settings.trusted-users = [ "fawaz" ];
 
   environment.localBinInPath = true;
   programs.zsh.enable = true;
