@@ -71,6 +71,9 @@
     yaml-language-server
     yamlfmt
     yamllint
+    # zig
+    zig
+    zls
     # extra
     tree-sitter
     zlib

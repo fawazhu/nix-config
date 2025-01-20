@@ -56,6 +56,7 @@ lspconfig.yamlls.setup({
         yamlVersion = "1.2",
     }
 })
+lspconfig.zls.setup({})
 
 
 vim.api.nvim_create_autocmd('LspAttach', {
