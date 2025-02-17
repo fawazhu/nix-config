@@ -19,7 +19,7 @@
     delve
     gofumpt
     # graphql
-    nodePackages.graphql-language-service-cli
+    #nodePackages.graphql-language-service-cli
     # html
     nodePackages.vscode-langservers-extracted
     # js
@@ -71,9 +71,6 @@
     yaml-language-server
     yamlfmt
     yamllint
-    # zig
-    zig
-    zls
     # extra
     tree-sitter
     zlib
