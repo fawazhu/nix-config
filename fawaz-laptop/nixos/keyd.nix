@@ -5,18 +5,6 @@
     [main]
     capslock = esc
     esc = noop
-    leftalt = oneshot(myalt)
-    shift = oneshot(myshift)
-    meta = oneshot(mymeta)
-    control = oneshot(mycontrol)
-    [myalt:A]
-    leftalt = clear()
-    [myshift:S]
-    shift = clear()
-    [mymeta:M]
-    meta = clear()
-    [mycontrol:C]
-    control = clear()
   '';
 
   systemd.services.keyd = {
