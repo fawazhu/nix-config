@@ -10,7 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     gsettings-desktop-schemas
-    polkit-kde-agent
+    kdePackages.polkit-kde-agent-1
     libsecret
   ];
   environment.gnome.excludePackages = with pkgs; [

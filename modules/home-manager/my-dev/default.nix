@@ -30,7 +30,7 @@ in {
       rsync
       # Networking
       dig
-      openssl_3_3
+      openssl
       socat
       tcpdump
       # Multimedia tools

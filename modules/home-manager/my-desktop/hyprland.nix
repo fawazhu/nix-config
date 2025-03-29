@@ -13,7 +13,7 @@ in {
     brightnessctl
     cliphist
     grim
-    libsForQt5.polkit-kde-agent
+    kdePackages.polkit-kde-agent-1
     pavucontrol
     playerctl
     slurp
@@ -43,7 +43,7 @@ in {
     exec-once = [
       # Startup integrations
       "swaync" # Notifications
-      "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1" # Privilege escalation.
+      "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1" # Privilege escalation.
       "wl-paste --watch cliphist store" # Clipboard history
       "waybar" # Top bar.
       "hyprpaper" # Desktop wallpaper.
