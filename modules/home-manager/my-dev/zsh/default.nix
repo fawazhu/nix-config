@@ -16,7 +16,7 @@ in {
     enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
-    initExtra = ''
+    initContent = ''
       export EDITOR=nvim
       export TERM=alacritty
       export BAT_THEME="Catppuccin ${captializedFlavour}"
