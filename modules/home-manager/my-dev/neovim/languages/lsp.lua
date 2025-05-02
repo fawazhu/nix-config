@@ -30,6 +30,7 @@ lspconfig.nil_ls.setup({
         },
     },
 })
+lspconfig.protols.setup({})
 lspconfig.pyright.setup({})
 lspconfig.rust_analyzer.setup({})
 lspconfig.terraformls.setup({})

@@ -45,6 +45,8 @@
     nil
     # packer
     packer
+    # protocol buffers
+    protols
     # python
     python313
     python313Packages.debugpy
