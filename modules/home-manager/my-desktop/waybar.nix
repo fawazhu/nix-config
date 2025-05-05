@@ -13,15 +13,15 @@
     "waybar/config".text = ''
       {
         "layer": "top",
-        "position": "top",
-        "height": "44",
+        "position": "right",
+        "width": "44",
         "margin-top": 10,
-        "margin-left": 10,
         "margin-right": 10,
+        "margin-bottom": 10,
 
         "modules-left": ["hyprland/workspaces"],
-        "modules-center": ["custom/music"],
-        "modules-right": ["privacy", "bluetooth", "wireplumber", "network", "battery", "custom/notifications", "custom/power", "clock"],
+        "modules-center": [],
+        "modules-right": ["privacy", "custom/music", "bluetooth", "wireplumber", "network", "battery", "custom/notifications", "custom/power", "clock"],
         "hyprland/workspaces": {
           "disable-scroll": true,
           "format": " {icon} ",
@@ -33,11 +33,11 @@
           "max-length": 100
          },
         "custom/music": {
-          "format": "  {}",
+          "format": "󰎇",
           "escape": true,
           "interval": 5,
           "tooltip": false,
-          "exec": "playerctl metadata --format='{{ title }}' 2>/dev/null",
+          "exec": "playerctl status | grep Playing 2>/dev/null",
           "on-click": "playerctl play-pause",
           "max-length": 60
         },
@@ -62,8 +62,8 @@
         },
         "clock": {
           "timezone": "Europe/London",
-          "format-alt": "{:%Y/%m/%d}",
-          "format": "{:%H:%M}",
+          "format-alt": "{:%y\n%m\n%d}",
+          "format": "{:%H\n%M}",
           "tooltip": false
         },
         "battery": {
@@ -132,7 +132,7 @@
       * {
         font-family: JetBrainsMono Nerd Font;
         font-size: 17px;
-        min-height: 0;
+        min-width: 0;
       }
 
       #waybar {
@@ -166,10 +166,17 @@
         color: @red;
         padding: 1rem;
         border-radius: 1rem;
-        margin-right: 10px;
+        margin-bottom: 10px;
       }
 
-      #custom-music,
+      #custom-music {
+        background-color: @surface0;
+        color: @green;
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-bottom: 10px;
+      }
+
       #network,
       #bluetooth,
       #clock,
@@ -182,7 +189,8 @@
       }
 
       #clock {
-        border-radius: 0px 1rem 1rem 0px;
+        border-radius: 0px 0px 1rem 1rem;
+        padding-bottom: 1rem;
       }
 
       #battery.charging {
@@ -194,11 +202,8 @@
       }
 
       #bluetooth {
-        border-radius: 1rem 0px 0px 1rem;
-      }
-
-      #custom-music {
-        border-radius: 1rem;
+        border-radius: 1rem 1rem 0px 0px;
+        padding-top: 1rem;
       }
     '';
   };
