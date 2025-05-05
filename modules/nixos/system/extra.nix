@@ -33,4 +33,9 @@
     wireplumber.enable = true;
   };
   services.printing.enable = true;
+
+  systemd.oomd = {
+    enable = true;
+    enableUserSlices = true;
+  };
 }
