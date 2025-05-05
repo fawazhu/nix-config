@@ -29,7 +29,7 @@
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      favorite-apps = ["org.mozilla.firefox.desktop" "Alacritty.desktop" "org.gnome.Nautilus.desktop" "org.inkscape.Inkscape.desktop" "org.kde.krita.desktop"];
+      favorite-apps = ["one.ablaze.floorp.desktop" "Alacritty.desktop" "org.gnome.Nautilus.desktop" "org.inkscape.Inkscape.desktop" "org.kde.krita.desktop"];
     };
   };
   programs.gnome-shell = {

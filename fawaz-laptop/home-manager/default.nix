@@ -51,7 +51,7 @@ in {
     cursorSize = 32;
     mimeDefaults = {
       archive = "org.gnome.FileRoller.desktop";
-      browser = "org.mozilla.firefox.desktop";
+      browser = "one.ablaze.floorp.desktop";
       calendar = "com.calibre_ebook.calibre.desktop";
       document = "org.libreoffice.LibreOffice.desktop";
       ebook = "com.calibre_ebook.calibre.desktop";
