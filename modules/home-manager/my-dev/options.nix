@@ -6,10 +6,16 @@ with types; {
     default = false;
     description = mkDoc "Whether to enable ai features.";
   };
+  # TODO: move theming into centralized module
   catppuccinFlavour = mkOption {
     type = str;
-    default = "mocha";
+    default = "latte";
     description = mkDoc "Catppuccin flavour to use.";
+  };
+  catppuccinAccent = mkOption {
+    type = str;
+    default = "sky";
+    description = mkDoc "Catppuccin accent to use.";
   };
   extraScript = mkOption {
     type = str;

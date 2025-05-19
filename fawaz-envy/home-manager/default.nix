@@ -5,11 +5,13 @@
   ...
 }: let
   catppuccinFlavour = "macchiato";
+  catppuccinAccent = "lavender";
 in {
   imports = [
     flake-inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ../../modules/home-manager/my-desktop
     ../../modules/home-manager/my-dev
+    ../../modules/home-manager/theming
     ./flatpak-packages.nix
   ];
 
@@ -34,6 +36,7 @@ in {
   };
   my-dev.ai = true;
   my-dev.catppuccinFlavour = catppuccinFlavour;
+  my-dev.catppuccinAccent = catppuccinAccent;
 
   services.flatpak.remotes = [
     {
@@ -45,11 +48,7 @@ in {
   services.flatpak.update.auto.onCalendar = "weekly";
   home.packages = with pkgs; [seahorse nautilus file-roller gparted ncdu];
 
-  my-desktop = {
-    catppuccinFlavour = catppuccinFlavour;
-    scaleFactor = "1.25";
-    cursorSize = 32;
-    mimeDefaults = {
+  my-desktop.mimeDefaults = {
       archive = "org.gnome.FileRoller.desktop";
       browser = "one.ablaze.floorp.desktop";
       calendar = "com.calibre_ebook.calibre.desktop";
@@ -61,7 +60,12 @@ in {
       music = "io.bassi.Amberol.desktop";
       pdf = "org.gnome.Evince.desktop";
       video = "org.gnome.Totem.desktop";
-    };
+  };
+
+  theming = {
+    flavour = catppuccinFlavour;
+    accent = catppuccinAccent;
+    scaling = 1.25;
   };
 
   programs.home-manager.enable = true;

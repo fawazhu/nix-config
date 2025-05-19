@@ -11,21 +11,6 @@ with types; let
       description = mkDoc "Configure default app for ${name}.";
     };
 in {
-  catppuccinFlavour = mkOption {
-    type = str;
-    default = "latte"; # fallback
-    description = mkDoc "Catppuccin flavour to use.";
-  };
-  scaleFactor = mkOption {
-    type = str;
-    default = "1";
-    description = mkDoc "Scale factor to use.";
-  };
-  cursorSize = mkOption {
-    type = int;
-    default = 32;
-    description = mkDoc "Cursor size to use.";
-  };
   mimeDefaults = mkOption {
     type = submodule {
       options = {

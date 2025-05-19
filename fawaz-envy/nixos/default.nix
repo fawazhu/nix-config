@@ -2,10 +2,17 @@
   imports = [
     ../../modules/nixos/my-desktop
     ../../modules/nixos/system
+    ../../modules/nixos/theming
     ./hardware.nix
     ./keyd.nix
     ./secrets.nix
   ];
+
+  theming = {
+    flavour = "macchiato";
+    accent = "lavender";
+    scaling = 1.25;
+  };
 
   users.users."fawaz" = {
     isNormalUser = true;

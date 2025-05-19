@@ -1,16 +1,12 @@
 {pkgs, ...}: {
   services.gnome.gnome-keyring.enable = true;
-  services.dbus.enable = true;
-  services.blueman.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.xkb.layout = "gb";
   programs.dconf.enable = true;
   programs.hyprland.enable = true;
-  security.pam.services.swaylock = {};
 
   environment.systemPackages = with pkgs; [
     gsettings-desktop-schemas
-    kdePackages.polkit-kde-agent-1
     libsecret
   ];
   environment.gnome.excludePackages = with pkgs; [
@@ -45,10 +41,15 @@
 
   xdg.autostart.enable = true;
   xdg.portal.enable = true;
-  xdg.portal.config.preferred.default = [
-    "gtk"
-    "hyprland"
-  ];
+  xdg.portal.config.hyprland = {
+    default = [
+      "gtk"
+      "hyprland"
+    ];
+    "org.freedesktop.impl.portal.Secret" = [
+      "gnome-keyring"
+    ];
+  };
   xdg.portal.extraPortals = [
     pkgs.xdg-desktop-portal
     pkgs.xdg-desktop-portal-gtk

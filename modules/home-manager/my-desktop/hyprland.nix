@@ -3,58 +3,45 @@
   pkgs,
   ...
 }: let
-  wallpaper =
-    if config.my-desktop.catppuccinFlavour == "latte"
-    then "1.png"
-    else "2.png";
   screenshot = "${config.home.homeDirectory}/Pictures/Screenshots";
 in {
   home.packages = with pkgs; [
     brightnessctl
     cliphist
     grim
-    kdePackages.polkit-kde-agent-1
+    hyprpolkitagent
     pavucontrol
     playerctl
     slurp
     wl-clipboard
+    rofi-wayland-unwrapped
+    rofi-power-menu
+    swaynotificationcenter
   ];
+
+  dconf.enable = true;
 
   services.blueman-applet.enable = true;
   services.hyprpaper.enable = true;
-  services.hyprpaper.settings = {
-    preload = ["~/Pictures/Wallpapers/${wallpaper}"];
-    wallpaper = [",~/Pictures/Wallpapers/${wallpaper}"];
-    ipc = "off";
-    splash = false;
-  };
+
+  programs.swaylock.enable = true;
 
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
-    # Environment configuration
     env = [
-      # Scale
-      "GDK_SCALE,${config.my-desktop.scaleFactor}"
       "XDG_SESSION_TYPE,wayland"
       "GSK_RENDERER,ngl"
       "GRIM_DEFAULT_DIR,${screenshot}"
     ];
-    # exec
     exec-once = [
-      # Startup integrations
       "swaync" # Notifications
-      "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1" # Privilege escalation.
+      "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent" # Privilege escalation.
       "wl-paste --watch cliphist store" # Clipboard history
       "waybar" # Top bar.
-      "hyprpaper" # Desktop wallpaper.
       # Startup apps
       "alacritty"
     ];
-    # Display and scaling settings
-    monitor = ",highres,auto,${config.my-desktop.scaleFactor}";
-    xwayland.force_zero_scaling = true;
 
-    # Input devices
     input = {
       kb_layout = "gb";
       follow_mouse = 1;
@@ -63,31 +50,8 @@ in {
     };
     gestures.workspace_swipe = true;
 
-    # Theming
-    general = {
-      gaps_in = 5;
-      gaps_out = 10;
-      border_size = 2;
-      "col.active_border" = "rgba(89b4faff) rgba(a6e3a1ff) 45deg";
-      "col.inactive_border" = "rgba(11111baa)";
-
-      layout = "dwindle"; # Default
-    };
-    decoration.rounding = 10;
-    animations = {
-      enabled = true;
-      bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-      animation = [
-        "windows, 1, 7, myBezier"
-        "windowsOut, 1, 7, default, popin 80%"
-        "border, 1, 10, default"
-        "fade, 1, 7, default"
-        "workspaces, 1, 6, default"
-      ];
-    };
-    misc.disable_hyprland_logo = true;
-
     # Layouts
+    general.layout = "dwindle";
     dwindle.pseudotile = true;
     dwindle.preserve_split = true;
     master.new_status = "master";

@@ -22,7 +22,6 @@
         emoji = ["Noto Color Emoji"];
       };
       hinting.style = "slight";
-      subpixel.rgba = "rgb";
     };
     fontDir.enable = true;
   };

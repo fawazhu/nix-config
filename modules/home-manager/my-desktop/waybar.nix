@@ -1,15 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   xdg.configFile = {
-    "waybar/themes".source = pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "waybar";
-      rev = "v1.1";
-      sha256 = "sha256-9lY+v1CTbpw2lREG/h65mLLw5KuT8OJdEPOb+NNC6Fo=";
-    };
     "waybar/config".text = ''
       {
         "layer": "top",
@@ -127,7 +117,7 @@
       }
     '';
     "waybar/style.css".text = ''
-      @import "themes/themes/${config.my-desktop.catppuccinFlavour}.css";
+      @import "theme.css";
 
       * {
         font-family: JetBrainsMono Nerd Font;
@@ -137,7 +127,7 @@
 
       #waybar {
         background: transparent;
-        color: @sky;
+        color: @accent;
       }
 
       #workspaces {
@@ -152,12 +142,12 @@
       }
 
       #workspaces button.active {
-        color: @sky;
+        color: @accent;
         border-radius: 1rem;
       }
 
       #workspaces button:hover {
-        color: @sapphire;
+        color: @accent;
         border-radius: 1rem;
       }
 

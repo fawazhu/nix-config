@@ -11,10 +11,6 @@
     ./gnome.nix
     ./hyprland.nix
     ./mime.nix
-    ./rofi.nix
-    ./swaylock.nix
-    ./swaync.nix
-    ./themes.nix
     ./waybar.nix
   ];
 }

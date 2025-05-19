@@ -23,7 +23,7 @@
     # html
     nodePackages.vscode-langservers-extracted
     # js
-    nodejs_23
+    nodejs_24
     nodemon
     typescript
     electron
