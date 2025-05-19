@@ -16,6 +16,6 @@
 
   environment.localBinInPath = true;
   programs.zsh.enable = true;
-  networking.hostName = "fawaz-laptop";
+  networking.hostName = "fawaz-envy";
   system.stateVersion = "24.11";
 }

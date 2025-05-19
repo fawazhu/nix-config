@@ -1,7 +1,7 @@
 keys:
-  - &fawaz-laptop age1a890chv8t8nqzxw6vzusmtwc4mqhqtsevx4xpgj0ez7jr0a8napq937kys
+  - &fawaz-envy age1a890chv8t8nqzxw6vzusmtwc4mqhqtsevx4xpgj0ez7jr0a8napq937kys
 creation_rules:
-  - path_regex: fawaz-laptop/secrets.yaml
+  - path_regex: fawaz-envy/secrets.yaml
     key_groups:
       - age:
-          - *fawaz-laptop
+          - *fawaz-envy
