@@ -41,6 +41,7 @@ in {
       # Startup apps
       "alacritty"
     ];
+    experimental.xx_color_management_v4 = true;
 
     input = {
       kb_layout = "gb";
