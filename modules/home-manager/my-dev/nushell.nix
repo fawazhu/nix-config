@@ -37,8 +37,6 @@ in {
     '';
     environmentVariables = {
       EDITOR = "nvim";
-      TERM = "alacritty";
-      BAT_THEME = "\"Catppuccin ${captializedFlavour}\"";
       LESS = "\"-R --use-color -Dd+r$Du+b$\"";
       MANPAGER = "\"less -R --use-color -Dd+r -Du+b\"";
       MANROFFOPT = "\"-P -c\"";

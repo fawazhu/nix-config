@@ -1,4 +1,6 @@
 {pkgs, ...}: {
   boot.plymouth.enable = true;
-  services.displayManager.sessionPackages = [pkgs.hyprland pkgs.gnome-session];
+  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.sessionPackages = [pkgs.hyprland];
+  environment.systemPackages = [pkgs.gnome-session];
 }
