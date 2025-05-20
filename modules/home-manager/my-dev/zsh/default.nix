@@ -17,10 +17,6 @@ in {
     autosuggestion.enable = true;
     enableCompletion = true;
     initContent = ''
-      export EDITOR=nvim
-      export TERM=alacritty
-      export BAT_THEME="Catppuccin ${captializedFlavour}"
-
       for rc in ~/.config/zsh/default/*; do
         . $rc
       done

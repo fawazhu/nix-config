@@ -32,12 +32,29 @@
 
   hyprlandWallpaper =
     if isLight
-    then "~/Pictures/Wallpapers/1.png"
-    else "~/Pictures/Wallpapers/2.png";
+    then "${config.home.homeDirectory}/Pictures/Wallpapers/1.png"
+    else "${config.home.homeDirectory}/Pictures/Wallpapers/2.png";
+
+  gnomeAccent = builtins.getAttr accent {
+    rosewater = "orange";
+    flamingo = "red";
+    pink = "pink";
+    mauve = "purple";
+    red = "red";
+    maroon = "red";
+    peach = "orange";
+    yellow = "yellow";
+    green = "green";
+    teal = "teal";
+    sky = "blue";
+    sapphire = "blue";
+    blue = "blue";
+    lavender = "blue";
+  };
 in {
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      accent-color = "teal"; # TODO: translate to correct gnome accent colour
+      accent-color = gnomeAccent;
       color-scheme =
         if isLight
         then "prefer-light"
@@ -61,9 +78,7 @@ in {
 
   services.hyprpaper.settings = {
     preload = [hyprlandWallpaper];
-    wallpaper = [hyprlandWallpaper];
-    ipc = "off";
-    splash = false;
+    wallpaper = [",${hyprlandWallpaper}"];
   };
 
   wayland.windowManager.hyprland.settings = {
@@ -118,6 +133,10 @@ in {
     }
 
     @theme "catppuccin-${flavour}"
+
+    * {
+      blue: #${hex};
+    }
   '';
 
   programs.swaylock.settings = with (builtins.getAttr flavour palette).colors; {
@@ -506,6 +525,14 @@ in {
     "waybar/theme.css".text = ''
       @import "themes/${flavour}.css";
       @define-color accent #${hex};
+    '';
+    "starship.toml".text = ''
+      add_newline = true
+      [directory]
+      style = '#${hex}'
+      [character]
+      success_symbol = '[❯](#${hex})'
+      vimcmd_symbol = '[❮](#${hex})'
     '';
   };
   home.sessionVariables.GTK_THEME = gtkThemeName;

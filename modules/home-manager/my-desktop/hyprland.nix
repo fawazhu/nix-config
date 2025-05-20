@@ -18,6 +18,7 @@ in {
     rofi-power-menu
     swaynotificationcenter
     blueman
+    hyprpaper
   ];
 
   dconf.enable = true;

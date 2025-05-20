@@ -30,5 +30,8 @@ in {
       args = ["-ci" "tmux"];
       program = "${pkgs.zsh}/bin/zsh";
     };
+    env = {
+      TERM = "xterm-256color";
+    };
   };
 }

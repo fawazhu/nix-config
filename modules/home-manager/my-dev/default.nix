@@ -47,6 +47,7 @@ in {
     ./alacritty.nix
     ./bat.nix
     ./btop.nix
+    ./eza.nix
     ./git.nix
     ./nushell.nix
     ./neovim

@@ -1,5 +1,6 @@
 #!/usr/bin/zsh
 
+export EDITOR=nvim
 export LESS='-R --use-color -Dd+r$Du+b$'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
@@ -7,7 +8,7 @@ export MANROFFOPT="-P -c"
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
-alias ls='eza --color=auto --icons'
+alias ls='LS_COLORS='' eza --color=auto --icons=auto --git'
 alias tree='ls --tree'
 alias ll='ls -l'
 alias lla='ls -la'

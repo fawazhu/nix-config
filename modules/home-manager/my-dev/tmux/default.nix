@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: let
@@ -12,8 +11,8 @@
       src = fetchFromGitHub {
         owner = "catppuccin";
         repo = "tmux";
-        rev = "cece0c36772483d1343bcace2b1cedb007057c2e";
-        sha256 = "sha256-dB2bS/TG0ptXCCTfrm75xaDLaA29SYV5cv77YqSdLRk=";
+        rev = "v2.1.3";
+        sha256 = "sha256-Is0CQ1ZJMXIwpDjrI5MDNHJtq+R3jlNcd9NXQESUe2w=";
       };
 
       installPhase = ''
@@ -43,6 +42,7 @@ in {
   xdg.configFile."tmux/tmux.conf".text = ''
     source-file ~/.config/tmux/extra.conf
     set -g @catppuccin_flavour ${config.my-dev.catppuccinFlavour}
+    set -g @catppuccin_window_current_number_color "#{@thm_${config.my-dev.catppuccinAccent}}"
     set-option -g default-shell ${pkgs.zsh}/bin/zsh
     run '${catppuccin-tmux}/share/tmux-plugins/catppuccin/catppuccin.tmux'
     run '${tmux-plugins-sensible}/share/tmux-plugins/tmux-sensible/sensible.tmux'

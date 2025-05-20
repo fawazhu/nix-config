@@ -42,9 +42,8 @@ in {
   ];
 
   boot.plymouth.theme = "bgrt";
-  boot.consoleLogLevel = 3;
   boot.initrd.verbose = false;
-  boot.kernelParams = ["splash"];
+  boot.kernelParams = ["quiet"];
 
   environment.systemPackages = [cursorThemePackage iconThemePackage];
 }

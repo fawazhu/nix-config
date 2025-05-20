@@ -112,6 +112,7 @@
     nvim-dap-python
     nvim-lspconfig
     nvim-treesitter
+    nvim-treesitter-parsers.yaml
     luasnip
   ];
   programs.neovim.extraLuaPackages = ps: [ ps.jsregexp ];
