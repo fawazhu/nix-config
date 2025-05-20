@@ -17,6 +17,7 @@ in {
     rofi-wayland-unwrapped
     rofi-power-menu
     swaynotificationcenter
+    blueman
   ];
 
   dconf.enable = true;

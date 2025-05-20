@@ -29,7 +29,7 @@ in {
         "org/gnome/desktop/interface" = {
           cursor-theme = cursorThemeName;
           icon-theme = iconThemeName;
-          scaling-factor = config.theming.scaling;
+          scaling-factor = toString config.theming.scaling;
         };
         "org/gnome/mutter" = {
           experimental-features = "['scale-monitor-framebuffer']";
