@@ -2,8 +2,6 @@
   description = "Personal configuration.";
 
   inputs = {
-    disko.url = "github:nix-community/disko/latest";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -14,7 +12,6 @@
 
   outputs = inputs @ {
     self,
-    disko,
     home-manager,
     nixpkgs,
     nix-flatpak,
@@ -27,8 +24,6 @@
         modules = [
           sops-nix.nixosModules.sops
           ./fawaz-yoga/nixos
-          disko.nixosModules.disko
-          ./fawaz-yoga/disko
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

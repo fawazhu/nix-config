@@ -47,7 +47,7 @@ in {
 
   my-desktop = {
     catppuccinFlavour = catppuccinFlavour;
-    scaleFactor = "1.25";
+    scaleFactor = "2";
     cursorSize = 32;
     mimeDefaults = {
       archive = "org.gnome.FileRoller.desktop";
