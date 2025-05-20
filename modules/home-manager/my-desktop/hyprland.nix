@@ -53,6 +53,7 @@ in {
     # Display and scaling settings
     monitor = ",highres,auto,${config.my-desktop.scaleFactor}";
     xwayland.force_zero_scaling = true;
+    experimental.xx_color_management_v4 = true;
 
     # Input devices
     input = {
