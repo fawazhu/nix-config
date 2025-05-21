@@ -1,11 +1,11 @@
-{...}: {
+{pkgs, ...}: {
   boot.initrd.availableKernelModules = ["nvme" "usb_storage"];
   boot.initrd.systemd.enable = true;
   boot.kernelModules = ["kvm-amd"];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.systemd-boot.enable = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   zramSwap.enable = true;
   zramSwap.memoryPercent = 25;
@@ -17,6 +17,7 @@
 
   boot.initrd.luks.devices."crypt-root" = {
     device = "/dev/disk/by-uuid/e2684e65-9447-4a73-b7d8-97e38686d1ea";
+    crypttabExtraOpts = ["tpm2-device=auto"];
     bypassWorkqueues = true;
     allowDiscards = true;
   };
@@ -44,4 +45,9 @@
     device = "/dev/disk/by-uuid/3E07-6CC6";
     fsType = "vfat";
   };
+
+  environment.systemPackages = [pkgs.gnome-session pkgs.tpm2-tss];
+  security.tpm2.enable = true;
+  systemd.tpm2.enable = true;
+  boot.initrd.systemd.tpm2.enable = true;
 }
