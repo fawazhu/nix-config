@@ -21,6 +21,7 @@
     "org.libreoffice.LibreOffice//stable"
     "org.mozilla.firefox//stable"
     "org.onlyoffice.desktopeditors//stable"
+    "com.valvesoftware.Steam//stable"
     "org.videolan.VLC//stable"
   ];
 }
