@@ -4,6 +4,7 @@
   services.xserver.xkb.layout = "gb";
   programs.dconf.enable = true;
   programs.hyprland.enable = true;
+  programs.hyprland.withUWSM = true;
 
   environment.systemPackages = with pkgs; [
     gsettings-desktop-schemas
@@ -40,20 +41,4 @@
   ];
 
   xdg.autostart.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.config.hyprland = {
-    default = [
-      "gtk"
-      "hyprland"
-    ];
-    "org.freedesktop.impl.portal.Secret" = [
-      "gnome-keyring"
-    ];
-  };
-  xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal
-    pkgs.xdg-desktop-portal-gtk
-    pkgs.xdg-desktop-portal-hyprland
-    pkgs.xdg-desktop-portal-gnome
-  ];
 }
