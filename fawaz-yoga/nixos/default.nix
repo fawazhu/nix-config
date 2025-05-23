@@ -4,6 +4,7 @@
     ../../modules/nixos/system
     ../../modules/nixos/theming
     ./hardware.nix
+    ./games.nix
     ./secrets.nix
   ];
 

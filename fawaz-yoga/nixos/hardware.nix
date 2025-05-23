@@ -46,7 +46,11 @@
     fsType = "vfat";
   };
 
-  environment.systemPackages = [pkgs.gnome-session pkgs.tpm2-tss];
+  hardware.graphics.extraPackages = with pkgs; [
+    rocmPackages.clr.icd
+  ];
+
+  environment.systemPackages = with pkgs; [clinfo vulkan-tools amdgpu_top tpm2-tss];
   security.tpm2.enable = true;
   systemd.tpm2.enable = true;
   boot.initrd.systemd.tpm2.enable = true;

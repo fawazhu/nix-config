@@ -14,3 +14,5 @@ alias ll='ls -l'
 alias lla='ls -la'
 alias vim="${EDITOR}"
 alias vimdiff="${EDITOR} -d"
+
+alias gamescopesteam='gamescope -e -f -- steam -steamos3 -steamdeck'
