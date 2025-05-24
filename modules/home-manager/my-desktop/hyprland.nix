@@ -9,7 +9,7 @@ in {
     brightnessctl
     cliphist
     grim
-    hyprpolkitagent
+    kdePackages.polkit-kde-agent-1
     pavucontrol
     playerctl
     slurp
@@ -37,7 +37,7 @@ in {
     ];
     exec-once = [
       "swaync" # Notifications
-      "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent" # Privilege escalation.
+      "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1" # Privilege escalation.
       "wl-paste --watch cliphist store" # Clipboard history
       "waybar" # Top bar.
       # Startup apps
