@@ -46,17 +46,17 @@
   home.packages = with pkgs; [seahorse nautilus file-roller gparted ncdu];
 
   my-desktop.mimeDefaults = {
-      archive = "org.gnome.FileRoller.desktop";
-      browser = "one.ablaze.floorp.desktop";
-      calendar = "com.calibre_ebook.calibre.desktop";
-      document = "org.libreoffice.LibreOffice.desktop";
-      ebook = "com.calibre_ebook.calibre.desktop";
-      editor = "nvim.desktop";
-      font = "org.gnome.font-viewer.desktop";
-      image = "org.gnome.Loupe.desktop";
-      music = "io.bassi.Amberol.desktop";
-      pdf = "org.gnome.Evince.desktop";
-      video = "org.gnome.Totem.desktop";
+    archive = "org.gnome.FileRoller.desktop";
+    browser = "one.ablaze.floorp.desktop";
+    calendar = "com.calibre_ebook.calibre.desktop";
+    document = "org.libreoffice.LibreOffice.desktop";
+    ebook = "com.calibre_ebook.calibre.desktop";
+    editor = "nvim.desktop";
+    font = "org.gnome.font-viewer.desktop";
+    image = "org.gnome.Loupe.desktop";
+    music = "io.bassi.Amberol.desktop";
+    pdf = "org.gnome.Evince.desktop";
+    video = "org.gnome.Totem.desktop";
   };
 
   theming = {
@@ -64,7 +64,6 @@
     accent = "peach";
     scaling = 2;
   };
-
 
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";

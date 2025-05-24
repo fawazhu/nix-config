@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../../modules/nixos/my-desktop
+    ../../modules/nixos/graphical
     ../../modules/nixos/system
     ../../modules/nixos/theming
     ./hardware.nix
@@ -20,6 +20,11 @@
     shell = pkgs.zsh;
   };
   nix.settings.trusted-users = [ "fawaz" ];
+
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamescope.enable = true;
+  programs.gamescope.capSysNice = true;
 
   environment.localBinInPath = true;
   programs.zsh.enable = true;

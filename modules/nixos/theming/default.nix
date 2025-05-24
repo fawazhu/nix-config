@@ -1,7 +1,4 @@
 {lib, ...}: {
   options.theming = import ./options.nix {inherit lib;};
-
-  imports = [
-    ./all.nix
-  ];
+  imports = [./all.nix];
 }

@@ -23,6 +23,10 @@
   cursorThemeName = "catppuccin-${flavour}-${accent}-cursors";
   cursorThemePackage = builtins.getAttr "${flavour}${captializedAccent}" pkgs.catppuccin-cursors;
 in {
+  boot.initrd.verbose = false;
+  boot.kernelParams = ["quiet"];
+  boot.plymouth.theme = "bgrt";
+
   programs.dconf.profiles."gdm".databases = [
     {
       settings = {
@@ -40,10 +44,5 @@ in {
       };
     }
   ];
-
-  boot.plymouth.theme = "bgrt";
-  boot.initrd.verbose = false;
-  boot.kernelParams = ["quiet"];
-
   environment.systemPackages = [cursorThemePackage iconThemePackage];
 }

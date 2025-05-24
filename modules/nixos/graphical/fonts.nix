@@ -1,17 +1,19 @@
 {pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
-      noto-fonts
-      nerd-fonts.jetbrains-mono
-      noto-fonts-emoji
-      material-design-icons
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
       dejavu_fonts
       freefont_ttf
+      gyre-fonts
       liberation_ttf
+      material-design-icons
+      nerd-fonts.jetbrains-mono
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
       source-sans
       source-serif
+      unifont
     ];
     enableDefaultPackages = false;
     fontconfig = {

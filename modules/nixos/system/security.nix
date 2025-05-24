@@ -1,20 +1,6 @@
 {pkgs, ...}: {
   security.apparmor.enable = true;
-
-  security.sudo.extraRules = [
-    {
-      groups = ["wheel"];
-      commands = [
-        {
-          command = "ALL";
-          options = ["SETENV" "NOPASSWD"];
-        }
-      ];
-    }
-  ];
-
-  environment.systemPackages = with pkgs; [
-    sudo
-    polkit
-  ];
+  security.polkit.enable = true;
+  security.sudo.enable = true;
+  security.sudo.wheelNeedsPassword = false;
 }

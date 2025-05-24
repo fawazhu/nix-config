@@ -13,6 +13,8 @@
   hardware.enableAllFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
 
+  hardware.bluetooth.enable = true;
+
   services.udisks2.enable = true;
 
   boot.initrd.luks.devices."crypt-root" = {
@@ -46,9 +48,11 @@
     fsType = "vfat";
   };
 
-  hardware.graphics.extraPackages = with pkgs; [
-    rocmPackages.clr.icd
-  ];
+  hardware.graphics.extraPackages = with pkgs; [rocmPackages.clr.icd];
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+  hardware.amdgpu.amdvlk.enable = true;
+  hardware.amdgpu.amdvlk.enable32Bit = true;
 
   environment.systemPackages = with pkgs; [clinfo vulkan-tools amdgpu_top tpm2-tss];
   security.tpm2.enable = true;
