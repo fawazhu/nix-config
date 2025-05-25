@@ -39,6 +39,7 @@
     ./gnome.nix
     ./hyprland.nix
     ./mime.nix
+    ./plasma.nix
     ./waybar.nix
   ];
 }

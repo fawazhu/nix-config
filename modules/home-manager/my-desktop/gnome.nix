@@ -5,10 +5,6 @@
 }: {
   dconf.enable = true;
   dconf.settings = {
-    "org/gnome/desktop/background" = {
-      picture-uri = "file://${config.home.homeDirectory}/Pictures/Wallpapers/1.png";
-      picture-uri-dark = "file://${config.home.homeDirectory}/Pictures/Wallpapers/2.png";
-    };
     "org/gnome/desktop/interface" = {
       document-font-name = "Noto Serif 11";
       font-name = "Noto Sans 10";

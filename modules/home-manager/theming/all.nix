@@ -30,10 +30,12 @@
   cursorThemeName = "catppuccin-${flavour}-${accent}-cursors";
   cursorThemePackage = builtins.getAttr "${flavour}${captializedAccent}" pkgs.catppuccin-cursors;
 
-  hyprlandWallpaper =
+  lightWallpaper = "${config.home.homeDirectory}/Pictures/Wallpapers/1.png";
+  darkWallpaper = "${config.home.homeDirectory}/Pictures/Wallpapers/2.png";
+  wallpaper =
     if isLight
-    then "${config.home.homeDirectory}/Pictures/Wallpapers/1.png"
-    else "${config.home.homeDirectory}/Pictures/Wallpapers/2.png";
+    then lightWallpaper
+    else darkWallpaper;
 
   gnomeAccent = builtins.getAttr accent {
     rosewater = "orange";
@@ -52,7 +54,26 @@
     lavender = "blue";
   };
 in {
+  programs.plasma.configFile = {
+    "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."Image" = "${wallpaper}";
+    "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = "${wallpaper}";
+    "kcminputrc"."Mouse"."cursorTheme" = "catppuccin-${flavour}-${accent}-cursors";
+    "kdeglobals"."Icons"."Theme" = "${iconThemeName}";
+    "kwinrc"."Xwayland"."Scale" = scaling;
+    "plasmarc"."Wallpapers"."usersWallpapers" = "${wallpaper}";
+  };
+  home.packages = [
+    (pkgs.catppuccin-kde.override {
+      flavour = [flavour];
+      accents = [accent];
+    })
+  ];
+
   dconf.settings = {
+    "org/gnome/desktop/background" = {
+      picture-uri = "file://${lightWallpaper}";
+      picture-uri-dark = "file://${darkWallpaper}";
+    };
     "org/gnome/desktop/interface" = {
       accent-color = gnomeAccent;
       color-scheme =
@@ -77,8 +98,8 @@ in {
   );
 
   services.hyprpaper.settings = {
-    preload = [hyprlandWallpaper];
-    wallpaper = [",${hyprlandWallpaper}"];
+    preload = [wallpaper];
+    wallpaper = [",${wallpaper}"];
   };
 
   wayland.windowManager.hyprland.settings = {
