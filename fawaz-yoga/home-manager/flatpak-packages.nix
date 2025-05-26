@@ -6,7 +6,6 @@
     "com.github.tchx84.Flatseal//stable"
     "com.usebottles.bottles//stable"
     "io.bassi.Amberol//stable"
-    "one.ablaze.floorp"
     "org.inkscape.Inkscape//stable"
     "org.blender.Blender//stable"
     "org.freedesktop.Platform.VulkanLayer.gamescope//24.08"

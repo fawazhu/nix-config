@@ -17,7 +17,8 @@
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      favorite-apps = ["one.ablaze.floorp.desktop" "Alacritty.desktop" "org.gnome.Nautilus.desktop" "org.inkscape.Inkscape.desktop" "org.kde.krita.desktop"];
+      # TODO: this needs to be replaced with mime types.
+      favorite-apps = ["org.mozilla.firefox.desktop" "Alacritty.desktop" "org.gnome.Nautilus.desktop" "org.inkscape.Inkscape.desktop" "org.kde.krita.desktop"];
     };
   };
   programs.gnome-shell = {

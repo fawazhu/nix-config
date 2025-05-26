@@ -47,7 +47,7 @@
 
   my-desktop.mimeDefaults = {
     archive = "org.gnome.FileRoller.desktop";
-    browser = "one.ablaze.floorp.desktop";
+    browser = "org.mozilla.firefox.desktop";
     calendar = "com.calibre_ebook.calibre.desktop";
     document = "org.libreoffice.LibreOffice.desktop";
     ebook = "com.calibre_ebook.calibre.desktop";
