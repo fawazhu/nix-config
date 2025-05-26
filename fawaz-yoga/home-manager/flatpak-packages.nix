@@ -9,6 +9,7 @@
     "org.inkscape.Inkscape//stable"
     "org.blender.Blender//stable"
     "org.freedesktop.Platform.VulkanLayer.gamescope//24.08"
+    "org.gnome.Boxes//stable"
     "org.gnome.Calculator//stable"
     "org.gnome.Loupe//stable"
     "org.gnome.font-viewer//stable"

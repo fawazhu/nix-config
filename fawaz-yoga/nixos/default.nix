@@ -19,7 +19,7 @@
     extraGroups = ["wheel"];
     shell = pkgs.zsh;
   };
-  nix.settings.trusted-users = [ "fawaz" ];
+  nix.settings.trusted-users = ["fawaz"];
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
@@ -30,4 +30,9 @@
   programs.zsh.enable = true;
   networking.hostName = "fawaz-yoga";
   system.stateVersion = "24.11";
+
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["fawaz"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 }
