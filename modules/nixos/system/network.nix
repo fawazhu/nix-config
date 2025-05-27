@@ -1,7 +1,7 @@
 {...}: {
   networking.networkmanager.enable = true;
   networking.networkmanager.dns = "systemd-resolved";
-  networking.nftables.enable = true;
+  # networking.nftables.enable = true;
   services.resolved = {
     enable = true;
     dnsovertls = "true";

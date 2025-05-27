@@ -22,6 +22,7 @@
     usbutils
     udisks
     systemd
+    btrfs-progs
   ];
 
   services.flatpak.enable = true;
