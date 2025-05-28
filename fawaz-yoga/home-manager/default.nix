@@ -43,7 +43,6 @@
   ];
   services.flatpak.update.auto.enable = true;
   services.flatpak.update.auto.onCalendar = "weekly";
-  home.packages = with pkgs; [seahorse nautilus file-roller gparted ncdu];
 
   my-desktop.mimeDefaults = {
     archive = "org.gnome.FileRoller.desktop";
@@ -73,5 +72,13 @@
       autoconnect = ["qemu:///system"];
       uris = ["qemu:///system"];
     };
+  };
+
+  home.packages = with pkgs; [seahorse nautilus file-roller gparted ncdu wineWowPackages.waylandFull gamemode umu-launcher gamescope mangohud];
+  programs.lutris = {
+    enable = true;
+    steamPackage = pkgs.steam;
+    extraPackages = with pkgs; [mangohud winetricks gamescope gamemode umu-launcher];
+    protonPackages = with pkgs; [proton-ge-bin];
   };
 }
