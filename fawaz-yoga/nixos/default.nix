@@ -9,7 +9,7 @@
   ];
 
   theming = {
-    flavour = "macchiato";
+    flavour = "latte";
     accent = "peach";
     scaling = 2;
   };

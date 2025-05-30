@@ -6,7 +6,7 @@
   catppuccin-tmux = with pkgs;
     stdenv.mkDerivation (finalAttrs: {
       pname = "catppuccin-tmux";
-      version = "cece0c36772483d1343bcace2b1cedb007057c2e";
+      version = "v2.1.3";
 
       src = fetchFromGitHub {
         owner = "catppuccin";
@@ -40,9 +40,9 @@
 in {
   xdg.configFile."tmux/extra.conf".source = ./tmux.conf;
   xdg.configFile."tmux/tmux.conf".text = ''
-    source-file ~/.config/tmux/extra.conf
-    set -g @catppuccin_flavour ${config.my-dev.catppuccinFlavour}
+    set -g @catppuccin_flavor ${config.my-dev.catppuccinFlavour}
     set -g @catppuccin_window_current_number_color "#{@thm_${config.my-dev.catppuccinAccent}}"
+    source-file ~/.config/tmux/extra.conf
     set-option -g default-shell ${pkgs.zsh}/bin/zsh
     run '${catppuccin-tmux}/share/tmux-plugins/catppuccin/catppuccin.tmux'
     run '${tmux-plugins-sensible}/share/tmux-plugins/tmux-sensible/sensible.tmux'

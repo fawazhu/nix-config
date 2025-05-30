@@ -32,7 +32,7 @@
     userEmail = "fawazsana@gmail.com";
   };
   my-dev.ai = true;
-  my-dev.catppuccinFlavour = "macchiato";
+  my-dev.catppuccinFlavour = "latte";
   my-dev.catppuccinAccent = "peach";
 
   services.flatpak.remotes = [
@@ -59,7 +59,7 @@
   };
 
   theming = {
-    flavour = "macchiato";
+    flavour = "latte";
     accent = "peach";
     scaling = 2;
   };

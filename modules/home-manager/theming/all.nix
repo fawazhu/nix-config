@@ -55,12 +55,12 @@
   };
 in {
   programs.plasma.configFile = {
-    "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."Image" = "${wallpaper}";
-    "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = "${wallpaper}";
+    #"kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."Image" = "${wallpaper}";
+    #"kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = "${wallpaper}";
     "kcminputrc"."Mouse"."cursorTheme" = "catppuccin-${flavour}-${accent}-cursors";
     "kdeglobals"."Icons"."Theme" = "${iconThemeName}";
     "kwinrc"."Xwayland"."Scale" = scaling;
-    "plasmarc"."Wallpapers"."usersWallpapers" = "${wallpaper}";
+    #"plasmarc"."Wallpapers"."usersWallpapers" = "${wallpaper}";
   };
   home.packages = [
     (pkgs.catppuccin-kde.override {
