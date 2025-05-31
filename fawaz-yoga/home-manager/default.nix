@@ -40,14 +40,7 @@
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
 
-  dconf.settings = {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
-    };
-  };
-
-  home.packages = with pkgs; [gparted ncdu wineWowPackages.waylandFull gamemode umu-launcher gamescope mangohud];
+  home.packages = with pkgs; [gparted ncdu wineWowPackages.waylandFull gamemode umu-launcher mangohud];
   services.flatpak.packages = [
     "ca.desrt.dconf-editor//stable"
     "com.github.tchx84.Flatseal"

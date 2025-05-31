@@ -23,9 +23,4 @@
   programs.steam.gamescopeSession.enable = true;
   programs.gamescope.enable = true;
   programs.gamescope.capSysNice = true;
-
-  programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["fawaz"];
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
 }
