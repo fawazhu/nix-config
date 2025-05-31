@@ -107,7 +107,6 @@ cmp.setup({
                 cmp.confirm()
             end
         end, { "i", "c" }),
-        ["<cr>"] = cmp.mapping.confirm({ select = true }),
         ['<C-n>'] = cmp.mapping(function()
             if cmp.visible() then
                 cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
