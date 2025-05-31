@@ -43,23 +43,6 @@
           }
         ];
       };
-      "fawaz-envy" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          sops-nix.nixosModules.sops
-          ./fawaz-envy/nixos
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs.flake-inputs = inputs;
-            home-manager.users.fawaz = import ./fawaz-envy/home-manager;
-            home-manager.sharedModules = [
-              sops-nix.homeManagerModules.sops
-            ];
-          }
-        ];
-      };
     };
   };
 }
