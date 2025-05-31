@@ -32,7 +32,7 @@
   dev.ai = true;
 
   theming = {
-    flavour = "latte";
+    flavour = "mocha";
     accent = "peach";
     scaling = 2;
   };
