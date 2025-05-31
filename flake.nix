@@ -1,4 +1,5 @@
 {
+
   description = "Personal configuration.";
 
   inputs = {
@@ -29,11 +30,13 @@
           ./fawaz-yoga/nixos
           home-manager.nixosModules.home-manager
           {
+            home-manager.backupFileExtension = "hmbkp";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs.flake-inputs = inputs;
             home-manager.users.fawaz = import ./fawaz-yoga/home-manager;
             home-manager.sharedModules = [
+              nix-flatpak.homeManagerModules.nix-flatpak
               plasma-manager.homeManagerModules.plasma-manager
               sops-nix.homeManagerModules.sops
             ];

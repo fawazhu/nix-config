@@ -21,6 +21,6 @@
 in {
   programs.btop.enable = true;
   programs.btop.extraConfig = ''
-    color_theme = "${catppuccin-btop}/themes/catppuccin_${config.my-dev.catppuccinFlavour}.theme"
+    color_theme = "${catppuccin-btop}/themes/catppuccin_${config.theming.flavour}.theme"
   '';
 }

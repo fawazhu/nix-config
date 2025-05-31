@@ -3,24 +3,30 @@
 
   boot.plymouth.enable = true;
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.displayManager.sessionPackages = with pkgs; [hyprland gnome-session.sessions];
-
-  services.gnome.core-os-services.enable = true;
-  services.gnome.core-shell.enable = true;
-
+  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  services.desktopManager.plasma6.enableQt5Integration = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    plasma-browser-integration
+    ark
+    elisa
+    gwenview
+    okular
+    kate
+    khelpcenter
+    dolphin
+    baloo-widgets
+    dolphin-plugins
+    ffmpegthumbs
+    krdp
+    discover
+  ];
 
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM = true;
-
+  security.pam.services.kwallet.enableKwallet = true;
   services.xserver.xkb.layout = "gb";
   programs.dconf.enable = true;
-  services.gnome.gnome-keyring.enable = true;
 
   environment.systemPackages = with pkgs; [
-    gsettings-desktop-schemas
     libsecret
+    kdePackages.sddm-kcm
   ];
 }

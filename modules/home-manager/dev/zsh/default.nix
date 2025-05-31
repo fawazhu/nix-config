@@ -1,14 +1,10 @@
 {
   config,
-  lib,
   pkgs,
   ...
-}: let
-  flavour = config.my-dev.catppuccinFlavour;
-  captializedFlavour = (lib.toUpper (builtins.substring 0 1 flavour)) + (builtins.substring 1 (-1) flavour);
-in {
+}: {
   xdg.configFile."zsh/default".source = ./config;
-  xdg.configFile."zsh/custom.sh".text = config.my-dev.extraScript;
+  xdg.configFile."zsh/custom.sh".text = config.dev.extraScript;
 
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;

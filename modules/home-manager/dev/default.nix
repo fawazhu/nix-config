@@ -5,7 +5,7 @@
 }: let
   granted = pkgs.granted.overrideAttrs {env.CGO_ENABLED = 0;};
 in {
-  options.my-dev = import ./options.nix {inherit lib;};
+  options.dev = import ./options.nix {inherit lib;};
 
   config = {
     home.packages = with pkgs; [
@@ -49,7 +49,6 @@ in {
     ./btop.nix
     ./eza.nix
     ./git.nix
-    ./nushell.nix
     ./neovim
     ./tmux
     ./zsh

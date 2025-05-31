@@ -1,6 +1,6 @@
 {config, ...}: let
-  flavour = config.my-dev.catppuccinFlavour;
-  accent = config.my-dev.catppuccinAccent;
+  flavour = config.theming.flavour;
+  accent = config.theming.accent;
   palette = builtins.fromJSON (builtins.readFile ./palette.json);
   accentHex = (builtins.getAttr accent (builtins.getAttr flavour palette).colors).hex;
 in {

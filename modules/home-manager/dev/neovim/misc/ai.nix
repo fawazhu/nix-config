@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf config.my-dev.ai {
+  config = lib.mkIf config.dev.ai {
     home.packages = [pkgs.ollama];
     systemd.user.services.ollama = {
       Unit = {

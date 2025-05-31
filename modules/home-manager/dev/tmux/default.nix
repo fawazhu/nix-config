@@ -40,8 +40,8 @@
 in {
   xdg.configFile."tmux/extra.conf".source = ./tmux.conf;
   xdg.configFile."tmux/tmux.conf".text = ''
-    set -g @catppuccin_flavor ${config.my-dev.catppuccinFlavour}
-    set -g @catppuccin_window_current_number_color "#{@thm_${config.my-dev.catppuccinAccent}}"
+    set -g @catppuccin_flavor ${config.theming.flavour}
+    set -g @catppuccin_window_current_number_color "#{@thm_${config.theming.accent}}"
     source-file ~/.config/tmux/extra.conf
     set-option -g default-shell ${pkgs.zsh}/bin/zsh
     run '${catppuccin-tmux}/share/tmux-plugins/catppuccin/catppuccin.tmux'

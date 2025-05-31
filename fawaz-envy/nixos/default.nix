@@ -2,13 +2,12 @@
   imports = [
     ../../modules/nixos/my-desktop
     ../../modules/nixos/system
-    ../../modules/nixos/theming
     ./hardware.nix
     ./keyd.nix
     ./secrets.nix
   ];
 
-  theming = {
+  graphical = {
     flavour = "macchiato";
     accent = "lavender";
     scaling = 1.25;

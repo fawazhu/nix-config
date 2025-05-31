@@ -21,7 +21,7 @@
 in {
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
-    general.import = ["${catppuccin-alacritty}/catppuccin-${config.my-dev.catppuccinFlavour}.toml"];
+    general.import = ["${catppuccin-alacritty}/catppuccin-${config.theming.flavour}.toml"];
     font.normal = {
       family = "JetBrainsMono Nerd Font";
       style = "Regular";

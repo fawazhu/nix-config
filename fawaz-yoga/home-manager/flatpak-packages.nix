@@ -1,27 +1,2 @@
-{...}: {
-  services.flatpak.packages = [
-    "ca.desrt.dconf-editor//stable"
-    "com.brave.Browser//stable"
-    "com.calibre_ebook.calibre//stable"
-    "com.github.tchx84.Flatseal//stable"
-    "com.usebottles.bottles//stable"
-    "io.bassi.Amberol//stable"
-    "org.inkscape.Inkscape//stable"
-    "org.blender.Blender//stable"
-    "org.freedesktop.Platform.VulkanLayer.gamescope//24.08"
-    "org.gnome.Boxes//stable"
-    "org.gnome.Calculator//stable"
-    "org.gnome.Loupe//stable"
-    "org.gnome.font-viewer//stable"
-    "org.gnome.Calendar//stable"
-    "org.gnome.Evince//stable"
-    "org.gnome.Totem//stable"
-    "org.kde.krita//stable"
-    "org.kde.kdenlive//stable"
-    "org.libreoffice.LibreOffice//stable"
-    "org.mozilla.firefox//stable"
-    "org.onlyoffice.desktopeditors//stable"
-    "com.valvesoftware.Steam//stable"
-    "org.videolan.VLC//stable"
-  ];
+{
 }
