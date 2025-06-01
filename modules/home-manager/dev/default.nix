@@ -44,6 +44,7 @@ in {
   };
 
   imports = [
+    ./ai.nix
     ./alacritty.nix
     ./bat.nix
     ./btop.nix

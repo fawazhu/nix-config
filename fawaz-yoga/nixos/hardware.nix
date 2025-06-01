@@ -50,13 +50,7 @@
 
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-  hardware.amdgpu = {
-    amdvlk = {
-      enable = true;
-      support32Bit.enable = true;
-    };
-    opencl.enable = true;
-  };
+  hardware.amdgpu.opencl.enable = true;
 
   environment.systemPackages = with pkgs; [clinfo vulkan-tools amdgpu_top tpm2-tss];
   security.tpm2.enable = true;
