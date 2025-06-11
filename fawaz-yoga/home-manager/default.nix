@@ -38,7 +38,7 @@
   };
 
   programs.home-manager.enable = true;
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.11";
 
   home.packages = with pkgs; [gparted ncdu wineWowPackages.waylandFull gamemode umu-launcher mangohud];
   services.flatpak.packages = [

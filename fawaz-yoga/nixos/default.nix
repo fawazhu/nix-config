@@ -17,7 +17,7 @@
   environment.localBinInPath = true;
   programs.zsh.enable = true;
   networking.hostName = "fawaz-yoga";
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.11";
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
