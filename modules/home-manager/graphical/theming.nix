@@ -8,8 +8,11 @@
   accent = config.theming.accent;
   scaling = config.theming.scaling;
 
-  captializedAccent = (lib.toUpper (builtins.substring 0 1 accent)) + (builtins.substring 1 (-1) accent);
-  hex = builtins.substring 1 (-1) ((builtins.getAttr accent (builtins.getAttr flavour palette).colors).hex);
+  capitalizedFlavour = (lib.toUpper (builtins.substring 0 1 flavour)) + (builtins.substring 1 (-1) flavour);
+  capitalizedAccent = (lib.toUpper (builtins.substring 0 1 accent)) + (builtins.substring 1 (-1) accent);
+
+  accentData = builtins.getAttr accent (builtins.getAttr flavour palette).colors;
+  accentHex = builtins.substring 1 (-1) accentData.hex;
   palette = builtins.fromJSON (builtins.readFile ./palette.json);
 
   isLight = ! (builtins.getAttr flavour palette).dark;
@@ -18,8 +21,8 @@
     if isLight
     then "light"
     else "dark";
-  iconThemeName = "Tela-circle-${hex}-${iconThemeSuffix}";
-  iconThemePackage = pkgs.callPackage ./tela-circle-icon-theme.nix {hex = hex;};
+  iconThemeName = "Tela-circle-${accentHex}-${iconThemeSuffix}";
+  iconThemePackage = pkgs.callPackage ./tela-circle-icon-theme.nix {hex = accentHex;};
 
   gtkThemeName = "catppuccin-${flavour}-${accent}-standard";
   gtkThemePackage = pkgs.catppuccin-gtk.override {
@@ -28,7 +31,7 @@
   };
 
   cursorThemeName = "catppuccin-${flavour}-${accent}-cursors";
-  cursorThemePackage = builtins.getAttr "${flavour}${captializedAccent}" pkgs.catppuccin-cursors;
+  cursorThemePackage = builtins.getAttr "${flavour}${capitalizedAccent}" pkgs.catppuccin-cursors;
 
   gnomeAccent = builtins.getAttr accent {
     rosewater = "orange";
@@ -47,13 +50,34 @@
     lavender = "blue";
   };
 in {
-  programs.plasma.configFile = {
-    #"kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."Image" = "${wallpaper}";
-    #"kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = "${wallpaper}";
-    "kcminputrc"."Mouse"."cursorTheme" = "catppuccin-${flavour}-${accent}-cursors";
-    "kdeglobals"."Icons"."Theme" = "${iconThemeName}";
-    "kwinrc"."Xwayland"."Scale" = scaling;
-    #"plasmarc"."Wallpapers"."usersWallpapers" = "${wallpaper}";
+  programs.plasma = {
+    configFile = {
+      kdeglobals.General.AccentColor = "${builtins.toString accentData.rgb.r},${builtins.toString accentData.rgb.g},${builtins.toString accentData.rgb.b}";
+      kwinrc.Xwayland.Scale = scaling;
+    };
+    kscreenlocker.appearance.wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/";
+    kwin.titlebarButtons = {
+      left = [];
+      right = [];
+    };
+    workspace = {
+      colorScheme = "Catppuccin${capitalizedFlavour}${capitalizedAccent}";
+      cursor = {
+        theme = cursorThemeName;
+      };
+      iconTheme = iconThemeName;
+      #lookAndFeel = "Catppuccin-${capitalizedFlavour}-${capitalizedAccent}";
+      splashScreen = {
+        engine = "KSplashQML";
+        theme = "Catppuccin-${capitalizedFlavour}-${capitalizedAccent}";
+      };
+      wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/";
+      wallpaperFillMode = "preserveAspectCrop";
+      windowDecorations = {
+        library = "org.kde.breeze";
+        theme = "Breeze";
+      };
+    };
   };
   home.packages = [
     (pkgs.catppuccin-kde.override {
