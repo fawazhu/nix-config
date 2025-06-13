@@ -19,8 +19,14 @@
       '';
     };
 in {
-  programs.btop.enable = true;
-  programs.btop.extraConfig = ''
-    color_theme = "${catppuccin-btop}/themes/catppuccin_${config.theming.flavour}.theme"
-  '';
+  programs.btop = {
+    enable = true;
+    package = (pkgs.btop.override { rocmSupport = true; });
+    settings = {
+      color_theme = "${catppuccin-btop}/themes/catppuccin_${config.theming.flavour}.theme";
+      io_mode = true;
+      truecolor = true;
+      vim_keys = true;
+    };
+  };
 }
