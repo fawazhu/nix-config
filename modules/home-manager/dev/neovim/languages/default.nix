@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{hostname, pkgs, ...}: {
   home.packages = with pkgs; [
     # ansible
     ansible
@@ -42,7 +42,7 @@
     markdownlint-cli
     # nix
     alejandra
-    nil
+    nixd
     # packer
     packer
     # protocol buffers
@@ -120,4 +120,27 @@
   xdg.configFile."nvim/after/plugin/dap.lua".source = ./dap.lua;
   xdg.configFile."nvim/after/plugin/lsp.lua".source = ./lsp.lua;
   xdg.configFile."nvim/after/plugin/treesitter.lua".source = ./treesitter.lua;
+  xdg.configFile."nvim/after/plugin/lsp-nix.lua".text = ''
+    require("lspconfig").nixd.setup({
+       cmd = { "nixd" },
+       settings = {
+          nixd = {
+             nixpkgs = {
+                expr = 'import (builtins.getFlake github:fawazhu/nix-config).inputs.nixpkgs { }'
+             },
+             formatting = {
+                command = { "nixfmt" },
+             },
+             options = {
+                nixos = {
+                   expr = '(builtins.getFlake github:fawazhu/nix-config).nixosConfigurations."${hostname}".options',
+                },
+                home_manager = {
+                   expr = '(builtins.getFlake github:fawazhu/nix-config).nixosConfigurations."${hostname}".options.home-manager.users.type.getSubOptions []',
+                },
+             },
+          },
+       },
+    })
+  '';
 }

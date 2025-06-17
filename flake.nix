@@ -34,6 +34,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs.flake-inputs = inputs;
+            home-manager.extraSpecialArgs.hostname = "fawaz-yoga";
             home-manager.users.fawaz = import ./fawaz-yoga/home-manager;
             home-manager.sharedModules = [
               nix-flatpak.homeManagerModules.nix-flatpak

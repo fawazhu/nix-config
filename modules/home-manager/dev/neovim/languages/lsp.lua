@@ -22,14 +22,6 @@ lspconfig.ts_ls.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.lua_ls.setup({})
 lspconfig.marksman.setup({})
-lspconfig.nil_ls.setup({
-    nix = {
-        flake = {
-            autoArchive = true,
-            autoEvalInputs = true,
-        },
-    },
-})
 lspconfig.protols.setup({})
 lspconfig.pyright.setup({})
 lspconfig.rust_analyzer.setup({})
