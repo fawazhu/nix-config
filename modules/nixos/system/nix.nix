@@ -1,16 +1,16 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
+  environment.systemPackages = [pkgs.comma];
+  programs.nh = {
+    enable = true;
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 5";
+    };
+  };
   nix = {
     package = pkgs.nix;
-    gc = {
-      automatic = true;
-      dates = "weekly";
-    };
-    optimise = {
-      automatic = true;
-      dates = ["weekly"];
-    };
     settings = {
       # Additional caches.
       substituters = [
