@@ -4,6 +4,7 @@ local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
 local luasnip_loaders_from_vscode = require("luasnip.loaders.from_vscode")
 
+vim.lsp.inlay_hint.enable(true)
 lspconfig.util.default_config.capabilities = vim.tbl_deep_extend(
     "force",
     lspconfig.util.default_config.capabilities,
