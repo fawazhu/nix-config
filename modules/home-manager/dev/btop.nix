@@ -23,10 +23,11 @@ in {
     enable = true;
     package = (pkgs.btop.override { rocmSupport = true; });
     settings = {
-      color_theme = "${catppuccin-btop}/themes/catppuccin_${config.theming.flavour}.theme";
+      color_theme = "catppuccin.theme";
       io_mode = true;
       truecolor = true;
       vim_keys = true;
     };
+    themes."catppuccin" = builtins.readFile "${catppuccin-btop}/themes/catppuccin_${config.theming.flavour}.theme";
   };
 }
