@@ -30,6 +30,23 @@
     userEmail = "fawazsana@gmail.com";
   };
   dev.ai = true;
+  dev.extraScript = ''
+    startgame() {
+      case $1 in
+        fe7)
+          echo "Starting Fire Emblem: The Blazing Blade"
+          gamescope -W 2880 -H 1800 -w 2880 -h 1800 -b --expose-wayland --hdr-enabled -- mgba-qt /home/fawaz/Games/GBA/fe7.gba
+          ;;
+        fe8)
+          echo "Starting Fire Emblem: The Sacred Stones"
+          gamescope -W 2880 -H 1800 -w 2880 -h 1800 -b --expose-wayland --hdr-enabled -- mgba-qt /home/fawaz/Games/GBA/fe8.gba
+          ;;
+        *)
+          echo "Game $1 is not configured" >&2
+          ;;
+      esac
+    }
+  '';
 
   theming = {
     flavour = "macchiato";
@@ -40,7 +57,15 @@
   programs.home-manager.enable = true;
   home.stateVersion = "25.11";
 
-  home.packages = with pkgs; [gparted ncdu wineWowPackages.waylandFull gamemode umu-launcher mangohud];
+  home.packages = with pkgs; [
+    gamemode
+    gparted
+    mangohud
+    mgba
+    umu-launcher
+    winetricks
+    wineWowPackages.full
+  ];
   services.flatpak.packages = [
     "ca.desrt.dconf-editor//stable"
     "com.github.tchx84.Flatseal"
@@ -49,7 +74,13 @@
   programs.lutris = {
     enable = true;
     steamPackage = pkgs.steam;
-    extraPackages = with pkgs; [mangohud winetricks gamescope gamemode umu-launcher];
+    extraPackages = with pkgs; [
+      gamemode
+      gamescope
+      mangohud
+      umu-launcher
+      winetricks
+    ];
     protonPackages = with pkgs; [proton-ge-bin];
   };
 }
