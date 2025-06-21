@@ -69,7 +69,6 @@
   services.flatpak.packages = [
     "ca.desrt.dconf-editor//stable"
     "com.github.tchx84.Flatseal"
-    "com.usebottles.bottles//stable"
   ];
   programs.lutris = {
     enable = true;
