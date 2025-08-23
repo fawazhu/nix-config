@@ -7,7 +7,6 @@
     ../../modules/home-manager/theming.nix
     ../../modules/home-manager/graphical
     ../../modules/home-manager/dev
-    ./flatpak-packages.nix
   ];
 
   home.username = "fawaz";
