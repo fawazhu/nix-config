@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }: {
@@ -14,15 +13,6 @@
 
   sops.defaultSopsFile = ../secrets.yaml;
   sops.age.keyFile = "/etc/sops/age/keys.txt";
-
-  sops.secrets.ssh_private_key = {
-    mode = "0400";
-    path = "${config.home.homeDirectory}/.ssh/id_ed25519";
-  };
-  sops.secrets.ssh_public_key = {
-    mode = "0400";
-    path = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
-  };
 
   programs.git = {
     userName = "Fawaz Hussain";
@@ -57,11 +47,9 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    gamemode
     gparted
     mangohud
     mgba
-    umu-launcher
     winetricks
     wineWowPackages.full
   ];
@@ -74,7 +62,6 @@
     steamPackage = pkgs.steam;
     extraPackages = with pkgs; [
       gamemode
-      gamescope
       mangohud
       umu-launcher
       winetricks

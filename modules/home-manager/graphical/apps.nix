@@ -90,7 +90,6 @@
       mime = "secrets";
       desktop = "org.gnome.seahorse.Application.desktop";
     }
-
   ];
   packages = builtins.map (c: c.package) nix;
   flatpakPackages = builtins.map (c: "${c.name}//stable") flatpak;
