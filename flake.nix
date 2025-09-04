@@ -37,7 +37,7 @@
             home-manager.users.fawaz = import ./fawaz-yoga/home-manager;
             home-manager.sharedModules = [
               nix-flatpak.homeManagerModules.nix-flatpak
-              plasma-manager.homeManagerModules.plasma-manager
+              plasma-manager.homeModules.plasma-manager
               sops-nix.homeManagerModules.sops
             ];
           }
