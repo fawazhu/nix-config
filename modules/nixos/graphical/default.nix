@@ -2,6 +2,7 @@
   imports = [./fonts.nix];
 
   boot.plymouth.enable = true;
+  boot.kernelParams = ["loglevel=3" "rd.udev.log_level=3"];
 
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
