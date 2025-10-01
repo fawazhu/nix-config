@@ -3,7 +3,6 @@
     # ansible
     ansible
     ansible-lint
-    ansible-language-server
     # bash
     bash
     bash-language-server
@@ -12,7 +11,7 @@
     nodePackages.vscode-langservers-extracted
     nodePackages.prettier
     # docker
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     # go
     go
     gopls
