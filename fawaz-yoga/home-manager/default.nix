@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../../modules/home-manager/theming.nix
     ../../modules/home-manager/graphical
@@ -49,7 +46,12 @@
   home.packages = with pkgs; [
     gparted
     mangohud
-    mgba
+    (mgba.overrideAttrs {
+      cmakeFlags = [
+        (lib.cmakeFeature "CMAKE_POLICY_VERSION_MINIMUM" "3.5")
+        (lib.cmakeBool "USE_DISCORD_RPC" false)
+      ];
+    })
     winetricks
     wineWowPackages.full
   ];
