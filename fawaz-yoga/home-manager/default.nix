@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ../../modules/home-manager/theming.nix
     ../../modules/home-manager/graphical
@@ -10,6 +14,9 @@
 
   sops.defaultSopsFile = ../secrets.yaml;
   sops.age.keyFile = "/etc/sops/age/keys.txt";
+
+  sops.secrets.nextcloud_url = {};
+  sops.secrets.nextcloud_password = {};
 
   programs.git = {
     userName = "Fawaz Hussain";
@@ -69,5 +76,23 @@
       winetricks
     ];
     protonPackages = with pkgs; [proton-ge-bin];
+  };
+
+  programs.rclone = {
+    enable = true;
+    remotes = {
+      nextcloud = {
+        config = {
+          type = "webdav";
+          nextcloud_chunk_size = "104857600";
+          user = "fawazhu";
+          vendor = "nextcloud";
+        };
+        secrets = {
+          pass = config.sops.secrets.nextcloud_password.path;
+          url = config.sops.secrets.nextcloud_url.path;
+        };
+      };
+    };
   };
 }
