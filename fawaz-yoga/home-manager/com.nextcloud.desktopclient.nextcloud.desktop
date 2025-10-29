@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Nextcloud
+GenericName=File Synchronizer
+Exec=flatpak run com.nextcloud.desktopclient.nextcloud.desktop
+Terminal=false
+Icon=com.nextcloud.desktopclient.nextcloud
+Categories=Network
+Type=Application
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=10

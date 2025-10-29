@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../../modules/home-manager/theming.nix
     ../../modules/home-manager/graphical
@@ -65,7 +61,9 @@
   services.flatpak.packages = [
     "ca.desrt.dconf-editor//stable"
     "com.github.tchx84.Flatseal"
+    "com.nextcloud.desktopclient.nextcloud"
   ];
+  xdg.configFile."autostart/com.nextcloud.desktopclient.nextcloud.desktop".source = ./com.nextcloud.desktopclient.nextcloud.desktop;
   programs.lutris = {
     enable = true;
     steamPackage = pkgs.steam;
@@ -76,23 +74,5 @@
       winetricks
     ];
     protonPackages = with pkgs; [proton-ge-bin];
-  };
-
-  programs.rclone = {
-    enable = true;
-    remotes = {
-      nextcloud = {
-        config = {
-          type = "webdav";
-          nextcloud_chunk_size = "104857600";
-          user = "fawazhu";
-          vendor = "nextcloud";
-        };
-        secrets = {
-          pass = config.sops.secrets.nextcloud_password.path;
-          url = config.sops.secrets.nextcloud_url.path;
-        };
-      };
-    };
   };
 }
