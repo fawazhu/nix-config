@@ -14,9 +14,9 @@
   sops.secrets.nextcloud_url = {};
   sops.secrets.nextcloud_password = {};
 
-  programs.git = {
-    userName = "Fawaz Hussain";
-    userEmail = "fawazsana@gmail.com";
+  programs.git.settings.user = {
+    name = "Fawaz Hussain";
+    email = "fawazsana@gmail.com";
   };
   dev.ai = true;
   dev.extraScript = ''
