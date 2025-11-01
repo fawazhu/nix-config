@@ -63,7 +63,19 @@
     "com.github.tchx84.Flatseal"
     "com.nextcloud.desktopclient.nextcloud"
   ];
-  xdg.configFile."autostart/com.nextcloud.desktopclient.nextcloud.desktop".source = ./com.nextcloud.desktopclient.nextcloud.desktop;
+  xdg.configFile."autostart/com.nextcloud.desktopclient.nextcloud.desktop".text = "
+    [Desktop Entry]
+    Name=Nextcloud
+    GenericName=File Synchronizer
+    Exec=${pkgs.flatpak}/bin/flatpak run com.nextcloud.desktopclient.nextcloud.desktop
+    Terminal=false
+    Icon=com.nextcloud.desktopclient.nextcloud
+    Categories=Network
+    Type=Application
+    StartupNotify=false
+    X-GNOME-Autostart-enabled=true
+    X-GNOME-Autostart-Delay=10
+  ";
   programs.lutris = {
     enable = true;
     steamPackage = pkgs.steam;
