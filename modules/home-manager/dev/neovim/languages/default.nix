@@ -51,6 +51,7 @@
     python313Packages.debugpy
     pyright
     ruff
+    uv
     # rust
     cargo
     rustc
