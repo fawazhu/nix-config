@@ -5,6 +5,7 @@
   inputs = {
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     plasma-manager.url = "github:nix-community/plasma-manager";
@@ -15,15 +16,18 @@
 
   outputs = inputs @ {
     home-manager,
+    mcphub-nvim,
     nixpkgs,
     nix-flatpak,
     plasma-manager,
     sops-nix,
     ...
-  }: {
+  }: let
+    system = "x86_64-linux";
+  in{
     nixosConfigurations = {
       "fawaz-yoga" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = system;
         modules = [
           sops-nix.nixosModules.sops
           ./fawaz-yoga/nixos
@@ -33,6 +37,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs.flake-inputs = inputs;
+            home-manager.extraSpecialArgs.mcphub-nvim = mcphub-nvim.packages."${system}".default;
             home-manager.extraSpecialArgs.hostname = "fawaz-yoga";
             home-manager.users.fawaz = import ./fawaz-yoga/home-manager;
             home-manager.sharedModules = [
