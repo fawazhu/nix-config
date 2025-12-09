@@ -2,6 +2,7 @@
   boot.initrd.availableKernelModules = ["nvme" "usb_storage"];
   boot.initrd.systemd.enable = true;
   boot.kernelModules = ["kvm-amd"];
+  boot.kernelPackages = pkgs.linuxPackages_latest; # Switch from LTS to Latest
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.systemd-boot.enable = true;
