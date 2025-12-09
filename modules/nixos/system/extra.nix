@@ -39,4 +39,5 @@
     enable = true;
     enableUserSlices = true;
   };
+  systemd.settings.Manager.DefaultTimeoutStopSec = "5s";
 }

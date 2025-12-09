@@ -7,6 +7,7 @@
 
   home.username = "fawaz";
   home.homeDirectory = "/home/fawaz";
+  systemd.user.settings.Manager.DefaultTimeoutStopSec = "5s";
 
   sops.defaultSopsFile = ../secrets.yaml;
   sops.age.keyFile = "/etc/sops/age/keys.txt";
