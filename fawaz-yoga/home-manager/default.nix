@@ -38,7 +38,7 @@
   '';
 
   theming = {
-    flavour = "macchiato";
+    flavour = "latte";
     accent = "sapphire";
     scaling = 2;
   };
