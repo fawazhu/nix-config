@@ -102,18 +102,18 @@
 
   programs.neovim.plugins = with pkgs; with vimPlugins; [
     cmp_luasnip
-    cmp-nvim-lsp
     cmp-path
     conform-nvim
     friendly-snippets
+    luasnip
     nvim-cmp
     nvim-dap
     nvim-dap-go
     nvim-dap-python
     nvim-lspconfig
     nvim-treesitter
-    nvim-treesitter-parsers.yaml
-    luasnip
+    markdown-preview-nvim
+    SchemaStore-nvim
   ];
   programs.neovim.extraLuaPackages = ps: [ ps.jsregexp ];
   xdg.configFile."nvim/after/plugin/conform.lua".source = ./conform.lua;
@@ -121,7 +121,7 @@
   xdg.configFile."nvim/after/plugin/lsp.lua".source = ./lsp.lua;
   xdg.configFile."nvim/after/plugin/treesitter.lua".source = ./treesitter.lua;
   xdg.configFile."nvim/after/plugin/lsp-nix.lua".text = ''
-    require("lspconfig").nixd.setup({
+    vim.lsp.config("nixd", {
        cmd = { "nixd" },
        settings = {
           nixd = {

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+in {
   imports = [./ai.nix];
 
   config = {
@@ -9,6 +10,7 @@
     ];
     xdg.configFile."nvim/after/plugin/autocommand.lua".source = ./autocommand.lua;
     xdg.configFile."nvim/after/plugin/indent_blankline.lua".source = ./indent_blankline.lua;
+    xdg.configFile."nvim/after/plugin/macro.lua".source = ./macro.lua;
     xdg.configFile."nvim/after/plugin/undotree.lua".source = ./undotree.lua;
   };
 }

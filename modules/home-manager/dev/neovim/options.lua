@@ -1,6 +1,6 @@
 -- Line numbers
 vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Tabs
 vim.opt.tabstop = 2
@@ -28,5 +28,4 @@ vim.opt.updatetime = 50
 vim.opt.timeoutlen = 1000
 
 -- Visual indicators
-vim.opt.colorcolumn = "100"
 vim.opt.signcolumn = "yes"

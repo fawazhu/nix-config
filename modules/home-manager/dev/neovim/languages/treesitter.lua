@@ -10,7 +10,7 @@ require('nvim-treesitter.configs').setup({
         additional_vim_regex_highlighting = false,
     },
     incremental_selection = {
-        enable = true,
+        enable = false,
         keymaps = {
             init_selection = "gnn", -- set to `false` to disable one of the mappings
             node_incremental = "gni",
@@ -21,6 +21,11 @@ require('nvim-treesitter.configs').setup({
     indent = {
         enable = true,
     },
+    semantic_tokens = {
+        enable = true,
+        enable_delay = 100,
+    },
+
 })
 
 -- Fix indentation based on treesitter.

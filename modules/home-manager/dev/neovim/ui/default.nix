@@ -5,10 +5,14 @@
 }: {
   programs.neovim.plugins = with pkgs.vimPlugins; [
     catppuccin-nvim
+    cinnamon-nvim
     lualine-nvim
     noice-nvim
     nvim-notify
+    smear-cursor-nvim
   ];
+  xdg.configFile."nvim/after/plugin/animation.lua".source = ./animation.lua;
+  xdg.configFile."nvim/after/plugin/cinnamon.lua".source = ./cinnamon.lua;
   xdg.configFile."nvim/after/plugin/lualine.lua".source = ./lualine.lua;
   xdg.configFile."nvim/after/plugin/noice.lua".source = ./noice.lua;
   xdg.configFile."nvim/after/plugin/notify.lua".source = ./notify.lua;
