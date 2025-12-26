@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  granted = pkgs.granted.overrideAttrs {env.CGO_ENABLED = 0;};
+  granted = pkgs.callPackage ./granted.nix {};
 in {
   options.dev = import ./options.nix {inherit lib;};
 
