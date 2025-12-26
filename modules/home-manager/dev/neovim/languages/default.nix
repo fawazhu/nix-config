@@ -142,5 +142,6 @@
           },
        },
     })
+    vim.lsp.enable("nixd")
   '';
 }
