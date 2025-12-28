@@ -34,6 +34,8 @@ capabilities.textDocument.diagnostic = {
 }
 capabilities.textDocument.semanticTokens = { dynamicRegistration = true, tokenTypes = {}, tokenModifiers = {}, format = 'relative', formats = {}, requests = { range = true, full = true }, legend = {} }
 
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
 vim.lsp.inlay_hint.enable(true)
 vim.lsp.config("ansiblels", { capabilities = capabilities })
 vim.lsp.config("bashls", { capabilities = capabilities })
@@ -262,6 +264,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
             -- This function sends the request to the server and handles display.
             -- Using bufnr here ensures we target the correct, attached buffer.
             vim.lsp.codelens.refresh({bufnr = bufnr})
+
+            vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.codelens.refresh({ bufnr = bufnr })
+                end,
+            })
         end
     end,
 })

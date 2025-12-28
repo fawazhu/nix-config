@@ -5,14 +5,7 @@ local flash = require("flash")
 local jump = require("flash.jump")
 
 flash.setup({
-  search = {
-    multi_window = false,
-    mode = "fuzzy",
-  },
   modes = {
-    search = {
-      enabled = true,
-    },
     char = {
       enabled = false,
     },

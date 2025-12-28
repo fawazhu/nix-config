@@ -1,4 +1,8 @@
-{hostname, pkgs, ...}: {
+{
+  hostname,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     # ansible
     ansible
@@ -100,8 +104,10 @@
     which
   ];
 
-  programs.neovim.plugins = with pkgs; with vimPlugins; [
+  programs.neovim.plugins = with pkgs;
+  with vimPlugins; [
     cmp_luasnip
+    cmp-nvim-lsp
     cmp-path
     conform-nvim
     friendly-snippets
@@ -115,7 +121,7 @@
     markdown-preview-nvim
     SchemaStore-nvim
   ];
-  programs.neovim.extraLuaPackages = ps: [ ps.jsregexp ];
+  programs.neovim.extraLuaPackages = ps: [ps.jsregexp];
   xdg.configFile."nvim/after/plugin/conform.lua".source = ./conform.lua;
   xdg.configFile."nvim/after/plugin/dap.lua".source = ./dap.lua;
   xdg.configFile."nvim/after/plugin/lsp.lua".source = ./lsp.lua;

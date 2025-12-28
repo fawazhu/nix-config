@@ -1,6 +1,9 @@
 -- Line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = false
+vim.keymap.set("n", "<A-`>", function ()
+  vim.opt.relativenumber = not(vim.opt.relativenumber:get())
+end)
 
 -- Tabs
 vim.opt.tabstop = 2

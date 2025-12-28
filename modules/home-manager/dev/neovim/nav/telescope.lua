@@ -42,6 +42,16 @@ vim.keymap.set('n', '<leader>pf', function()
 end)
 vim.keymap.set('n', '<leader>pg', builtin.git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
+    builtin.live_grep({
+        additional_args = {
+            "--smart-case",
+            "--crlf",
+            "--hidden",
+            "--glob=!\\.git/**/*",
+        }
+    })
+end, {})
+vim.keymap.set('n', '<leader>pS', function()
     builtin.grep_string({
         search = vim.fn.input('Grep: '),
         vimgrep_arguments = { 'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column',
