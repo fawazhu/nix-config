@@ -10,6 +10,7 @@
   programs.direnv.enableZshIntegration = true;
   programs.zsh = {
     enable = true;
+    dotDir = config.home.homeDirectory;
     autosuggestion.enable = true;
     enableCompletion = true;
     initContent = ''

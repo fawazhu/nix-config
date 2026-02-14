@@ -57,7 +57,7 @@
       ];
     })
     winetricks
-    wineWowPackages.full
+    #wineWowPackages.full
   ];
   services.flatpak.packages = [
     "ca.desrt.dconf-editor//stable"
