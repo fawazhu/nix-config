@@ -143,33 +143,36 @@ vim.api.nvim_create_autocmd('LspAttach', {
             })
         end, opts)
         vim.keymap.set('n', 'gC', function()
-        vim.lsp.codelens.run(opts.buffer, function(list)
-                if not list or #list == 0 then
+            -- Note: Removed 'opts.buffer' argument for 0.12 compatibility
+            vim.lsp.codelens.run(function(lenses)
+                if not lenses or vim.tbl_isempty(lenses) then
+                    vim.notify("No CodeLens available")
                     return
                 end
 
                 require('telescope.pickers').new({}, {
                     prompt_title = 'Code Lens Actions',
                     finder = require('telescope.finders').new_table {
-                        results = list,
+                        results = lenses,
                         entry_maker = function(entry)
                             return {
                                 value = entry,
-                                display = entry.title,
-                                ordinal = entry.title,
+                                display = entry.command.title, -- Standard LSP structure
+                                ordinal = entry.command.title,
                             }
                         end,
                     },
                     sorter = require('telescope.config').values.generic_sorter(),
-                    attach_mappings = function(prompt_bufnr)
-                        require('telescope.actions').select_default:enhance {
-                            posthook = function()
-                                local entry = require('telescope.state').get_selected_entry()
-                                if entry and entry.value and entry.value.command then
-                                    vim.lsp.buf.execute_command(opts.buffer, entry.value.command)
-                                end
-                            end,
-                        }
+                    attach_mappings = function(prompt_bufnr, map)
+                        local actions = require('telescope.actions')
+                        local action_state = require('telescope.actions.state')
+
+                        actions.select_default:replace(function()
+                            actions.close(prompt_bufnr)
+                            local selection = action_state.get_selected_entry()
+                            -- Use the standard LSP command executor
+                            vim.lsp.buf.execute_command(selection.value.command)
+                        end)
                         return true
                     end,
                 }):find()
@@ -248,27 +251,21 @@ cmp.setup({
 
 -- Autocommand to refresh CodeLens whenever a language server attaches
 vim.api.nvim_create_autocmd("LspAttach", {
-    -- The pattern '*' ensures this runs for any filetype when a server attaches.
     pattern = "*",
     callback = function(args)
-        -- args.buf gives you the specific buffer number (e.g., 1, 2, 3...)
         local bufnr = args.buf
-
-        -- Check if the attached client (the LSP server) supports CodeLens.
-        -- This prevents errors if a server that doesn't support CodeLens attaches.
         local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-        -- Safely check if the client is valid and advertises CodeLens capability
         if client and client.server_capabilities.codeLensProvider then
-
-            -- This function sends the request to the server and handles display.
-            -- Using bufnr here ensures we target the correct, attached buffer.
-            vim.lsp.codelens.refresh({bufnr = bufnr})
+            -- Initial refresh on attach
+            -- In 0.12+, simply calling get() triggers the underlying refresh mechanism
+            vim.lsp.codelens.get()
 
             vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
                 buffer = bufnr,
                 callback = function()
-                    vim.lsp.codelens.refresh({ bufnr = bufnr })
+                    -- This is the modern replacement that avoids the bufnr deprecation
+                    vim.lsp.codelens.refresh()
                 end,
             })
         end

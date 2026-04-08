@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: let
-  granted = pkgs.callPackage ./granted.nix {};
 in {
   options.dev = import ./options.nix {inherit lib;};
 
@@ -11,8 +10,6 @@ in {
     home.packages = with pkgs; [
       # Cloud tools
       awscli2
-      aws-vault
-      granted
       # Git tools
       lazygit
       pre-commit

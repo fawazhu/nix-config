@@ -2,7 +2,21 @@
   hostname,
   pkgs,
   ...
-}: {
+}: let
+  conform-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "conform.nvim";
+    version = "2025-08-22";
+    src = pkgs.fetchFromGitHub {
+      owner = "stevearc";
+      repo = "conform.nvim";
+      rev = "3543d000dafbc41cc7761d860cfdb24e82154f75";
+      sha256 = "pUF9F5QoDzCZuVRcJEF91M8Qjkh/xosMkf9tRavkmJs=";
+      fetchSubmodules = false;
+    };
+    meta.homepage = "https://github.com/stevearc/conform.nvim/";
+    meta.hydraPlatforms = [];
+  };
+in {
   home.packages = with pkgs; [
     # ansible
     ansible
@@ -12,8 +26,8 @@
     bash-language-server
     beautysh
     # css
-    nodePackages.vscode-langservers-extracted
-    nodePackages.prettier
+    vscode-langservers-extracted
+    prettier
     # docker
     dockerfile-language-server
     # go
@@ -21,10 +35,8 @@
     gopls
     delve
     gofumpt
-    # graphql
-    #nodePackages.graphql-language-service-cli
     # html
-    nodePackages.vscode-langservers-extracted
+    vscode-langservers-extracted
     # js
     nodejs_24
     nodemon
@@ -33,9 +45,9 @@
     eslint
     typescript-language-server
     # json
-    nodePackages.vscode-langservers-extracted
+    vscode-langservers-extracted
     jq
-    nodePackages.fixjson
+    fixjson
     # lua
     lua
     lua54Packages.luarocks
@@ -117,7 +129,107 @@
     nvim-dap-go
     nvim-dap-python
     nvim-lspconfig
-    nvim-treesitter
+    (nvim-treesitter.withPlugins (p: with p; [
+      awk
+      bash
+      cmake
+      commonlisp
+      css
+      csv
+      dart
+      desktop
+      diff
+      dockerfile
+      dot
+      editorconfig
+      dockerfile
+      fish
+      gitattributes
+      gitcommit
+      gitignore
+      git-config
+      git-rebase
+      go
+      gomod
+      gosum
+      gotmpl
+      gowork
+      gpg
+      graphql
+      groovy
+      hcl
+      helm
+      html
+      http
+      hyprlang
+      ini
+      java
+      javadoc
+      javascript
+      jinja
+      jinja-inline
+      jq
+      jsdoc
+      json
+      json5
+      kconfig
+      kotlin
+      llvm
+      lua
+      lua
+      luadoc
+      make
+      markdown
+      markdown_inline
+      mermaid
+      meson
+      nginx
+      ninja
+      nix
+      nu
+      passwd
+      pem
+      powershell
+      printf
+      promql
+      properties
+      proto
+      puppet
+      pymanifest
+      python
+      query
+      rasi
+      readline
+      regex
+      rego
+      requirements
+      ruby
+      rust
+      scala
+      scss
+      sparql
+      sql
+      ssh-config
+      strace
+      svelte
+      sway
+      swift
+      systemtap
+      templ
+      terraform
+      tmux
+      todotxt
+      toml
+      tree-sitter-tsv
+      tree-sitter-tsx
+      tree-sitter-typescript
+      tree-sitter-udev
+      tree-sitter-vim
+      tree-sitter-vimdoc
+      tree-sitter-vue
+      tree-sitter-yaml
+      tree-sitter-zig
+    ]))
     markdown-preview-nvim
     SchemaStore-nvim
   ];
