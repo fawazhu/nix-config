@@ -8,6 +8,8 @@
 
   sops.secrets.home_wifi_ssid = {};
   sops.secrets.home_wifi_password = {};
+  sops.secrets.home_wifi_2_ssid = {};
+  sops.secrets.home_wifi_2_password = {};
   sops.templates."home-wifi.nmconnections" = {
     path = "/etc/NetworkManager/system-connections/home-wifi.nmconnections";
     content = ''
@@ -23,6 +25,33 @@
       auth-alg=open
       key-mgmt=wpa-psk
       psk=${config.sops.placeholder.home_wifi_password}
+
+      [ipv4]
+      dns=1.1.1.1;1.0.0.1;
+      method=auto
+
+      [ipv6]
+      addr-gen-mode=default
+      method=auto
+
+      [proxy]
+    '';
+  };
+  sops.templates."home-wifi-2.nmconnections" = {
+    path = "/etc/NetworkManager/system-connections/home-wifi-2.nmconnections";
+    content = ''
+      [connection]
+      id=home-wifi-2
+      type=wifi
+
+      [wifi]
+      mode=infrastructure
+      ssid=${config.sops.placeholder.home_wifi_2_ssid}
+
+      [wifi-security]
+      auth-alg=open
+      key-mgmt=wpa-psk
+      psk=${config.sops.placeholder.home_wifi_2_password}
 
       [ipv4]
       dns=1.1.1.1;1.0.0.1;
