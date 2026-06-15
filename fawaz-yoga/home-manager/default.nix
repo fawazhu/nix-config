@@ -20,23 +20,6 @@
     email = "fawazsana@gmail.com";
   };
   dev.ai = true;
-  dev.extraScript = ''
-    startgame() {
-      case $1 in
-        fe7)
-          echo "Starting Fire Emblem: The Blazing Blade"
-          gamescope -W 2880 -H 1800 -w 2880 -h 1800 -b --expose-wayland --hdr-enabled -- mgba-qt /home/fawaz/Games/GBA/fe7.gba
-          ;;
-        fe8)
-          echo "Starting Fire Emblem: The Sacred Stones"
-          gamescope -W 2880 -H 1800 -w 2880 -h 1800 -b --expose-wayland --hdr-enabled -- mgba-qt /home/fawaz/Games/GBA/fe8.gba
-          ;;
-        *)
-          echo "Game $1 is not configured" >&2
-          ;;
-      esac
-    }
-  '';
 
   theming = {
     flavour = "macchiato";
@@ -49,15 +32,12 @@
 
   home.packages = with pkgs; [
     gparted
-    mangohud
     (mgba.overrideAttrs {
       cmakeFlags = [
         (lib.cmakeFeature "CMAKE_POLICY_VERSION_MINIMUM" "3.5")
         (lib.cmakeBool "USE_DISCORD_RPC" false)
       ];
     })
-    winetricks
-    #wineWowPackages.full
   ];
   services.flatpak.packages = [
     "ca.desrt.dconf-editor//stable"
@@ -77,15 +57,4 @@
     X-GNOME-Autostart-enabled=true
     X-GNOME-Autostart-Delay=10
   ";
-  programs.lutris = {
-    enable = true;
-    steamPackage = pkgs.steam;
-    extraPackages = with pkgs; [
-      gamemode
-      mangohud
-      umu-launcher
-      winetricks
-    ];
-    protonPackages = with pkgs; [proton-ge-bin];
-  };
 }
